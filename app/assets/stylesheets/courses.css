@@ -1,0 +1,11 @@
+#opt_bttn {
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#cvs_upload, #course_list{
+  width: 540px;
+  margin-left: 50px;
+  margin-top: 25px;
+}
