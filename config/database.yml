@@ -17,8 +17,7 @@ development:
   encoding: unicode
   database: smart_groups_development
   pool: 5
-  username: smart_groups
-  password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +42,11 @@ test:
   encoding: unicode
   database: smart_groups_test
   pool: 5
-  username: smart_groups
-  password:
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   database: smart_groups_production
   pool: 5
-  username: smart_groups
-  password:
+
