@@ -3,7 +3,6 @@ SmartGroups::Application.routes.draw do
   root :to => 'courses#index'
   # get '/students_grades' => 'teachers#students_grades'
 
-
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
   # The priority is based upon order of creation:
