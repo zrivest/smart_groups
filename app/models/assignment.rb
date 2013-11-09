@@ -3,4 +3,5 @@ class Assignment < ActiveRecord::Base
 
   has_many :student_assignments
   has_one :student, through: :student_assignments
+  belongs_to :course
 end
