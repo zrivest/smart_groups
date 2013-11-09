@@ -1,0 +1,38 @@
+<h1>The New Generation</h1>
+
+<form class="checkbox">
+  <label for="random">
+    <input type="checkbox" id="random">
+    <span class="checkbox"></span>Random</label>
+  <label for="random">
+    <input type="checkbox" id="random">
+    <span class="checkbox"></span>Even Grade Distribution</label>
+</form>
+
+<body>
+    <h3>Student Roster</h3>
+  <div id="student_roster">
+    <ul>
+      <%@students.each do |student|%>
+        <li> <%=student.first_name%> </li>
+      <%end%>
+    </ul>
+  </div>
+</body>
+
+  <div id="group_sizes">
+    <%= form_for :generator do |f| %>
+      <%= f.label "# of Group"%>
+      <%= f.text_field :num_of_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
+    </form>
+
+    <form>
+      <label for="total_groups"># Students/Group</label>
+      <input type="text">
+    </form>
+
+  </div>
+
+

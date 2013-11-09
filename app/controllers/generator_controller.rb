@@ -1,0 +1,3 @@
+class GeneratorController < ApplicationController
+
+end
