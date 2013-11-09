@@ -2,7 +2,7 @@ SmartGroups::Application.routes.draw do
   root :to => 'welcome#index'
 
   resources :users do
-    resources :courses
+    resources :courses do
       put 'num_groups', on: :member
       put 'groups', on: :member
     end
