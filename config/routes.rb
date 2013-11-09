@@ -1,11 +1,18 @@
 SmartGroups::Application.routes.draw do
-  root :to => 'courses#index'
-  resources :user do 
-    resource :courses do 
-      resource :generator, only: [:create]
+  root :to => 'parser#index'
+  resources :users do 
+    resources :courses do 
+      put 'num_groups', on: :member
+      put 'groups', on: :member
+    end
   end
-  end
+  
+  # post '/users/:user_id/courses/:courses_id', to: 'courses#groups'
+  # post '/users/:user_id/courses/:courses_id', to: 'courses#num_groups' 
 
+  # get '/users/:user_id/courses/:course_id/generators/new', to: 'generators#new', as: 'new_user_course_generator'
+  # post '/users/:user_id/courses/:course_id/generators', to: 'generators#create', as: 'create_user_course_generator'
+  # <%= form_for([@company, @order, @order.comments.build] do |f| %>
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
