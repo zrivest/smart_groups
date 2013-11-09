@@ -10,5 +10,24 @@
  *
  *= require_self
  *= require_tree .
- */
  *= require foundation_and_overrides
+ */
+
+
+#header, #footer {
+  height: 50px;
+  width: 100%;
+  clear: both;
+  background: black;
+}
+
+#header {
+  top: 0;
+  border-bottom: 2px solid gray;
+}
+
+#footer {
+  bottom: 0;
+  position:fixed;
+  border-top: 2px solid gray;
+}

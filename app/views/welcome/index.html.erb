@@ -1,0 +1,50 @@
+<h1>Login</h1>
+
+<table>
+  <tr>
+    <td>
+
+<% if @login_error %>
+  <%= @login_error %>
+<% end %>
+
+<%= form_tag login_path do %>
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email) %>
+    <br>
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password) %>
+    <br>
+    <%= submit_tag("Login") %>
+<% end %>
+
+    </td>
+  </tr>
+</table>
+
+
+<h1>Signup</h1>
+
+
+<table>
+  <tr>
+    <td>
+
+<% if @signin_error %>
+  <%= @signin_error %>
+<% end %>
+
+<%= form_tag "users#create", method:"POST" do %>
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email) %>
+    <br>
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password) %>
+    <br>
+  <%= submit_tag("Signup") %>
+<% end %>
+
+
+    </td>
+  </tr>
+</table>
