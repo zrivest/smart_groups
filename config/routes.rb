@@ -2,6 +2,7 @@ SmartGroups::Application.routes.draw do
   root :to => 'courses#index'
   resources :user do 
     resource :courses do 
+      resource :generator, only: [:create]
   end
   end
 

@@ -21,18 +21,16 @@
 </body>
 
   <div id="group_sizes">
-    <%= form_for :generator do |f| %>
+    <%= form_for 'courses[generator]/create' do |f| %>
       <%= f.label "# of Group"%>
       <%= f.text_field :num_of_groups %>
       <%= f.submit "Generate" %>
     <% end %>
-    </form>
-
-    <form>
-      <label for="total_groups"># Students/Group</label>
-      <input type="text">
-    </form>
-
-  </div>
+    <%= form_for :generator do |f| %>
+      <%= f.label "# students/group"%>
+      <%= f.text_field :num_per_group %>
+      <%= f.submit "Generate" %>
+    <% end %>
+</div>
 
 
