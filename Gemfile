@@ -21,11 +21,13 @@ group :assets do
   gem 'zurb-foundation', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'faker'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+
+gem 'ish'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
