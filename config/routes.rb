@@ -1,4 +1,7 @@
 SmartGroups::Application.routes.draw do
+
+  get "/parser", to: 'parser#index'
+  post "/parser", to: 'parser#import'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
