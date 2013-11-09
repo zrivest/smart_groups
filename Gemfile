@@ -5,6 +5,9 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rails-pry'
+gem 'pry'
+
 gem 'pg'
 
 
