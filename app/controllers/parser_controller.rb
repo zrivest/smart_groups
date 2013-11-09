@@ -8,9 +8,8 @@ class ParserController < ApplicationController
   def import
     Course.create(name: params[:course_title])
     file = params[:file]
-
     Parser.import(file)
-      # binding.pry
+
     redirect_to root_path
   end
 end

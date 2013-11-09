@@ -11,6 +11,8 @@ class Parser < ActiveRecord::Base
                        last_name: row[:last_name] )
 
       StudentAssignment.create!( grade: row[:grade] )
+
+
     end
   end
 end
