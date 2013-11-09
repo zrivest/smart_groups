@@ -3,4 +3,5 @@ class Course < ActiveRecord::Base
   has_many :assignments
   belongs_to :user
   has_many :enrollments
+  has_many :students, through: :enrollments
 end
