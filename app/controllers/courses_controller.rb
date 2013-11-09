@@ -7,7 +7,6 @@ class CoursesController < ApplicationController
      @user = User.first
   end
 
-
   def num_groups
     # binding.pry
     @students = Student.all
@@ -28,8 +27,8 @@ class CoursesController < ApplicationController
     render :groups
   end
 
-
 end
 
-
-
+  def index
+    @courses = Course.all
+  end

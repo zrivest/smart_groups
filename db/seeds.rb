@@ -1,51 +1,32 @@
-Assignment.create(grade: 87, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 89, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 67, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 99, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 87, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 78, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 93, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 94, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 77, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 81, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 97, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 86, start_date: "2013-02-01", due_date: "2013-02-13")
-Assignment.create(grade: 83, start_date: "2013-02-01", due_date: "2013-02-13")
+3.times do
+  name = ["english_101", "LithuanianLit_202", "Calculus_61", "Mrs-Stevensons-Pre-Kay"]
+  user_id = (1..20).to_a
+  Course.create(name: name.sample, user_id: user_id.sample)
+end
 
+100.times do
+  grade = (40..99).to_a
+  start_date = Time.new.strftime("%m-%d-%Y")
+  due_date = ["12-08-2013", "11-20-2013", "12-23-13", "11-24-13", "01-12-14", "12-22-13", "12-20-13", "12-19-13"]
 
-StudentAssignment.create(student_id: 1, assignment_id: 1)
-StudentAssignment.create(student_id: 2, assignment_id: 1)
-StudentAssignment.create(student_id: 3, assignment_id: 1)
-StudentAssignment.create(student_id: 4, assignment_id: 1)
-StudentAssignment.create(student_id: 5, assignment_id: 1)
-StudentAssignment.create(student_id: 6, assignment_id: 1)
-StudentAssignment.create(student_id: 7, assignment_id: 1)
-StudentAssignment.create(student_id: 8, assignment_id: 1)
-StudentAssignment.create(student_id: 9, assignment_id: 1)
-StudentAssignment.create(student_id: 10, assignment_id: 1)
-StudentAssignment.create(student_id: 11, assignment_id: 1)
-StudentAssignment.create(student_id: 12, assignment_id: 1)
-StudentAssignment.create(student_id: 13, assignment_id: 1)
-StudentAssignment.create(student_id: 14, assignment_id: 1)
-StudentAssignment.create(student_id: 15, assignment_id: 1)
-StudentAssignment.create(student_id: 16, assignment_id: 1)
+  Assignment.create(grade: grade.sample, start_date: start_date, due_date: due_date.sample )
+end
 
-Student.create(first_name: "Emily", last_name: "Anderson", course_id: 1)
-Student.create(first_name: "Bob", last_name: "Robbins", course_id: 1)
-Student.create(first_name: "Tim", last_name: "Fee", course_id: 1)
-Student.create(first_name: "Joe", last_name: "Hurth", course_id: 1)
-Student.create(first_name: "Beth", last_name: "Wallach", course_id: 1)
-Student.create(first_name: "Roger", last_name: "Sobi", course_id: 1)
-Student.create(first_name: "Bill", last_name: "Hoover", course_id: 1)
-Student.create(first_name: "Sara", last_name: "McDerm", course_id: 1)
-Student.create(first_name: "Becky", last_name: "Mills", course_id: 1)
-Student.create(first_name: "Lizzy", last_name: "Slop", course_id: 1)
-Student.create(first_name: "Jbomb", last_name: "Hipple", course_id: 1)
-Student.create(first_name: "Dude", last_name: "Memmel", course_id: 1)
-Student.create(first_name: "Chick", last_name: "Fry", course_id: 1)
-Student.create(first_name: "yesone", last_name: "noone", course_id: 1)
-Student.create(first_name: "Shelia", last_name: "Luz", course_id: 1)
-Student.create(first_name: "Wo", last_name: "Peterson", course_id: 1)
+100.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  Student.create(first_name: first_name, last_name: last_name, course_id: [1,2,3].sample)
+end
 
-Course.create(name: "A course", user_id: 1)
-User.create(email: "email@email.com", password_digest: "password")
+User.create(email: "rskelley9@gmail.com", password: "password")
+User.create(email: "hoovs@hoovs.com", password: "password")
+User.create(email: "magicmike@magicmike.com", password: "password")
+User.create(email: "wolfman@wolfman.com", password: "password")
+
+200.times do
+  student_id = (1..100).to_a
+  assignment_id = (1..100).to_a
+
+  StudentAssignment.create(student_id: student_id.sample, assignment_id: assignment_id.sample)
+end
+

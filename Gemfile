@@ -5,10 +5,16 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rails-pry'
+gem 'pry'
+
 gem 'pg'
+
 gem 'rails-pry'
 gem 'pry'
 gem 'pry-nav'
+
+gem "smarter_csv"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,11 +26,13 @@ group :assets do
   gem 'zurb-foundation', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'faker'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+
+gem 'ish'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

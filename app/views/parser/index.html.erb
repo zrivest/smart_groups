@@ -1,1 +1,13 @@
-You made it!
+<h1>Select your File to Import</h1>
+
+
+<h2>Import A Class!</h2>
+
+
+
+<%= form_tag parser_path, multipart: true do %>
+  <%= label_tag("course_title", "Course Title: ")%>
+  <%= text_field_tag("course_title") %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import", class: "small button" %>
+<% end %>

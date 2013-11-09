@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   attr_accessible :name, :user_id
+<<<<<<< HEAD
   attr_accessor :num_of_groups, :num_per_group
   belongs_to :user
   has_many :students
@@ -26,5 +27,10 @@ class Course < ActiveRecord::Base
 
 
 
+=======
+  has_many :assignments
+  belongs_to :user
+  has_many :enrollments
+>>>>>>> e28e1340b3e0770d622ed347113dad8b687eb248
 end
 

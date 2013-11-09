@@ -22,9 +22,21 @@
 
   <body>
 
+
+  <div id="header">
+    <% if session[:user_id] %>
+    <%= link_to("Logout", logout_path) %>
+    <% else %>
+      <%=  %>
+    <% end %>
+  </div>
+
     <%= yield %>
 
-    
+  <div id="footer">
+
+  </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
