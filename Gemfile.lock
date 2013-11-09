@@ -51,6 +51,7 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     fssm (0.2.10)
+    hash-deep-merge (0.1.1)
     hike (1.2.3)
     i18n (0.6.5)
     ish (0.0.1)
@@ -60,6 +61,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    lazy_high_charts (1.5.0)
+      bundler (>= 1.0)
+      hash-deep-merge
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -72,6 +76,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -132,8 +138,10 @@ DEPENDENCIES
   faker
   ish
   jquery-rails
+  lazy_high_charts
   pg
   pry
+  pry-nav
   rails (= 3.2.14)
   rails-pry
   sass-rails (~> 3.2.3)

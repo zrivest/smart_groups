@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
-  def index
-  end
-
-
 
   def show
     @user = User.find(params[:id])
   end
-
-
 
   def login
     @email    = params[:email]
@@ -25,8 +19,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def create
     @email    = params[:email]
     @password = params[:password]
@@ -40,18 +32,13 @@ class UsersController < ApplicationController
       @signin_error = "Try again"
       redirect_to root_path
     end
-
   end
 
-
-
   def logout
-    p "-------------------------------------------------------------------"
     p session[:user_id]
     session[:user_id] = nil
     redirect_to :root
   end
 
-
-
 end
+
