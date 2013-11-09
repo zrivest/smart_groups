@@ -6,6 +6,7 @@ class ParserController < ApplicationController
   end
 
   def import
+    Course.create(name: params[:course_title])
     file = params[:file]
 
     Parser.import(file)

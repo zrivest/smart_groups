@@ -3,7 +3,6 @@ class Parser < ActiveRecord::Base
 
   def self.import(file)
     SmarterCSV.process(file.path, :headers => true, :header_converters => :symbol).each do |row|
-      # binding.pry
       Assignment.create!( start_date: row[:start_date],
                           due_date: row[:due_date],
                           assignment_name: row[:assignment_name] )
@@ -12,7 +11,6 @@ class Parser < ActiveRecord::Base
                        last_name: row[:last_name] )
 
       StudentAssignment.create!( grade: row[:grade] )
-      # binding.pry
     end
   end
 end
