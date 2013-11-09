@@ -1,10 +1,18 @@
 class Parser < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :grade, :start_date, :due_date
-
+  require 'smarter_csv'
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Assignment.create! row.to_has
+    SmarterCSV.process(file.path, :headers => true, :header_converters => :symbol).each do |row|
+      # binding.pry
+      Assignment.create!( start_date: row[:start_date],
+                          due_date: row[:due_date],
+                          assignment_name: row[:assignment_name] )
+
+      Student.create!( first_name: row[:first_name],
+                       last_name: row[:last_name] )
+
+      StudentAssignment.create!( grade: row[:grade] )
+      # binding.pry
     end
   end
-ende
+end

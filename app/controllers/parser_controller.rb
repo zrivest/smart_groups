@@ -1,13 +1,15 @@
 class ParserController < ApplicationController
+  require 'smarter_csv'
 
   def index
 
   end
 
   def import
-    binding.pry
-    @assignment = params[:file]
+    file = params[:file]
 
-    redirect_to root_path, notice: "Class Imported!"
+    Parser.import(file)
+      # binding.pry
+    redirect_to root_path
   end
 end
