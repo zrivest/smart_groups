@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
     num_groups = params[:course][:num_of_groups].to_i
     Course.random(@students)
     @groups = Course.total_num_groups(num_students, num_groups, @students)
-    
+
     render :groups
   end
 
@@ -27,8 +27,8 @@ class CoursesController < ApplicationController
     render :groups
   end
 
-end
 
   def index
     @courses = Course.all
   end
+end
