@@ -24,4 +24,6 @@ class ApplicationController < ActionController::Base
     @session_time_left = (expire_time - Time.now).to_i
   end
 
+helper :all
 end
+
