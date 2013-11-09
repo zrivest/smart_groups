@@ -9,3 +9,14 @@
   margin-left: 50px;
   margin-top: 25px;
 }
+
+#each_group {
+width: 100px;
+text-align:center;
+border: 2px solid black;
+}
+
+#each_group li{
+
+border: thin solid #878787;
+}

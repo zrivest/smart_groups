@@ -74,7 +74,6 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.3)
       pry (~> 0.9.10)
-
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
