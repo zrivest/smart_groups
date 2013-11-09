@@ -5,6 +5,10 @@ SmartGroups::Application.routes.draw do
 
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
+
+  get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,7 +66,7 @@ SmartGroups::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-
+  resources :metrics
   resources :users do
     resources :courses
   end
