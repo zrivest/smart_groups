@@ -4,4 +4,8 @@ class Student < ActiveRecord::Base
   has_many :courses, through: :enrollments
   has_many :student_assignments
   has_many :assignments, through: :student_assignments
+<<<<<<< HEAD
+=======
+  has_many :courses, through: :enrollments
+>>>>>>> master
 end

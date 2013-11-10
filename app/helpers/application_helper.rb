@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
   def logged_in?
     if session[:logged_in]
       return true
@@ -40,4 +41,3 @@ module ApplicationHelper
   end
 
 end
-

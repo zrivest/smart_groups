@@ -16,4 +16,5 @@
 //= require_tree .
 //= require highcharts
 
-$(document).foundation();
+
+

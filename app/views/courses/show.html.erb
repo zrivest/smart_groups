@@ -1,26 +1,35 @@
 <body>
+<div class="squeeze">
+<h1>The New Generation</h1>
+
     <h3>Student Roster</h3>
   <div id="student_roster">
     <ul>
+
       <%@students.each do |student|%>
-        <li> <%=student.first_name%> <%= student.last_name %></li>
+        <li><%=student.first_name%> <%= student.last_name %></li>
       <%end%>
+
     </ul>
   </div>
-</body>
 
-
-<div id="group_sizes">
-    <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
-      <%= f.label "# of Group"%>
-      <%= f.text_field :num_of_groups %>
-      <%= f.submit "Generate" %>
-    <% end %>
-    
-
+  <div id="group_sizes">
     <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
       <%= f.label "# students/group"%>
       <%= f.text_field :num_per_group %>
       <%= f.submit "Generate" %>
     <% end %>
+
+    <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
+      <%= f.label "# of Group"%>
+      <%= f.text_field :num_of_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
+
+  </div>
 </div>
+</body>

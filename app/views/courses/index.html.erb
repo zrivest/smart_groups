@@ -7,10 +7,10 @@
 <h2 class="subheader">Current Courses</h2>
 
 <table id="course_list">
-  <% @courses.each do |course| %>
+  <% @courses.reverse.each do |course| %>
     <tr>
       <td ><b><%= course.name %></b></td>
-      <td><a href="#" class="small button" id="opt_bttn">Group Generator</a></td>
+      <td><a href="courses/<%=course.id%>" class="small button" id="opt_bttn">Group Generator</a></td>
       <td><a href="#" class="small button" id="opt_bttn">Metics / Graphs</a></td>
       <td><a href="#" class="small button" id="opt_bttn">Edit Roster</a></td>
     </tr>
