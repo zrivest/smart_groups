@@ -4,6 +4,15 @@ class CoursesController < ApplicationController
     @courses = User.find(params[:user_id]).courses
   end
 
+  def new
+
+  end
+
+  def create
+    @course = Course.create(name: params[:course_title], user_id: params[:user_id])
+
+    redirect_to new_user_student_path({user_id: params[:user_id], course_id: @course.id})
+  end
 
   def show
      students = User.find(session[:user_id]).courses.find(params[:id]).students
@@ -30,7 +39,7 @@ class CoursesController < ApplicationController
     students_per_group = params[:course][:num_per_group].to_i
     Course.random(@students)
     @groups = Course.total_students_groups(num_students, students_per_group, @students)
-    
+
     render :groups
   end
 end
