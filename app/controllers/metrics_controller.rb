@@ -1,26 +1,35 @@
 class MetricsController < ApplicationController
 
-# "users/:user_id/courses/:course_id/metrics/:id"
   def main
-    #from specific course metrics button on courses index page
 
-#column
-  @course = current_course)
-  @enrolled_students = current_course.students
+  @course = params[:course_id]
+  session[:course_id] = @course.id
+
+  @enrolled_students = Course.find(session[:course_id]).students
+
+  @chart_types = [{id: 1, type: "column"}, {id: 2, type: "combo"}, {id: 3, type: "basic line"}]
+
+
+end
+end
+
+def create
+  @selections = params["chart_selections"]
+  p params
 
   @chart = LazyHighCharts::HighChart.new('column') do |f|
+  @enrolled_students.each do |student|
+    f.series(name: student.name, data: student.get_grades)
+    f.title({ text: "#{@course.name}"})
+    f.options[:chart][:defaultSeriesType] = "column"
+    f.plot_options({:column=>{:stacking=>"percent"}})
 
-   @enrolled_students.each do |student|
-  f.series(name: student.name, data: student.get_grades)
-  f.title({ text: "#{@course.name}"})
-  f.options[:chart][:defaultSeriesType] = "column"
-  f.plot_options({:column=>{:stacking=>"percent"}})
-
-  ### Options for Bar
-  ### f.options[:chart][:defaultSeriesType] = "bar"
-  ### f.plot_options({:series=>{:stacking=>"normal"}})
- end
-
+    ### Options for Bar
+    ### f.options[:chart][:defaultSeriesType] = "bar"
+    ### f.plot_options({:series=>{:stacking=>"normal"}})
   end
+
+end
+
 
 end

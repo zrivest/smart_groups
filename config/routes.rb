@@ -6,7 +6,7 @@ SmartGroups::Application.routes.draw do
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
 
-  get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
+  get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
 
 
   # The priority is based upon order of creation:
