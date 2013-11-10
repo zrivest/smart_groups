@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
   attr_accessible :name, :user_id
 
-  attr_accessor :num_of_groups, :num_per_group
+  attr_accessor :num_of_groups, :num_per_group, :random, :even_grade_distribution
   belongs_to :user
   has_many :students
   has_many :assignments
@@ -18,10 +18,14 @@ class Course < ActiveRecord::Base
   end
 
   def self.total_num_groups(num_students, num_groups, students)
-    p "______________________________________"
-    p "I am here"
     students_per_group = num_students/num_groups
     groups = Array.new(num_groups) {students.shift(students_per_group)}
     groups
   end
+
+    
+
+
+
+
 end  
