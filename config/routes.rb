@@ -9,6 +9,7 @@ SmartGroups::Application.routes.draw do
   get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
 
   resources :metrics
+  resources :user_sessions
 
   resources :users do
     resources :students
@@ -18,8 +19,8 @@ SmartGroups::Application.routes.draw do
     end
   end
 
-  post '/login' => 'users#login'
-  get '/logout' => 'users#logout'
+  post '/login' => 'user_sessions#login'
+  get '/logout' => 'user_sessions#logout'
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
 

@@ -1,7 +1,13 @@
 class CoursesController < ApplicationController
 
   def index
-    @courses = User.find(params[:user_id]).courses
+    if authenticated?
+      @courses = User.find(params[:user_id]).courses
+      render :index
+    else
+      @login_error = "Please login."
+      redirect_to root_path
+    end
   end
 
   def new
@@ -15,10 +21,16 @@ class CoursesController < ApplicationController
   end
 
   def show
-     students = User.find(session[:user_id]).courses.find(params[:id]).students
-     @students = students.uniq{ |student| student.id }
-     @course = Course.find(params[:id])
-     @user = User.first
+    if authenticated?
+      students = User.find(session[:user_id]).courses.find(params[:id]).students
+      @students = students.uniq{ |student| student.id }
+      @course = Course.find(params[:id])
+      session[:course_id] = @course.id
+      @user = User.first
+    else
+      @login_error = "Please login."
+      redirect_to root_path
+    end
   end
 
   def num_groups
@@ -40,6 +52,14 @@ class CoursesController < ApplicationController
     Course.random(@students)
     @groups = Course.total_students_groups(num_students, students_per_group, @students)
 
+
     render :groups
+
+    if authenticated?
+      render :groups
+    else
+      @login_error = "Please login."
+      redirect_to root_path
+    end
   end
 end
