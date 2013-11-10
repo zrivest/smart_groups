@@ -17,16 +17,15 @@ module ApplicationHelper
   end
 
   def current_user
-    if session[:logged_in] && session[:user_id] != nil
-      @current_user = User.find(session[:user_id])
-      return @current_user
+    if session[:logged_in]
+      @current_user || User.find_by_id(session[:user_id])
     else
-      return nil
+      nil
     end
   end
 
   def destroy_session
-    session[:user_id] = nil
+    session.clear
     flash[:notice] = "You have successfully logged out."
     redirect_to root_path
   end
@@ -38,6 +37,11 @@ module ApplicationHelper
     else
       return user
     end
+  end
+
+
+  def authenticated?
+    !current_user.nil?
   end
 
 end

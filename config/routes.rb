@@ -67,6 +67,7 @@ SmartGroups::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :metrics
+  resources :user_sessions
 
   resources :users do
     resources :courses do
