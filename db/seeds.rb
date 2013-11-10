@@ -5,11 +5,10 @@
 end
 
 100.times do
-  grade = (40..99).to_a
   start_date = Time.new.strftime("%m-%d-%Y")
   due_date = ["12-08-2013", "11-20-2013", "12-23-13", "11-24-13", "01-12-14", "12-22-13", "12-20-13", "12-19-13"]
 
-  Assignment.create(grade: grade.sample, start_date: start_date, due_date: due_date.sample )
+  Assignment.create(start_date: start_date, due_date: due_date.sample )
 end
 
 100.times do
@@ -24,9 +23,10 @@ User.create(email: "magicmike@magicmike.com", password: "password")
 User.create(email: "wolfman@wolfman.com", password: "password")
 
 200.times do
+  grade = (40..99).to_a
   student_id = (1..100).to_a
   assignment_id = (1..100).to_a
 
-  StudentAssignment.create(student_id: student_id.sample, assignment_id: assignment_id.sample)
+  StudentAssignment.create(grade: grade.sample, student_id: student_id.sample, assignment_id: assignment_id.sample)
 end
 

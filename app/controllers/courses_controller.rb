@@ -1,8 +1,12 @@
 class CoursesController < ApplicationController
 
+  def index
+    @courses = User.find(params[:user_id]).courses
+  end
+
   def show
-     @students = Student.all.shuffle
-     @generator = Generator.new
+     students = User.find(session[:user_id]).courses.find(params[:id]).students
+     @uniq_students = students.uniq{ |student| student.id }
      @course = Course.find(params[:id])
      @user = User.first
   end
@@ -14,7 +18,7 @@ class CoursesController < ApplicationController
     num_groups = params[:course][:num_of_groups].to_i
     Course.random(@students)
     @groups = Course.total_num_groups(num_students, num_groups, @students)
-    
+
     render :groups
   end
 
@@ -26,9 +30,4 @@ class CoursesController < ApplicationController
     @groups = Course.total_students_groups(num_students, students_per_group, @students)
     render :groups
   end
-
 end
-
-  def index
-    @courses = Course.all
-  end
