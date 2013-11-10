@@ -4,7 +4,15 @@ module ApplicationHelper
 
   def current_user
     if session[:logged_in]
-      @current_user || User.find_by_id(session[:user_id])
+      @current_user || User.find(session[:user_id])
+    else
+      nil
+    end
+  end
+
+  def current_course
+    if session[:logged_in]
+      @current_course || Course.find(session[:course_id])
     else
       nil
     end

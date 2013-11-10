@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
       students = User.find(session[:user_id]).courses.find(params[:id]).students
       @students = students.uniq{ |student| student.id }
       @course = Course.find(params[:id])
+      session[:course_id] = @course.id
       @user = User.first
     else
       @login_error = "Please login."
