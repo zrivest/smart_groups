@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
+  has_secure_password
+
   def password
     @password ||= Password.new(password_digest)
   end
