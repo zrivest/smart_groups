@@ -1,12 +1,11 @@
 class Course < ActiveRecord::Base
   attr_accessible :name, :user_id
-
   attr_accessor :num_of_groups, :num_per_group
   belongs_to :user
-  has_many :students
   has_many :assignments
   has_many :enrollments
   has_many :students, through: :enrollments
+
 
   def self.random(students)
     students.shuffle!
@@ -24,5 +23,5 @@ class Course < ActiveRecord::Base
     groups
   end
 
-end
+end  
 
