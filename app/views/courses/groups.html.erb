@@ -1,18 +1,25 @@
 Here you see our groups
-<h3> <%= @awesome %> </h3>
-
-<p> <% @students.each do |student|%> 
-  <%= student.first_name %>
-  <%= student.last_name %>
-  <% end %></p>
-
-
-
-<ul><% @groups.each do |group| %> 
-  <li><% group.each do |student|%></li>
-  <%= student.first_name %>
+<body>
+<ul> Students : <% @students.each do |student|%> 
+  <li>
+    <%= student.first_name %>
+    <%= student.last_name %>
+  </li>
   <% end %>
-<% end %>
-
 </ul>
 
+
+<div id="all_groups">
+  
+  <h2>Groups</h2>
+    <% @groups.each do |group| %> 
+  <ul id="each_group">
+        <% group.each do |student|%>
+      <li>
+          <%= student.first_name %>
+      </li>    
+        <% end %>
+  </ul>
+    <% end %>
+</div>
+</body>
