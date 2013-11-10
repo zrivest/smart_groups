@@ -4,24 +4,21 @@ class MetricsController < ApplicationController
   def main
     #from specific course metrics button on courses index page
 
-    LazyHighCharts::HighChart
-
 #column
   @course = current_course)
   @enrolled_students = current_course.students
+
   @chart = LazyHighCharts::HighChart.new('column') do |f|
 
    @enrolled_students.each do |student|
-  f.series(:name=> student.name,:data=> student.get_grades)
-  f.title({ :text=>"#{@course.name}"})
+  f.series(name: student.name, data: student.get_grades)
+  f.title({ text: "#{@course.name}"})
+  f.options[:chart][:defaultSeriesType] = "column"
+  f.plot_options({:column=>{:stacking=>"percent"}})
 
   ### Options for Bar
   ### f.options[:chart][:defaultSeriesType] = "bar"
   ### f.plot_options({:series=>{:stacking=>"normal"}})
-
-  ## or options for column
-  f.options[:chart][:defaultSeriesType] = "column"
-  f.plot_options({:column=>{:stacking=>"percent"}})
  end
 
   end
