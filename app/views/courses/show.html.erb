@@ -17,14 +17,19 @@
     <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
       <%= f.label "random" %>
       <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>
       <%= f.label "# students/group"%>
       <%= f.text_field :num_per_group %>
       <%= f.submit "Generate" %>
     <% end %>
+    <br><br><br>
 
     <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
       <%= f.label "random" %>
       <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>      
       <%= f.label "# of Group"%>
       <%= f.text_field :num_of_groups %>
       <%= f.submit "Generate" %>
