@@ -19,8 +19,6 @@ class Course < ActiveRecord::Base
   end
 
   def self.total_num_groups(num_students, num_groups, students)
-    p "______________________________________"
-    p "I am here"
     students_per_group = num_students/num_groups
     groups = Array.new(num_groups) {students.shift(students_per_group)}
     groups

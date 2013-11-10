@@ -2,9 +2,9 @@
     <h3>Student Roster</h3>
   <div id="student_roster">
     <ul>
-      <%@students.each do |student|%>
-        <li> <%=student.first_name%> <%= student.last_name %></li>
-      <%end%>
+
+        <li> <%=@students%></li>
+
     </ul>
   </div>
 </body>
@@ -16,7 +16,7 @@
       <%= f.text_field :num_of_groups %>
       <%= f.submit "Generate" %>
     <% end %>
-    
+
 
     <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
       <%= f.label "# students/group"%>

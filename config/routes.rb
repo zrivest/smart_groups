@@ -69,7 +69,7 @@ SmartGroups::Application.routes.draw do
   resources :metrics
 
   resources :users do
-    resources :courses
+    resources :courses do
       put 'num_groups', on: :member
       put 'groups', on: :member
     end

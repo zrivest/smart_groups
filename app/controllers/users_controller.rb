@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     else
       @signin_error = "Try again"
       redirect_to root_path
-    en
+    end
   end
 
   def logout
