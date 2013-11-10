@@ -1,7 +1,9 @@
 class CreatePods < ActiveRecord::Migration
-  def up
-  end
+  def change
+    create_table :pods do |t|
+      t.integer :group_id
 
-  def down
+      t.timestamps
+    end
   end
 end
