@@ -69,16 +69,10 @@ SmartGroups::Application.routes.draw do
   resources :metrics
 
   resources :users do
-<<<<<<< HEAD
-    resources :courses
-    put 'num_groups', on: :member
-    put 'groups', on: :member
-=======
     resources :courses do
       put 'num_groups', on: :member
       put 'groups', on: :member
     end
->>>>>>> master
   end
 
   post '/login' => 'users#login'

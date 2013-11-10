@@ -140,8 +140,8 @@ DEPENDENCIES
   faker
   ish
   jquery-rails
-  lazy_high_charts
   jquery-ui-rails
+  lazy_high_charts
   pg
   pry
   pry-nav

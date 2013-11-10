@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def current_course
+    if session[:logged_in]
+      @current_course ||= Course.find(session[:course_id])
+      return @current_course
+    else
+      nil
+    end
+  end
 
   def logged_in?
     if session[:logged_in]

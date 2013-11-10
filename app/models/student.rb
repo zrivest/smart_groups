@@ -4,8 +4,12 @@ class Student < ActiveRecord::Base
   has_many :courses, through: :enrollments
   has_many :student_assignments
   has_many :assignments, through: :student_assignments
-<<<<<<< HEAD
-=======
-  has_many :courses, through: :enrollments
->>>>>>> master
+
+
+
+  def get_grades
+    @grades = self.student_assignments.map {|submitted_assignment| submitted_assignment.grade}
+    return @grades
+  end
+
 end
