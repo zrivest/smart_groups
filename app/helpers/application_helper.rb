@@ -1,20 +1,6 @@
 module ApplicationHelper
 
 
-  def logged_in?
-    if session[:logged_in]
-      return true
-    else
-      return false
-    end
-  end
-
-  def session_fail
-    unless logged_in?
-      flash[:notice] = "Error: User not logged in, invalid email and/or password."
-      redirect_to root_path
-    end
-  end
 
   def current_user
     if session[:logged_in]
@@ -25,17 +11,17 @@ module ApplicationHelper
   end
 
   def destroy_session
-    session.clear
-    flash[:notice] = "You have successfully logged out."
+    session[:user_id] = nil
+    session[:logged_in] = false
     redirect_to root_path
   end
 
   def find_user(email)
     user = User.find_by_email(email)
-    if user.nil?
-      return false
+    if user
+      user
     else
-      return user
+      nil
     end
   end
 
@@ -44,4 +30,19 @@ module ApplicationHelper
     !current_user.nil?
   end
 
+  def logged_in?
+    if session[:logged_in]
+      return true
+    else
+      return false
+    end
+  end
+
+  def session_fail
+    if logged_in?
+      false
+    else
+      @login_error = "You have been logged out."
+    end
+  end
 end

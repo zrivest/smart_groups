@@ -76,8 +76,8 @@ SmartGroups::Application.routes.draw do
     end
   end
 
-  post '/login' => 'users#login'
-  get '/logout' => 'users#logout'
+  post '/login' => 'user_sessions#login'
+  get '/logout' => 'user_sessions#logout'
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
 

@@ -1,33 +1,36 @@
 class UserSessionsController < ApplicationController
 
-def create
-    user = find_user(params[:user][:email])
+def login
+    email    = params[:email]
+    user_password = params[:password]
 
-    if user != false
-      @user = user.authenticate(params[:user][:password])
+    user = find_user(email)
+
+    if user
+      @user = user.authenticate(user_password)
     end
 
     if @user
       session[:user_id] = @user.id
       session[:logged_in] = true
-      redirect_to user_path(@user)
+      redirect_to user_courses_path(@user)
     else
-      @failed_login = true
+      @login_error = "Try again"
       session.clear
-      flash[:error] = 'Your Email and/or Password is Incorrect'
-      redirect_to home_index_path
+      flash[:error] = 'Authentication failed: Your Email and/or Password is Incorrect'
+      redirect_to root_path
     end
   end
 
-  def destroy
-    unless session[:logged_in] == false
+
+  def logout
+    if session[:logged_in]
+      flash[:notice] = "You have successfully logged out."
+      destroy_session
+    else
       session[:logged_in] = false
       session[:user_id] = nil
-      redirect_to home_index_path
+      redirect_to root_path
     end
-  end
-
-  def new
-
   end
 end
