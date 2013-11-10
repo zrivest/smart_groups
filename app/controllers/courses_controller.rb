@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
 
   def index
-    @courses = Course.all
+    @courses = User.find(params[:user_id]).courses
   end
 
   def show
-     @students = User.find(session[:user_id]).courses.find(params[:id]).students
+     students = User.find(session[:user_id]).courses.find(params[:id]).students
+     @uniq_students = students.uniq{ |student| student.id }
      @course = Course.find(params[:id])
      @user = User.first
   end
