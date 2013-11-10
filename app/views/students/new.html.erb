@@ -1,0 +1,28 @@
+<h1>Enter Your Students</h1>
+
+<%= link_to("Go to Course list", user_courses_path(params[:user_id])) %>
+
+<%= form_for 'users[students]', url: {action: "create"} do |f| %>
+
+  <%= f.hidden_field :course, value: "#{@course.id}" %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :assignment_name %>
+  <%= f.text_field :assignment_name %><br>
+
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %><br>
+
+  <%= f.label :due_date %>
+  <%= f.text_field :due_date %><br>
+
+  <%= f.label :grade %>
+  <%= f.text_field :grade %><br>
+
+  <%= f.submit "Add Student" %>
+<% end %>

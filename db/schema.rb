@@ -11,16 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131109013251) do
-
+ActiveRecord::Schema.define(:version => 20131110202349) do
 
   create_table "assignments", :force => true do |t|
-    t.integer  "grade"
+    t.string   "assignment_name"
     t.date     "start_date"
     t.date     "due_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "courses", :force => true do |t|
@@ -33,21 +31,27 @@ ActiveRecord::Schema.define(:version => 20131109013251) do
   create_table "enrollments", :force => true do |t|
     t.integer  "student_id"
     t.integer  "course_id"
+    t.integer  "pod_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "generators", :force => true do |t|
-    t.integer  "num_of_groups"
-    t.integer  "num_per_group"
-    t.integer  "student_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+  create_table "groups", :force => true do |t|
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pods", :force => true do |t|
+    t.integer  "group_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "student_assignments", :force => true do |t|
     t.integer  "student_id"
     t.integer  "assignment_id"
+    t.integer  "grade"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
