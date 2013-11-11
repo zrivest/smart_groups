@@ -14,7 +14,7 @@
     <% @courses.reverse.each do |course| %>
       <tr>
         <td><li><%= course.name %></li></td>
-        <td><li><%= link_to("Group Generator", "asdf", class: "small button", id: "opt_bttn") %></li></td>
+        <td><li><%= link_to("Group Generator", new_course_group(@course), class: "small button", id: "opt_bttn") %></li></td>
         <td><li><%= link_to("Metics/Graphs", "asdf", class: "small button", id: "opt_bttn") %></li></td>
         <td><li><%= link_to("Edit Roster", "asdf", class: "small button", id: "opt_bttn") %></li></td>
       </tr>
