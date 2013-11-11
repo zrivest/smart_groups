@@ -5,3 +5,31 @@
 <h3>Column Chart</h3>
 
 <%= high_chart("my_bar_div", @chart) %>
+
+<div id="orders_chart" style="width:560px; height: 300px;"></div>
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+  new Highcharts.Chart({
+    chart: {
+      renderTo: "orders_chart"
+    },
+    title: {
+      text:"Orders by Day"
+    },
+    xAxis: {
+      type: "datetime"
+    },
+
+    yAxis: {
+      title: {
+        text: "dollars"
+      }
+    },
+    series: [{
+      data: [1,2,3,4,7,8,9]
+    }]
+    }
+  })
+})
+</script>
