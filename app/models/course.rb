@@ -7,6 +7,8 @@ class Course < ActiveRecord::Base
   has_many :enrollments
   has_many :students, through: :enrollments
   has_many :groups
+  has_many :pods, through: :groups
+  has_many :students, through: :pods
 
   def self.random(students)
     students.shuffle!
@@ -22,6 +24,23 @@ class Course < ActiveRecord::Base
     students_per_group = num_students/num_groups
     groups = Array.new(num_groups) {students.shift(students_per_group)}
     groups
+  end
+
+  def all_students
+    students = self.enrollments.map do |enrollment|
+      enrollment.student
+    end
+    students
+  end
+
+  def all_completed_assignments_for_course
+    completed_assignments = []
+    self.assignments.each do |assignment|
+      assignment.student_assignments.each do |student_assignment|
+        completed_assignments << student_assignment
+      end
+    end
+    completed_assignments
   end
 end
 
