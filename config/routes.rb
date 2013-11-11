@@ -6,10 +6,11 @@ SmartGroups::Application.routes.draw do
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
 
-  get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
-
   resources :metrics
   resources :user_sessions
+  get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
+  post "/metrics", to: 'metrics#create'
+
 
   resources :users do
     resources :students

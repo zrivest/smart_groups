@@ -1,6 +1,6 @@
-class CreateMetrics < ActiveRecord::Migration
+class CreateGraphs < ActiveRecord::Migration
   def change
-    create_table :metrics do |t|
+    create_table :graphs do |t|
       t.integer :course_id
       t.timestamps
     end

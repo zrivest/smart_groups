@@ -2,7 +2,7 @@
 <p>You may select multiple types.</p>
 
 <ul>
-<%= form_tag ("metrics#create"), method:"POST" do %>
+<%= form_tag ("/metrics"), method:"POST" do %>
   <% @chart_types.each do |chart_type| %>
       <li>
         <%= check_box_tag 'chart_selections[]', chart_type[:type] -%>

@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
   attr_accessible :name, :user_id
-
+  has_many :graphs
   has_many :assignments
   has_many :groups
   has_many :pods, through: :groups
