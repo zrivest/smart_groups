@@ -5,10 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @email    = params[:email]
     @password = params[:password]
 
     @user = User.authenticate_create(@email,@password)
+
+    p "------------------------------------------"
+    p @user
+    p " THIS IS THE SIGNUP SECTION"
 
     if @user
       session[:user_id] = @user.id
@@ -21,7 +26,7 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
 
 end
 
