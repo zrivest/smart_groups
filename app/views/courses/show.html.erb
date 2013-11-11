@@ -5,9 +5,11 @@
     <h3>Student Roster</h3>
   <div id="student_roster">
     <ul>
+
       <%@students.each do |student|%>
         <li><%=student.first_name%> <%= student.last_name %></li>
       <%end%>
+
     </ul>
   </div>
 
@@ -27,6 +29,9 @@
       <%= f.text_field :num_of_groups %>
       <%= f.submit "Generate" %>
     <% end %>
+
+
+
 
   </div>
 </div>
