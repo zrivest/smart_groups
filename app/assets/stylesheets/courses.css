@@ -15,10 +15,7 @@
   margin-left: 5%;
 }
 
-#all_groups{
-  margin-left: auto;
-  margin-right: auto;
-}
+
 #each_group {
 display: inline-block;
 text-align:center;
@@ -55,4 +52,107 @@ list-style-type: none;
 
 .checkboxes{
   float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SORTABLE CSS*/
+#app_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 787px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background: blue;
+  top: 0;
+  padding: 0;
+  /*height: 100px;*/
+}
+
+#left, #right {
+/*  height: 200px;
+  width: 200px;
+  background: black;*/
+  top: 0;
+}
+  #left {
+    float: left;
+    padding-right: 25px;
+  }
+  #right {
+    float: right;
+    border-left: 1px solid gray;
+    padding-left: 25px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sortable {
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sortable li {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+  width: 150px;
+  text-align: center;
+}
+
+/*delete when finished refactoring*/
+/*#all_completed_groups{
+  top: 0;
+  width:600px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  border-left: 1px solid black;
+  padding: 25px;
+}*/
+
+#group table {
+/*may want to add some padding
+when done*/
+}
+
+
+.subheader {
+  text-align: center;
+}
+
+#something_special {
+  vertical-align: top;
 }

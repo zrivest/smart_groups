@@ -1,0 +1,23 @@
+lowercase objects at the beginning of a query are instances
+
+#get all of the students for a given group
+group.pods.each do |pod|
+  pod.students
+end
+
+#get all of the assignments for a pod
+pod.students.each do |student|
+  student.assignments.each do |assignment|
+  assignment.*attribute*
+  end
+  end
+
+#get the pods for an assignment
+assignment.enrollments.each do |enrollment|
+  enrollment.pod
+end
+
+
+
+
+

@@ -15,6 +15,5 @@
 //= require foundation
 //= require_tree .
 //= require highcharts
-
-
-
+//
+//= require jquery.ui.all

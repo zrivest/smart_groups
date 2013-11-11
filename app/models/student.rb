@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible :course_id, :first_name, :last_name
+  attr_accessible :average, :first_name, :last_name
   has_many :enrollments
   has_many :courses, through: :enrollments
   has_many :student_assignments
