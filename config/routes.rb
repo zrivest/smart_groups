@@ -25,9 +25,11 @@ SmartGroups::Application.routes.draw do
   resources :users do
     resources :courses, only: [:index, :new, :create] , controller: "user_courses"
    end
+
   post '/login' => 'user_sessions#login'
   get '/logout' => 'user_sessions#logout'
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
+  get "/users/:user_id/user_courses/:id/edit" => "user_courses#edit", :as => :edit
 
 end

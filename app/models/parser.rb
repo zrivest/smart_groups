@@ -18,6 +18,5 @@ class Parser < ActiveRecord::Base
 
     end
       user.courses << course
-      binding.pry
   end
 end
