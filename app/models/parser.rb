@@ -3,18 +3,21 @@ class Parser < ActiveRecord::Base
 
   def self.import(file, course, user)
     SmarterCSV.process(file.path, :headers => true, :header_converters => :symbol).each do |row|
-      a = Assignment.create!( start_date: row[:start_date],
+
+      a = Assignment.create( start_date: row[:start_date],
                           due_date: row[:due_date],
-                          assignment_name: row[:assignment_name] )
+                          assignment_name: row[:assignment_name],
+                          course_id: course.id )
 
       s = Student.where(first_name: row[:first_name], last_name: row[:last_name]).first_or_create()
 
 
-      sa = StudentAssignment.create!(student_id: s.id, assignment_id: a.id, grade: row[:grade] )
+      sa = StudentAssignment.create(student_id: s.id, assignment_id: a.id, grade: row[:grade] )
 
       Enrollment.create(student_id: s.id, course_id: course.id)
 
     end
       user.courses << course
+      binding.pry
   end
 end
