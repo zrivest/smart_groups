@@ -4,6 +4,7 @@ Here you see our groups
   <li>
     <%= student.first_name %>
     <%= student.last_name %>
+    <%= student.average %>
   </li>
   <% end %>
 </ul>
@@ -17,6 +18,7 @@ Here you see our groups
         <% group.each do |student|%>
       <li>
           <%= student.first_name %>
+          <%= student.average %>
       </li>    
         <% end %>
   </ul>
