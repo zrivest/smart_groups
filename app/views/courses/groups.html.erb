@@ -1,23 +1,22 @@
-<br>
 
-<div id="app_container">
-<div id="left">
-  <table id="group">
-    <tr>
-      <td>
-        <h4 class="subheader"><%= "Group Overflow"%></h4>
-        <ul id="sortable" class="droptrue">
-          <li class="ui-state-default"></li> <!-- remove h4 tag, its currently draggable -->
-          <% @students.each do |student|%>
-            <li class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
-          <% end %>
-        </ul>
-      </td>
-    </tr>
-  </table>
-</div><!--left END-->
+  <div id="left_group_container">
+    <table id="group">
+      <tr>
+        <td>
+          <h4 class="subheader"><%= "Group Overflow"%></h4>
+          <hr>
+          <ul id="sortable" class="droptrue">
+            <li class="ui-state-default"></li>
+            <% @students.each do |student|%>
+              <li class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div><!--left_group_container END-->
 
-  <div id="right">
+  <div id="right_group_container">
     <ul class="small-block-grid-3">
       <% @groups.each_with_index do |group, index| %>
         <li>
@@ -25,8 +24,9 @@
             <tr>
               <td>
                 <h4 class="subheader"><%= "Group #{index+1}" %></h4>
+                <hr>
                 <ul id="sortable" class="droptrue">
-                  <li class="ui-state-default"></li> <!-- remove h4 tag, its currently draggable -->
+                  <li class="ui-state-default"></li>
                   <% group.each do |student|%>
                     <li class="ui-state-default"><%= student.first_name %></li>
                   <% end %>
@@ -37,13 +37,12 @@
         </li>
 
         <!-- conditional to add special row to keep tables from moving -->
-        <% if index%3 == 0 %>
+        <% if (index+1)%3 == 0%>
           <hr>
         <% end %>
 
       <% end %>
     </ul>
-  </div><!--right END-->
+  </div><!--right_group_container END-->
 
 
-</div><!--app_container END-->
