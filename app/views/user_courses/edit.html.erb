@@ -1,8 +1,36 @@
-<% @completed_assignments.each do |student_assignment| %>
-  <%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %><br>
-  <%= student_assignment.assignment.assignment_name %><br>
-  <%= student_assignment.assignment.start_date %><br>
-  <%= student_assignment.assignment.due_date %><br>
-  <%= student_assignment.grade %><br>
-  <br>
-<% end %>
+<table border= "1">
+  <tr>
+    <th>Name:</th>
+    <th>Assignment Name:</th>
+    <th>Start Date:</th>
+    <th>Due Date:</th>
+    <th>Assignment Grade:</th>
+    <th>Grade:</th>
+    <th>Delete Student</th>
+  </tr>
+  <% @completed_assignments.each do |student_assignment| %>
+    <tr>
+      <td>
+        <%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.assignment_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.assignment_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.start_date %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.due_date %>
+      </td>
+      <td>
+        <%= student_assignment.grade %>
+      </td>
+      <td>
+        <%= link_to("Delete", "/users/#{params[:user_id]}/students/#{student_assignment.id}", :method => :delete, :confirm => "Are you sure?")%>
+      </td>
+    </tr>
+  <% end %>
+</table>
