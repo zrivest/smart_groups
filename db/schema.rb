@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20131110202349) do
     t.integer  "student_id"
     t.integer  "assignment_id"
     t.integer  "grade"
+    t.integer  "pod_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -60,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20131110202349) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "average"
-    t.integer  "pod_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

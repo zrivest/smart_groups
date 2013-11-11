@@ -7,15 +7,26 @@ class GroupsController < ApplicationController
       @course = Course.find(params[:course_id])
       session[:course_id] = @course.id
       @user = current_user.id
-      p ')))))))))))))))))))))))))))))))))))))))))))))))))))))))))'
-p params
-p @students
     # else
       # @login_error = "Please login."
       # redirect_to root_path
     # end
   end
 
+  def create
+
+    binding.pry
+    new_group = Group.create(course_id: params[:course_id].to_i)
+    params[:group][:group]
+    
+    p "333333333333333333333333333333333333333333333"
+    p params
+    # create a group
+    # create many pods with that group id 
+    # update student attribute pod id
+    render :index
+  end
+  
   def total_students_per_groups
     students = Course.find(params[:course_id]).all_students
     @students = students.uniq{ |student| student.id }

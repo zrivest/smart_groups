@@ -1,5 +1,5 @@
 class StudentAssignment < ActiveRecord::Base
-  attr_accessible :assignment_id, :student_id, :grade
+  attr_accessible :assignment_id, :student_id, :grade, :pod_id
   belongs_to :student
   belongs_to :assignment
 end
