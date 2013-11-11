@@ -22,10 +22,7 @@ width: 20%;
 #each_group li{
 border: thin solid #878787;
 list-style-type: none;
-
 }
-
-
 
 #student_roster {
   border: 2px solid black;
@@ -53,10 +50,6 @@ list-style-type: none;
 
 
 
-
-
-
-
 /*COURSES SHOW*/
 #option_box {
 
@@ -74,87 +67,172 @@ list-style-type: none;
 float: left;
 }
 
+/*got deleted*/
 
 
+ -/*SORTABLE CSS*/
+ -#app_container {
+ -  margin-left: auto;
+ -  margin-right: auto;
+ -  width: 787px;
+ -  border-left: 1px solid black;
+ -  border-right: 1px solid black;
+ -  background: blue;
+ -  top: 0;
+ -  padding: 0;
+ -  /*height: 100px;*/
+ -}
+
+ -#left, #right {
+ -/*  height: 200px;
+ -  width: 200px;
+ -  background: black;*/
+ -  top: 0;
+ -}
+ -  #left {
+ -    float: left;
+ -    padding-right: 25px;
+ -  }
+ -  #right {
+ -    float: right;
+ -    border-left: 1px solid gray;
+ -    padding-left: 25px;
+ -  }
+ -
+ -#sortable {
+ -  list-style-type: none;
+ -  margin-left: auto;
+ -  margin-right: auto;
+ -}
+
+ -#sortable li {
+ -  padding: 0;
+ -  margin: 0;
+ -  font-size: 1.2em;
+ -  width: 150px;
+ -  text-align: center;
+ +
+-
+-
+-
+-
+ +/*COURSES SHOW*/
+ +#option_box {
+ +
+  }
+
+ -/*delete when finished refactoring*/
+ -/*#all_completed_groups{
+ -  top: 0;
+ -  width:600px;
+ -  height: 100%;
+ -  margin-left:auto;
+ -  margin-right:auto;
+ -  border-left: 1px solid black;
+ -  padding: 25px;
+ -}*/
+ -
+ -#group table {
+ -/*may want to add some padding
+ -when done*/
+ +#option_box_container {
+ +  float: right;
+ +  padding: 10px;
+ +  background: gray;
+ +  border: 1px solid gray;
+  }
 
 
+ -.subheader {
+ -  text-align: center;
+ +#something {
+ +float: left;
+  }
 
-
-
-
-
-/*SORTABLE CSS*/
-
-
-#left_group_container, #right_group_container {
-/*  height: 200px;
-  width: 200px;
-  background: black;*/
-  top: 0;
-}
-#left_group_container {
-  float: left;
-  padding-right: 25px;
-}
-#right_group_container {
-  float: right;
-  border-left: 1px solid gray;
-  padding-left: 25px;
-}
-
-
-
-
-
-
-#sortable {
-  list-style-type: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#sortable li {
-  padding: 0;
-  margin: 0;
-  font-size: 1.2em;
-  width: 150px;
-  text-align: center;
-}
-
-/*delete when finished refactoring*/
-/*#all_completed_groups{
-  top: 0;
-  width:600px;
-  height: 100%;
-  margin-left:auto;
-  margin-right:auto;
-  border-left: 1px solid black;
-  padding: 25px;
-}*/
-
-#group table {
-/*may want to add some padding
-when done*/
-}
-
-
-.subheader {
-  text-align: center;
-}
-
-
-
-
-#asdf {
-  margin-bottom: 75px;
-}
-
-
-
-
-
-
-/*GENERAL CHANGES*/
-li {
-  display: inline;
-}
+ -#something_special {
+ -  vertical-align: top;
+ -}
+ +
+-
+-
+-
+-
+-
+-
+-
+-
+- /*SORTABLE CSS*/
+-
+-
+- #left_group_container, #right_group_container {
+- /*  height: 200px;
+-   width: 200px;
+-   background: black;*/
+-   top: 0;
+- }
+- #left_group_container {
+-   float: left;
+-   padding-right: 25px;
+- }
+- #right_group_container {
+-   float: right;
+-   border-left: 1px solid gray;
+-   padding-left: 25px;
+- }
+-
+-
+-
+-
+-
+-
+- #sortable {
+-   list-style-type: none;
+-   margin-left: auto;
+-   margin-right: auto;
+- }
+-
+- #sortable li {
+-   padding: 0;
+-   margin: 0;
+-   font-size: 1.2em;
+-   width: 150px;
+-   text-align: center;
+- }
+-
+- /*delete when finished refactoring*/
+- /*#all_completed_groups{
+-   top: 0;
+-   width:600px;
+-   height: 100%;
+-   margin-left:auto;
+-   margin-right:auto;
+-   border-left: 1px solid black;
+-   padding: 25px;
+- }*/
+-
+- #group table {
+- /*may want to add some padding
+- when done*/
+- }
+-
+-
+- .subheader {
+-   text-align: center;
+- }
+-
+-
+-
+-
+- #asdf {
+-   margin-bottom: 75px;
+- }
+-
+-
+-
+-
+-
+-
+- /*GENERAL CHANGES*/
+- li {
+-   display: inline;
+- }

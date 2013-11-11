@@ -1,4 +1,44 @@
+<div class="squeeze">
+<h1>The New Generation</h1>
 
+    <h3>Student Roster</h3>
+  <div id="student_roster">
+    <ul>
+      <%@students.each do |student|%>
+        <li><%=student.first_name%> <%= student.last_name %></li>
+      <%end%>
+    </ul>
+  </div>
+<!--
+  [@user,@course], url: groups_user_cours-path(@user, @course) -->
+
+  <div id="group_sizes">
+<!-- These need to go to group new_num_per_groups route -->
+
+    <%= form_for "group" , url: {action: "total_students_per_groups"} do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>
+      <%= f.label "Total # of students per group" %>
+      <%= f.text_field :total_students_per_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
+    <br><br><br>
+
+    <%= form_for "group" , url: {action: "total_num_of_groups"} do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>
+      <%= f.label "Total # of groups" %>
+      <%= f.text_field :total_num_of_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
+<!-- these need to go to group new_num_of_groups route -->
+  </div>
+
+</div>
 
 <div id="something">
 <table>
@@ -22,7 +62,7 @@
 
 </div>
 
-
+<!-- Mike's version -->
 
 
 
@@ -68,10 +108,4 @@
   </tr>
 </table>
 </div>
-
-
-
-
-
-
 

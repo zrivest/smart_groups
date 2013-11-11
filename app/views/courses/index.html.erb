@@ -9,10 +9,6 @@
 </table>
 
 
-
-
-
-
 <h3 class="subheader" style="text-align:left;">Current Courses</h3>
   <table id="asdf">
     <% @courses.reverse.each do |course| %>
@@ -24,5 +20,17 @@
       </tr>
     <% end %>
   </table>
+
+
+<table id="course_list">
+  <% @courses.reverse.each do |course| %>
+    <tr>
+      <td ><b><%= course.name %></b></td>
+      <td><a href="courses/<%=course.id%>" class="small button" id="opt_bttn">Group Generator</a></td>
+      <td><a href="#" class="small button" id="opt_bttn">Metics / Graphs</a></td>
+      <td><a href="courses/<%=course.id%>/edit" class="small button" id="opt_bttn">Edit Roster</a></td>
+    </tr>
+  <% end %>
+</table>
 
 
