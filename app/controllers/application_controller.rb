@@ -2,12 +2,12 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery
 
-  before_filter :session_expire
-  before_filter :update_activity_time
+  helper :all # does this work? i thought it was deprecated in rails 3.2.x
+
+  before_filter :session_expire, :update_activity_time
 
   def session_expire
-    session_time_left
-    unless @session_time_left > 0
+    unless session_time_left > 0
       session.clear
       flash[:notice] ='Your session has timed out. Please log back in.'
     end
@@ -21,9 +21,8 @@ class ApplicationController < ActionController::Base
 
   def session_time_left
     expire_time = session[:expires_at] || Time.now
-    @session_time_left = (expire_time - Time.now).to_i
+    return (expire_time - Time.now).to_i
   end
 
-helper :all
 end
 

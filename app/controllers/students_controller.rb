@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   def create
     course = Course.find(params[:users][:students][:course])
 
+    # break these lines up for better readability
     s = Student.create(first_name: params[:users][:students][:first_name], last_name: params[:users][:students][:last_name])
     a = Assignment.create(assignment_name: params[:users][:students][:assignment_name], start_date: params[:users][:students][:start_date], due_date: params[:users][:students][:due_date])
 

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     @user = User.authenticate_create(@email,@password)
 
+    # remove debugging code
     p "------------------------------------------"
     p @user
     p " THIS IS THE SIGNUP SECTION"
