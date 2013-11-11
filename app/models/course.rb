@@ -98,6 +98,5 @@ class Course < ActiveRecord::Base
       end
       groups
     end
-  end
 end
 
