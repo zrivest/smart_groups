@@ -25,7 +25,7 @@ class MetricsController < ApplicationController
       @completed_assignments.each do |student_assignment|
         grades = student_assignment.student.get_grades
         @full_name = student_assignment.student.name
-        @graph << Plot.create(data: grades)
+        @graph.plots << Plot.create(data: grades)
         f.series(name: student_assignment.student.name, data: grades)
       end
     end
