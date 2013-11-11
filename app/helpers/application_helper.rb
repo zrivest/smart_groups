@@ -13,9 +13,8 @@ module ApplicationHelper
   def current_course
     if session[:logged_in]
       @current_course || Course.find(session[:course_id])
-    else
-      nil
     end
+    nil
   end
 
   def destroy_session
@@ -53,4 +52,16 @@ module ApplicationHelper
       @login_error = "You have been logged out."
     end
   end
+
+
+  # def current_students_from_course(course_id)
+  #   students = Course.find(course_id).students
+  #   students.uniq{ |student| student.id }
+  # end
+
+
+
+
+
+
 end
