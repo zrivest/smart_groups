@@ -14,7 +14,7 @@ end
 100.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  Student.create(first_name: first_name, last_name: last_name, course_id: [1,2,3].sample)
+  Student.create(first_name: first_name, last_name: last_name)
 end
 
 User.create(email: "rskelley9@gmail.com", password: "password")
