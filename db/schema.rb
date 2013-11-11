@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "graph_serieses", :force => true do |t|
-    t.integer  "series_id"
+  create_table "graph_plots", :force => true do |t|
+    t.integer  "plot_id"
     t.integer  "graph_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -56,14 +56,14 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pods", :force => true do |t|
-    t.integer  "group_id"
+  create_table "plots", :force => true do |t|
+    t.integer  "data"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "serieses", :force => true do |t|
-    t.integer  "data"
+  create_table "pods", :force => true do |t|
+    t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

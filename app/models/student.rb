@@ -12,4 +12,8 @@ class Student < ActiveRecord::Base
     return @grades
   end
 
+  def name
+    "#{self.first_name}" + " #{self.last_name}"
+  end
+
 end
