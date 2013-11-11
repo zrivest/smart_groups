@@ -1,6 +1,6 @@
 class UserCoursesController < ApplicationController
 
-def index
+  def index
     # if authenticated?
       @courses = User.find(current_user.id).courses
       render :index
@@ -8,8 +8,8 @@ def index
     #   @login_error = "Please login."
     #   redirect_to root_path
     # end
-
   end
+
   def new
     @course = Course.new
   end
@@ -24,7 +24,6 @@ def index
     @course = Course.find(params[:id])
     @all_students = @course.all_students
     @completed_assignments = @course.all_completed_assignments_for_course
-       binding.pry
   end
 
 end

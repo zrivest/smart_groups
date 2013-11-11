@@ -26,7 +26,7 @@
         <%= student_assignment.assignment.due_date %>
       </td>
       <td>
-        <%= student_assignment.grade %>
+        <a href=""><%= student_assignment.grade %></a>
       </td>
       <td>
         <%= link_to("Delete", "/users/#{params[:user_id]}/students/#{student_assignment.id}", :method => :delete, :confirm => "Are you sure?")%>
