@@ -1,12 +1,11 @@
 class MetricsController < ApplicationController
 
   def main
-
     @course = Course.find(params[:course_id])
+
 
     session[:course_id] = @course.id
 
-    @enrolled_students = Course.find(session[:course_id]).students
 
     @chart_types = [{id: 1, type: "column"}, {id: 2, type: "combo"}, {id: 3, type: "basic line"}]
 
@@ -17,6 +16,7 @@ class MetricsController < ApplicationController
     p params
 
     @graph = Graph.create(course_id: session[:course_id])
+    @enrolled_students = Course.find(session[:course_id]).students
 
     @chart = LazyHighCharts::HighChart.new('column') do |f|
       @enrolled_students.each do |student|
@@ -27,6 +27,6 @@ class MetricsController < ApplicationController
         f.plot_options({:column=>{:stacking=>"percent"}})
       end
     end
-    redirect_to root_path
+    render :show
   end
 end
