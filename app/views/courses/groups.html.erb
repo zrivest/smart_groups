@@ -1,27 +1,49 @@
-Here you see our groups
-<body>
-<ul> Students : <% @students.each do |student|%> 
-  <li>
-    <%= student.first_name %>
-    <%= student.last_name %>
-    <%= student.average %>
-  </li>
-  <% end %>
-</ul>
+<br>
 
+<div id="app_container">
+<div id="left">
+  <table id="group">
+    <tr>
+      <td>
+        <h4 class="subheader"><%= "Group Overflow"%></h4>
+        <ul id="sortable" class="droptrue">
+          <li class="ui-state-default"></li> <!-- remove h4 tag, its currently draggable -->
+          <% @students.each do |student|%>
+            <li class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div><!--left END-->
 
-<div id="all_groups">
-  
-  <h2>Groups</h2>
-    <% @groups.each do |group| %> 
-  <ul id="each_group">
-        <% group.each do |student|%>
-      <li>
-          <%= student.first_name %>
-          <%= student.average %>
-      </li>    
+  <div id="right">
+    <ul class="small-block-grid-3">
+      <% @groups.each_with_index do |group, index| %>
+        <li>
+          <table id="group">
+            <tr>
+              <td>
+                <h4 class="subheader"><%= "Group #{index+1}" %></h4>
+                <ul id="sortable" class="droptrue">
+                  <li class="ui-state-default"></li> <!-- remove h4 tag, its currently draggable -->
+                  <% group.each do |student|%>
+                    <li class="ui-state-default"><%= student.first_name %></li>
+                  <% end %>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </li>
+
+        <!-- conditional to add special row to keep tables from moving -->
+        <% if index%3 == 0 %>
+          <hr>
         <% end %>
-  </ul>
-    <% end %>
-</div>
-</body>
+
+      <% end %>
+    </ul>
+  </div><!--right END-->
+
+
+</div><!--app_container END-->

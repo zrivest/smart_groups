@@ -15,7 +15,7 @@
     <!-- HREF TO GROUPS MAKE INSTEAD -->
       <td><%= link_to("Group Generator", new_course_group_path(course), class: "small button", id: "opt_bttn") %></td>
       <td><%= link_to("Metics / Graphs", "#", class: "small button", id: "opt_bttn") %></td>
-      <td><%= link_to("Edit Roster", "#", class: "small button", id: "opt_bttn") %></td>
+      <td><%= link_to("Edit Roster", edit_course_group_path(course), class: "small button", id: "opt_bttn") %></td>
     </tr>
   <% end %>
 </table>

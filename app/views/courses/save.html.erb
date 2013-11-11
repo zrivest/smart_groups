@@ -1,0 +1,69 @@
+
+
+
+
+<table>
+  <tr>
+    <td>Here you see our groups
+      <ul>
+        Students : <% @students.each do |student|%>
+          <li>
+            <%= student.first_name %>
+            <%= student.last_name %>
+          </li>
+        <% end %>
+      </ul>
+    </td>
+
+  <td>
+
+
+
+
+
+  <% @counter = 1 %>
+  <div id="all_completed_groups">
+    <ul class="small-block-grid-3">
+      <% @groups.each_with_index do |group, index| %>
+        <li>
+          <table id="tbl_group">
+            <tr>
+              <td><h3 class="subheader"><%= "Group #{index+1}" %></h3></td>
+            </tr>
+            <tr>
+              <td>
+                <ul id="sortable" class="droptrue">
+                  <% group.each do |student|%>
+                    <li class="ui-state-default"><%= student.first_name %></li>
+                  <% end %>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </li>
+
+    <% @counter += 1 %>
+    <% if @counter%3 == 0 %>
+      <hr>
+      <br>
+    <% end %>
+
+      <% end %>
+    </ul>
+  </div>
+
+
+
+
+
+
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+

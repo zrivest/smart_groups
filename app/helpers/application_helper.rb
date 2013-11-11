@@ -1,7 +1,5 @@
 module ApplicationHelper
 
-
-
   def current_user
     if session[:logged_in]
       @current_user || User.find(session[:user_id])
