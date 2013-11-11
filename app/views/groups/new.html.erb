@@ -9,61 +9,6 @@
       <%end%>
     </ul>
   </div>
-<!--
-  [@user,@course], url: groups_user_cours-path(@user, @course) -->
-
-  <div id="group_sizes">
-<!-- These need to go to group new_num_per_groups route -->
-
-    <%= form_for "group" , url: {action: "total_students_per_groups"} do |f| %>
-      <%= f.label "random" %>
-      <%= f.check_box :random  %>
-      <%= f.label "even_grade_distribution" %>
-      <%= f.check_box :even_grade_distribution%>
-      <%= f.label "Total # of students per group" %>
-      <%= f.text_field :total_students_per_groups %>
-      <%= f.submit "Generate" %>
-    <% end %>
-    <br><br><br>
-
-    <%= form_for "group" , url: {action: "total_num_of_groups"} do |f| %>
-      <%= f.label "random" %>
-      <%= f.check_box :random  %>
-      <%= f.label "even_grade_distribution" %>
-      <%= f.check_box :even_grade_distribution%>
-      <%= f.label "Total # of groups" %>
-      <%= f.text_field :total_num_of_groups %>
-      <%= f.submit "Generate" %>
-    <% end %>
-<!-- these need to go to group new_num_of_groups route -->
-  </div>
-
-</div>
-
-<div id="something">
-<table>
-<tr>
-  <td>
-    <h4 class="subheader">Course Roster</h4>
-    <hr>
-  </td>
-</tr>
-
-  <tr>
-    <td>
-      <ul>
-        <%@students.each do |student|%>
-          <li><%=student.first_name%> <%= student.last_name %></li>
-        <%end%>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-</div>
-
-<!-- Mike's version -->
-
 
 
 <div id="option_box_container">
@@ -74,15 +19,15 @@
        <h4 class="subheader"><%= "Options 1" %></h4>
        <hr>
       <div id="option_box">
-        <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
-          <%= f.label "random" %>
-          <%= f.check_box :random  %>
-          <%= f.label "even_grade_distribution" %>
-          <%= f.check_box :even_grade_distribution%>
-          <%= f.label "# students/group"%>
-          <%= f.text_field :num_per_group %>
-          <%= f.submit "Generate" %>
-        <% end %>
+    <%= form_for "group" , url: {action: "total_students_per_groups"} do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>
+      <%= f.label "Total # of students per group" %>
+      <%= f.text_field :total_students_per_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
       </div>
     </td>
   </tr>
@@ -94,15 +39,15 @@
       <h4 class="subheader"><%= "Options 2"%></h4>
       <hr>
       <div id="option_box">
-  <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
-    <%= f.label "random" %>
-    <%= f.check_box :random  %>
-    <%= f.label "even_grade_distribution" %>
-    <%= f.check_box :even_grade_distribution%>
-    <%= f.label "# of Group"%>
-    <%= f.text_field :num_of_groups %>
-    <%= f.submit "Generate" %>
-        <% end %>
+<%= form_for "group" , url: {action: "total_num_of_groups"} do |f| %>
+      <%= f.label "random" %>
+      <%= f.check_box :random  %>
+      <%= f.label "even_grade_distribution" %>
+      <%= f.check_box :even_grade_distribution%>
+      <%= f.label "Total # of groups" %>
+      <%= f.text_field :total_num_of_groups %>
+      <%= f.submit "Generate" %>
+    <% end %>
       </div>
     </td>
   </tr>
