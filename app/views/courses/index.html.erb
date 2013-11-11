@@ -1,20 +1,36 @@
-<h1>Welcome to SmartGroup!</h1>
+<h2>Welcome to SmartGroup!</h2><br><br><br>
 
-<h2 class="subheader">Add A Course</h2>
+<h3 class="subheader" style="text-align:left;">Add A Course</h3>
+<table id="asdf">
+  <tr>
+    <td><%= link_to("Upload Class", parser_path, class: "small button", id: "opt_bttn") %></td>
+    <td><%= link_to("Enter Class", new_user_course_path, class: "small button", id: "opt_bttn") %></td>
+  </tr>
+</table>
 
-  <%= link_to("Upload Class", parser_path, class: "button success") %>
 
-  <%= link_to("Enter Class", new_user_course_path, class: "button success") %>
-<h2 class="subheader">Current Courses</h2>
+<h3 class="subheader" style="text-align:left;">Current Courses</h3>
+  <table id="asdf">
+    <% @courses.reverse.each do |course| %>
+      <tr>
+        <td><li><%= course.name %></li></td>
+        <td><li><%= link_to("Group Generator", "asdf", class: "small button", id: "opt_bttn") %></li></td>
+        <td><li><%= link_to("Metics/Graphs", "asdf", class: "small button", id: "opt_bttn") %></li></td>
+        <td><li><%= link_to("Edit Roster", "asdf", class: "small button", id: "opt_bttn") %></li></td>
+      </tr>
+    <% end %>
+  </table>
+
 
 <table id="course_list">
   <% @courses.reverse.each do |course| %>
     <tr>
       <td ><b><%= course.name %></b></td>
       <td><a href="courses/<%=course.id%>" class="small button" id="opt_bttn">Group Generator</a></td>
-      <td><a href="courses/<%=course.id%>/metrics/new" class="small button" id="opt_bttn">Metics / Graphs</a></td>
-      <td><a href="#" class="small button" id="opt_bttn">Edit Roster</a></td>
+      <td><a href="#" class="small button" id="opt_bttn">Metics / Graphs</a></td>
+      <td><a href="courses/<%=course.id%>/edit" class="small button" id="opt_bttn">Edit Roster</a></td>
     </tr>
   <% end %>
 </table>
+
 
