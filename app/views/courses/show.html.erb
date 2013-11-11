@@ -1,43 +1,77 @@
-<body>
-<div class="squeeze">
-<h1>The New Generation</h1>
-
-    <h3>Student Roster</h3>
-  <div id="student_roster">
-    <ul>
-
-      <%@students.each do |student|%>
-        <li><%=student.first_name%> <%= student.last_name %></li>
-      <%end%>
-
-    </ul>
-  </div>
-
-  <div id="group_sizes">
-    <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
-      <%= f.label "random" %>
-      <%= f.check_box :random  %>
-      <%= f.label "even_grade_distribution" %>
-      <%= f.check_box :even_grade_distribution%>
-      <%= f.label "# students/group"%>
-      <%= f.text_field :num_per_group %>
-      <%= f.submit "Generate" %>
-    <% end %>
-    <br><br><br>
-
-    <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
-      <%= f.label "random" %>
-      <%= f.check_box :random  %>
-      <%= f.label "even_grade_distribution" %>
-      <%= f.check_box :even_grade_distribution%>      
-      <%= f.label "# of Group"%>
-      <%= f.text_field :num_of_groups %>
-      <%= f.submit "Generate" %>
-    <% end %>
 
 
+<div id="something">
+<table>
+<tr>
+  <td>
+    <h4 class="subheader">Course Roster</h4>
+    <hr>
+  </td>
+</tr>
 
+  <tr>
+    <td>
+      <ul>
+        <%@students.each do |student|%>
+          <li><%=student.first_name%> <%= student.last_name %></li>
+        <%end%>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-  </div>
 </div>
-</body>
+
+
+
+
+
+<div id="option_box_container">
+
+<table>
+  <tr>
+    <td>
+       <h4 class="subheader"><%= "Options 1" %></h4>
+       <hr>
+      <div id="option_box">
+        <%= form_for [@user, @course], url: groups_user_course_path(@user, @course) do |f| %>
+          <%= f.label "random" %>
+          <%= f.check_box :random  %>
+          <%= f.label "even_grade_distribution" %>
+          <%= f.check_box :even_grade_distribution%>
+          <%= f.label "# students/group"%>
+          <%= f.text_field :num_per_group %>
+          <%= f.submit "Generate" %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>
+      <h4 class="subheader"><%= "Options 2"%></h4>
+      <hr>
+      <div id="option_box">
+  <%= form_for [@user, @course], url: num_groups_user_course_path(@user, @course) do |f| %>
+    <%= f.label "random" %>
+    <%= f.check_box :random  %>
+    <%= f.label "even_grade_distribution" %>
+    <%= f.check_box :even_grade_distribution%>
+    <%= f.label "# of Group"%>
+    <%= f.text_field :num_of_groups %>
+    <%= f.submit "Generate" %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+

@@ -4,11 +4,7 @@
   margin-right: 15px;
 }
 
-#cvs_upload, #course_list{
-  width: 540px;
-  margin-left: 50px;
-  margin-top: 25px;
-}
+
 
 .squeeze{
   margin-right: 5%;
@@ -61,11 +57,22 @@ list-style-type: none;
 
 
 
+/*COURSES SHOW*/
+#option_box {
+
+}
+
+#option_box_container {
+  float: right;
+  padding: 10px;
+  background: gray;
+  border: 1px solid gray;
+}
 
 
-
-
-
+#something {
+float: left;
+}
 
 
 
@@ -77,41 +84,23 @@ list-style-type: none;
 
 
 /*SORTABLE CSS*/
-#app_container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 787px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  background: blue;
-  top: 0;
-  padding: 0;
-  /*height: 100px;*/
-}
 
-#left, #right {
+
+#left_group_container, #right_group_container {
 /*  height: 200px;
   width: 200px;
   background: black;*/
   top: 0;
 }
-  #left {
-    float: left;
-    padding-right: 25px;
-  }
-  #right {
-    float: right;
-    border-left: 1px solid gray;
-    padding-left: 25px;
-  }
-
-
-
-
-
-
-
-
+#left_group_container {
+  float: left;
+  padding-right: 25px;
+}
+#right_group_container {
+  float: right;
+  border-left: 1px solid gray;
+  padding-left: 25px;
+}
 
 
 
@@ -153,6 +142,19 @@ when done*/
   text-align: center;
 }
 
-#something_special {
-  vertical-align: top;
+
+
+
+#asdf {
+  margin-bottom: 75px;
+}
+
+
+
+
+
+
+/*GENERAL CHANGES*/
+li {
+  display: inline;
 }

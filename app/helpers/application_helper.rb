@@ -31,7 +31,6 @@ module ApplicationHelper
     end
   end
 
-
   def authenticated?
     !current_user.nil?
   end
