@@ -5,11 +5,12 @@ class GroupsController < ApplicationController
       students = Course.find(params[:course_id]).all_students
       @students = students.uniq{ |student| student.id }
       @course = Course.find(params[:course_id])
-      session[:course_id] = @course.id
+      session[:course_id] = @course.id # didnt we discuss this last week? using a session for this purpose isnt really kosher. use a hiddent input in the form that you populate
       @user = current_user.id
-      p ')))))))))))))))))))))))))))))))))))))))))))))))))))))))))'
-p params
-p @students
+      p ')))))))))))))))))))))))))))))))))))))))))))))))))))))))))' # !!!!!!!!!!!!!!!!! DO NOT MERGE DEBUGGING CODE LIKE THIS INTO MASTER
+p params # !!!!!!!!!!!!!!!!! DO NOT MERGE DEBUGGING CODE LIKE THIS INTO MASTER
+p @students # !!!!!!!!!!!!!!!!! DO NOT MERGE DEBUGGING CODE LIKE THIS INTO MASTER
+    # !!!!!!!!!!!!!!!!! DO NOT MERGE COMMENTED CODE INTO MASTER
     # else
       # @login_error = "Please login."
       # redirect_to root_path
@@ -21,7 +22,7 @@ p @students
     @students = students.uniq{ |student| student.id }
     num_students = @students.length
     students_per_group = params[:group][:total_students_per_groups].to_i
-    
+
     if params[:group][:random].to_i == 1
       Group.random(@students)
       @groups = Group.total_students_groups(num_students, students_per_group, @students)
@@ -41,7 +42,7 @@ p @students
   end
 
   def total_num_of_groups
-    # binding.pry
+    # binding.pry # !!!!!!!!!!!!!!!!! DO NOT MERGE DEBUGGING CODE LIKE THIS INTO MASTER
     students = Course.find(params[:course_id]).students
     @students = students.uniq{ |student| student.id }
     num_students = @students.length
@@ -54,7 +55,7 @@ p @students
     if params[:group][:even_grade_distribution].to_i == 1
       Group.average(@students)
       p num_students
-      p num_groups
+      p num_groups # !!!!!!!!!!!!!!!!! DO NOT MERGE DEBUGGING CODE LIKE THIS INTO MASTER
       p @students
       @groups = Group.total_num_even_groups(num_students, num_groups, @students)
     end

@@ -1,6 +1,7 @@
 class UserCoursesController < ApplicationController
 
 def index
+  # do not merge commented code to master
     # if authenticated?
       @courses = User.find(current_user.id).courses
       render :index
@@ -10,6 +11,7 @@ def index
     # end
 
   end
+
   def new
     @course = Course.new
   end

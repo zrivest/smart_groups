@@ -10,6 +10,7 @@ def login
       @user = user.authenticate(user_password)
     end
 
+    # remove deubbing code
     p "-=---------------------------"
     p @user
 
