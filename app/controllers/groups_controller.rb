@@ -1,20 +1,23 @@
 class GroupsController < ApplicationController
 
   def new
-    if authenticated?
-      students = Course.find(params[:course_id]).students
+    # if authenticated?
+      students = Course.find(params[:course_id]).all_students
       @students = students.uniq{ |student| student.id }
       @course = Course.find(params[:course_id])
       session[:course_id] = @course.id
       @user = current_user.id
-    else
-      @login_error = "Please login."
-      redirect_to root_path
-    end
+      p ')))))))))))))))))))))))))))))))))))))))))))))))))))))))))'
+p params
+p @students
+    # else
+      # @login_error = "Please login."
+      # redirect_to root_path
+    # end
   end
 
   def total_students_per_groups
-    students = Course.find(params[:course_id]).students
+    students = Course.find(params[:course_id]).all_students
     @students = students.uniq{ |student| student.id }
     num_students = @students.length
     students_per_group = params[:group][:total_students_per_groups].to_i
