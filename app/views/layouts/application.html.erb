@@ -143,10 +143,17 @@
 
             <!-- LOGOUT -->
             <li class="divider hide-for-small"></li>
-            <li class="has-dropdown"><%= link_to(current_user.email, "#") %>
+            <% if session[:user_id] %>
+              <li class="has-dropdown"><%= link_to(current_user.email) %>
+            <% else %>
+              <%=  %>
+              <% end %>
+
+
+
               <ul class="dropdown">
                 <!-- <li><label>asdf</label></li> -->
-                <li> <%= link_to("Logout", "#") %> </li>
+                <li> <%= link_to("Logout", logout_path) %> </li>
               </ul>
             </li>
 

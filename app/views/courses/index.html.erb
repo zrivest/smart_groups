@@ -14,7 +14,7 @@
     <% @courses.reverse.each do |course| %>
       <tr>
         <td><li><%= course.name %></li></td>
-        <td><li><%= link_to("Group Generator", "asdf", class: "small button", id: "opt_bttn") %></li></td>
+        <td><li><%= link_to("Group Generator", new_course_group(@course), class: "small button", id: "opt_bttn") %></li></td>
         <td><li><%= link_to("Metics/Graphs", "asdf", class: "small button", id: "opt_bttn") %></li></td>
         <td><li><%= link_to("Edit Roster", "asdf", class: "small button", id: "opt_bttn") %></li></td>
       </tr>
@@ -23,6 +23,10 @@
 
 
 <table id="course_list">
+
+  if @courses
+
+
   <% @courses.reverse.each do |course| %>
     <tr>
       <td ><b><%= course.name %></b></td>
@@ -30,6 +34,8 @@
       <td><a href="#" class="small button" id="opt_bttn">Metics / Graphs</a></td>
       <td><a href="courses/<%=course.id%>/edit" class="small button" id="opt_bttn">Edit Roster</a></td>
     </tr>
+
+
   <% end %>
 </table>
 
