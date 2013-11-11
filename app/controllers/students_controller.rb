@@ -3,7 +3,6 @@ class StudentsController < ApplicationController
     @course = Course.find(params[:course_id].to_i)
   end
 
-
   def create
     course = Course.find(params[:users][:students][:course])
 

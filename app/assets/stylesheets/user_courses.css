@@ -26,7 +26,10 @@ width: 20%;
 #each_group li{
 border: thin solid #878787;
 list-style-type: none;
+
 }
+
+
 
 #student_roster {
   border: 2px solid black;
@@ -50,6 +53,7 @@ list-style-type: none;
 .checkboxes{
   float: right;
 }
+
 
 /*SORTABLE CSS*/
 #app_container {
@@ -79,6 +83,7 @@ list-style-type: none;
     border-left: 1px solid gray;
     padding-left: 25px;
   }
+
 
 #sortable {
   list-style-type: none;
