@@ -23,7 +23,7 @@ class Course < ActiveRecord::Base
       average = sum/(assignments.length)
       student.update_attributes!(average: average)
     end  
-     students = students.sort_by(&:average)
+     students = students.sort_by!(&:average)
   end
 
   def self.total_num_groups(num_students, num_groups, students)
