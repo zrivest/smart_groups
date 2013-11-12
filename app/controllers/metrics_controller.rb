@@ -75,7 +75,7 @@ class MetricsController < ApplicationController
       @student_name = @student.name
       @student_average = Array.new
       @axis_labels = Array.new
-      @course_average = get_average(@course.get_student_grades)
+      @course_average = @course.get_student_grades
       @student_grade_array = @student.student_assignments.map{|student_assignment| student_assignment.grade}
       @hash_student = Hash.new
       @hash_student[@student_name] = @student_grade_array
@@ -93,8 +93,8 @@ class MetricsController < ApplicationController
       @hash_student.each do |k,v|
         f.series(:type=> "spline",:name=> "#{k}", :data=> v)
       end
-      f.series(:type=> "column",:name=> "Score Average", :data=> @student_average)
-      f.series(:type=> "column",:name=> "#{@course.name} Average", :data=> @course_average)
+      f.series(:type=> "spline",:name=> "Score Average", :data=> @student_average)
+      f.series(:type=> "line",:name=> "#{@course.name}", :data=> @course_average)
 
       f.options[:xAxis][:categories] = @axis_labels
       f.options[:legend][:layout] = "horizontal"
