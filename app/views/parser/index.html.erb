@@ -1,13 +1,28 @@
-<h1>Select your File to Import</h1>
+<h2>Select your File to Import</h2>
 
 
-<h2>Import A Class!</h2>
+<h3 class="subheader" style="text-align:left;">Import a Course</h3>
 
 
 
-<%= form_tag parser_path, multipart: true do %>
-  <%= label_tag("course_title", "Course Title: ")%>
-  <%= text_field_tag("course_title") %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import", class: "small button" %>
+
+
+
+
+
+<table>
+  <%= form_tag parser_path, multipart: true do %>
+  <tr>
+    <td><%= label_tag("course_title", "Course Title: ")%></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag("course_title") %></td>
+  </tr>
+  <tr>
+    <td><%= file_field_tag :file %></td>
+  </tr>
+  <tr>
+    <td><%= submit_tag "Import", class: "small button" %></td>
+  </tr>
 <% end %>
+</table>

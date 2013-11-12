@@ -12,14 +12,17 @@ gem 'pg'
 
 gem 'rails-pry'
 gem 'pry'
-gem 'pry-nav'
+# gem 'pry-nav'
 
 gem "smarter_csv"
 
 
-group :development do
+group :development, :test do
   gem 'better_errors'
   gem "binding_of_caller"
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
@@ -38,6 +41,8 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+gem 'lazy_high_charts'
 
 gem 'ish'
 

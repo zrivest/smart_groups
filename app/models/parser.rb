@@ -4,10 +4,10 @@ class Parser < ActiveRecord::Base
   def self.import(file, course, user)
     SmarterCSV.process(file.path, :headers => true, :header_converters => :symbol).each do |row|
 
-      a = Assignment.create( start_date: row[:start_date],
-                          due_date: row[:due_date],
-                          assignment_name: row[:assignment_name],
-                          course_id: course.id )
+      a = Assignment.create(start_date: row[:start_date],
+                            due_date: row[:due_date],
+                            assignment_name: row[:assignment_name],
+                            course_id: course.id )
 
       s = Student.where(first_name: row[:first_name], last_name: row[:last_name]).first_or_create()
 

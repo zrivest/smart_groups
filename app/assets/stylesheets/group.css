@@ -4,17 +4,10 @@
   margin-right: 15px;
 }
 
-#cvs_upload, #course_list{
-  width: 540px;
-  margin-left: 50px;
-  margin-top: 25px;
-}
-
 .squeeze{
   margin-right: 5%;
   margin-left: 5%;
 }
-
 
 #each_group {
 display: inline-block;
@@ -84,37 +77,4 @@ list-style-type: none;
   list-style-type: none;
   margin-left: auto;
   margin-right: auto;
-}
 
-#sortable li {
-  padding: 0;
-  margin: 0;
-  font-size: 1.2em;
-  width: 150px;
-  text-align: center;
-}
-
-/*delete when finished refactoring*/
-/*#all_completed_groups{
-  top: 0;
-  width:600px;
-  height: 100%;
-  margin-left:auto;
-  margin-right:auto;
-  border-left: 1px solid black;
-  padding: 25px;
-}*/
-
-#group table {
-/*may want to add some padding
-when done*/
-}
-
-
-.subheader {
-  text-align: center;
-}
-
-#something_special {
-  vertical-align: top;
-}

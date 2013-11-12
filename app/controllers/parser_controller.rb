@@ -2,7 +2,6 @@ class ParserController < ApplicationController
   require 'smarter_csv'
 
   def index
-
   end
 
   def import
