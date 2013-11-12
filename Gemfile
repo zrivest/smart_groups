@@ -12,7 +12,7 @@ gem 'pg'
 
 gem 'rails-pry'
 gem 'pry'
-gem 'pry-nav'
+# gem 'pry-nav'
 
 gem "smarter_csv"
 
@@ -38,6 +38,8 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+gem 'lazy_high_charts'
 
 gem 'ish'
 

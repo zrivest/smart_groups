@@ -8,17 +8,20 @@ SmartGroups::Application.routes.draw do
 
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
-
+  resources :metrics
+  resources :user_sessions
+  get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
+  post "/metrics", to: 'metrics#create'
 
   resources :users do
     resources :students
   end
-  
+
   post '/courses/:course_id/groups/total_students_per_groups' => "groups#total_students_per_groups"
   post '/courses/:course_id/groups/total_num_of_groups' => "groups#total_num_of_groups"
 
   resources :courses do
-    resources :groups 
+    resources :groups
 
   end
 
