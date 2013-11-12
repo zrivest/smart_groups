@@ -1,3 +1,19 @@
+ @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title({ :text=>@course.name})
+      f.series(:type=> "column",:name=> "Test",:data=> [1,5,9,10,3,5])
+      f.options[:xAxis][:categories] = ["Mary","Peter","Paul","Steve"]
+       # f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
+      # p @categories
+    end
+    render :show
+  end
+
+
+
+
+
+___________
+
 @categories = Array.new
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=>@course.name})

@@ -12,7 +12,7 @@ gem 'pg'
 
 gem 'rails-pry'
 gem 'pry'
-gem 'pry-nav'
+# gem 'pry-nav'
 
 gem "smarter_csv"
 
