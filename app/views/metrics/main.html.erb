@@ -14,9 +14,11 @@
 </ul>
 
 <div style="font-weight: bold;">View Individual Student</div>
+  <ul>
   <%  @course.students.each do |student| %>
 
   <li>
     <%= link_to(student.name, student_profile_path(student.id)) -%>
   </li>
   <% end %>
+</ul>
