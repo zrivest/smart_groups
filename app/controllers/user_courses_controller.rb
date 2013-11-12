@@ -24,6 +24,14 @@ class UserCoursesController < ApplicationController
     @course = Course.find(params[:id])
     @all_students = @course.all_students
     @completed_assignments = @course.all_completed_assignments_for_course
+
+  end
+
+  def update
+    @sa = StudentAssignment.find(params[:student_assignment][:id])
+    @course_id = Assignment.find(@sa.assignment_id).course_id
+    @sa.update_attribute(:grade, params[:student_assignment][:grade])
+    redirect_to ("/users/#{params[:user_id]}/user_courses/#{params[:id]}/edit")
   end
 
 end

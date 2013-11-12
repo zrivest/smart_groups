@@ -13,17 +13,17 @@ SmartGroups::Application.routes.draw do
   resources :users do
     resources :students
   end
-  
+
   post '/courses/:course_id/groups/total_students_per_groups' => "groups#total_students_per_groups"
   post '/courses/:course_id/groups/total_num_of_groups' => "groups#total_num_of_groups"
 
   resources :courses do
-    resources :groups 
+    resources :groups
 
   end
 
   resources :users do
-    resources :courses, only: [:index, :new, :create] , controller: "user_courses"
+    resources :courses, only: [:index, :new, :create, :update] , controller: "user_courses"
    end
 
   post '/login' => 'user_sessions#login'
@@ -31,5 +31,5 @@ SmartGroups::Application.routes.draw do
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
   get "/users/:user_id/user_courses/:id/edit" => "user_courses#edit", :as => :edit
-
+  put "/users/:user_id/user_courses/:id/edit" => "user_courses#update", :as => :update
 end

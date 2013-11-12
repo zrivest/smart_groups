@@ -6,7 +6,7 @@
     <th>Due Date:</th>
     <th>Assignment Grade:</th>
     <th>Grade:</th>
-    <th>Delete Student</th>
+    <th>Delete Assignment</th>
   </tr>
   <% @completed_assignments.each do |student_assignment| %>
     <tr>
@@ -26,7 +26,11 @@
         <%= student_assignment.assignment.due_date %>
       </td>
       <td>
-        <a href=""><%= student_assignment.grade %></a>
+        <%= form_for :student_assignment, :method => 'put' do |f| %>
+          <%= f.text_field :grade, {value: student_assignment.grade} %>
+          <%= f.hidden_field :id, {value: student_assignment.id} %>
+          <%= f.submit :confirm => "Are you sure?" %>
+        <% end %>
       </td>
       <td>
         <%= link_to("Delete", "/users/#{params[:user_id]}/students/#{student_assignment.id}", :method => :delete, :confirm => "Are you sure?")%>
