@@ -9,7 +9,7 @@ class Course < ActiveRecord::Base
   has_many :students, through: :enrollments
   has_many :groups
   has_many :pods, through: :groups
-  # has_many :students, through: :pods
+  has_many :student_assignments, through: :pods
 
   def all_students
     students = self.enrollments.map do |enrollment|
@@ -28,6 +28,16 @@ class Course < ActiveRecord::Base
     completed_assignments
   end
 
+
+  def class_avg_by_assignment_name
+    @grades_hash = {}
+    self.students.each do |student|
+      student.student_assignments.each do |student_assignment|
+        @grades_hash[student_assignment.assignment.assignment_name] = student_assignment.student.get_grades
+      end
+    end
+    @grades_hash
+  end
 
   def unique_students
     students = self.all_students.uniq{ |student| student.id }
@@ -65,12 +75,10 @@ class Course < ActiveRecord::Base
     @array
   end
 
-  def grade_series
+  def get_student_grades
    @grades = []
-   self.assignments.each do |assignment|
-    assignment.student_assignments.each do |student_assignment|
-      @grades << student_assignment.student.get_grades.flatten
-    end
+   self.students.each do |student|
+    student.student_assignments.each {|sa| @grades << sa.grade}
   end
   @grades
   end
