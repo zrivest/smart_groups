@@ -17,16 +17,20 @@ class Group < ActiveRecord::Base
     students.each do |student|
       assignments = []
       StudentAssignment.where(student_id: student.id).each do |assignment|
+        0 if assignment.grade == nil
         assignments << assignment.grade
       end
       sum = 0
-      assignments.each{|n| sum += n}
-      average = sum/(assignments.length)
-      student.update_attributes!(average: average)
-    end  
+      if assignments.length > 0
+        assignments.each{|n| sum += n}
+        average = sum/(assignments.length)
+        student.update_attributes!(average: average)
+      else 
+        return 0
+      end
+    end    
      students = students.sort_by!(&:average)
   end
-
 
   def self.total_num_groups(num_students, num_groups, students)
     students_per_group = num_students/num_groups
