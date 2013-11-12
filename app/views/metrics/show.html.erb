@@ -1,19 +1,8 @@
 <h3>Student Assignment Scores (Assignment vs Score by Student)</h3>
 
-<%= high_chart("div_id", @chart) %>
 
 
-
-
-
-
-
-
-
-
-
-
-
+<%= high_chart("chart_div", @chart) %>
 
 
 
@@ -30,7 +19,21 @@
 
 <h3>Student Assignment Scores (Assignment vs Score by Student) </h3>
 
-<%= high_chart("my_bar_div", @chart_area) %>
+
+
+<%= high_chart("area_div", @chart_area) %>
+
+
+
+
+
+
+
+<h3>Class Average Scores (Completion Date vs Average Scores of Assignment) </h3>
+
+
+
+<%= high_chart("chart_range_div", @chart_range) %>
 
 
 
