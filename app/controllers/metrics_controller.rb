@@ -3,12 +3,12 @@ class MetricsController < ApplicationController
   def main
     @course = Course.find(params[:course_id])
     session[:course_id] = @course.id
-    @chart_types = [{id: 1, type: "column"}, {id: 2, type: "combo"}, {id: 3, type: "basic line"}]
-
+    @chart_types = [{id: 1, type: "Each Student's Assignment Scores by Assignment"}, {id: 2, type: "Individual Student Performance by Assignment Due Date"}, {id: 3, type: "Class Average Assignment Scores by Due Date"}]
   end
 
   def create
-    @selections = params["chart_selections"]
+    @selections = params['chart_selections']
+    p @selections
     @course = Course.find(session[:course_id])
     @completed_assignments = @course.all_completed_assignments_for_course
     @categories = Array.new
