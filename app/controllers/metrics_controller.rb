@@ -69,7 +69,34 @@ class MetricsController < ApplicationController
 
 
   def student_profile
+    @student = Student.find(params[:student_id])
+    @data = @student.get_grades
+    @student_name = @student.name
 
+
+
+    @completed_assignments.each do |student_assignment|
+      @categories << "#{student_assignment.assignment.assignment_name}"
+      @range_categories << "#{student_assignment.assignment.due_date}"
+      #assignment name
+      @student_names << student_assignment.student.first_name
+      #assignment grade
+      @student_grades = student_assignment.student.get_grades
+      @student_averages << get_average(@student_grades)
+      # @class_averages << get_average(@student_grades)
+      @hash[student_assignment.student.name] = @student_grades
+      @hash2[:average] = @student_averages
+    end
+
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title({ :text=>@course.name})
+
+        f.series(:type=> "column",:name=> , :data=> v)
+
+      f.options[:xAxis][:categories] = @categories
+      f.options[:legend][:layout] = "horizontal"
+      f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
+    end
     render :student_profile
   end
 
