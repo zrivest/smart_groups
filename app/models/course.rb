@@ -9,8 +9,8 @@ class Course < ActiveRecord::Base
   has_many :students, through: :enrollments
   has_many :groups
   has_many :pods, through: :groups
-  has_many :students, through: :pods
 
+  # This method can die, just use #students
   def all_students
     students = self.enrollments.map do |enrollment|
       enrollment.student
