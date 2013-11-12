@@ -33,7 +33,8 @@ class MetricsController < ApplicationController
       @hash2[:average] = @student_averages
     end
 
-    # @class_average = get_average(@student_averag
+    @class_average = get_average(@course.get_student_grades)
+
       @chart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title({ :text=>@course.name})
         @hash.each do |k,v|
@@ -70,29 +71,30 @@ class MetricsController < ApplicationController
 
     def student_profile
       @student = Student.find(params[:student_id])
-      @data = @student.get_grades
+      @course = Course.find(session[:course_id])
       @student_name = @student.name
       @student_average = Array.new
       @axis_labels = Array.new
+      @course_average = get_average(@course.get_student_grades)
+      @student_grade_array = @student.student_assignments.map{|student_assignment| student_assignment.grade}
+      @hash_student = Hash.new
+      @hash_student[@student_name] = @student_grade_array
 
       @student.assignments.each do |assignment|
-      #assignment name
-      @axis_labels << "#{assignment.assignment_name}"
 
-      #assignment grade
-      @student_grade_array = assignment.student_assignments.map{||}
+      @axis_labels << "#{assignment.assignment_name}"
       @student_average << get_average(@student_grade_array)
-      @hash_student[@student_name] = @student_grade_array
 
       @hash_student_average = {:average => @student_average }
     end
 
-    @student_chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title({ :text=>@course.name})
+    @chart_student = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title({ :text=> @course.name})
       @hash_student.each do |k,v|
         f.series(:type=> "spline",:name=> "#{k}", :data=> v)
       end
-      f.series(:type=> "column",:name=> "Score Average", :data=> @hash_student_average[:average])
+      f.series(:type=> "column",:name=> "Score Average", :data=> @student_average)
+      f.series(:type=> "column",:name=> "#{@course.name} Average", :data=> @course_average)
 
       f.options[:xAxis][:categories] = @axis_labels
       f.options[:legend][:layout] = "horizontal"

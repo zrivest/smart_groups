@@ -50,36 +50,34 @@ class Course < ActiveRecord::Base
   end
 
 
-  def grade_and_due_date_array_of_hashes
-    @grades_hash = {}
-    @array = []
+    def grade_and_due_date_array_of_hashes
+      @grades_hash = {}
+      @array = []
+      self.assignments.each do |assignment|
+        assignment.student_assignments.each do |student_assignment|
+            @grades_hash[:grade] = student_assignment.student.get_grades
+            @grades_hash[:due_date] = student_assignment.assignment.due_date
+            @array << @grades_hash
+        end
+      end
+      @array
+    end
+
+    def get_student_grades
+     @grades = []
+     self.students.each do |student|
+      student.student_assignments.each {|sa| @grades << sa.grade}
+    end
+    @grades
+  end
+
+  def due_date_series
+    @due_dates = []
     self.assignments.each do |assignment|
       assignment.student_assignments.each do |student_assignment|
-        @grades_hash[:grade] = student_assignment.student.get_grades
-        @grades_hash[:due_date] = student_assignment.assignment.due_date
-        @array << @grades_hash
+        @due_dates << student_assignment.assignment.due_date
       end
     end
-    @array
+    @due_dates
   end
-
-  def grade_series
-   @grades = []
-   self.assignments.each do |assignment|
-    assignment.student_assignments.each do |student_assignment|
-      @grades << student_assignment.student.get_grades.flatten
-    end
   end
-  @grades
-end
-
-def due_date_series
-  @due_dates = []
-  self.assignments.each do |assignment|
-    assignment.student_assignments.each do |student_assignment|
-      @due_dates << student_assignment.assignment.due_date
-    end
-  end
-  @due_dates
-end
-end
