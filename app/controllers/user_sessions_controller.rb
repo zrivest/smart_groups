@@ -3,7 +3,6 @@ class UserSessionsController < ApplicationController
 def login
     email    = params[:email]
     user_password = params[:password]
-
     user = find_user(email)
 
     if user

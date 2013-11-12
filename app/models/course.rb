@@ -27,4 +27,8 @@ class Course < ActiveRecord::Base
     completed_assignments
   end
 
+  def unique_students
+    students = self.all_students.uniq{ |student| student.id }
+  end
+
 end  

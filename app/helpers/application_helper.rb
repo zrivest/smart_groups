@@ -11,8 +11,10 @@ module ApplicationHelper
   def current_course
     if session[:logged_in]
       @current_course || Course.find(session[:course_id])
+    else
+      "allstar"
     end
-    nil
+   
   end
 
   def destroy_session

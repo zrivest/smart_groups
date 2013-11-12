@@ -27,6 +27,11 @@ class Group < ActiveRecord::Base
      students = students.sort_by!(&:average)
   end
 
+  def self.create_group
+    
+
+  end
+
   def self.total_num_groups(num_students, num_groups, students)
     students_per_group = num_students/num_groups
     Array.new(num_groups) {students.shift(students_per_group)}
@@ -50,8 +55,7 @@ class Group < ActiveRecord::Base
           counter += 1
         end
       end
-      groups
- 
+    groups
   end  
 
   
@@ -79,7 +83,7 @@ class Group < ActiveRecord::Base
           counter += 1
         end
       end
-      groups
+    groups
   end
 
 end
