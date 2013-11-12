@@ -27,10 +27,6 @@ class Group < ActiveRecord::Base
      students = students.sort_by!(&:average)
   end
 
-  def self.create_group
-    
-
-  end
 
   def self.total_num_groups(num_students, num_groups, students)
     students_per_group = num_students/num_groups

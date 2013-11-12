@@ -1,37 +1,28 @@
-$(document).ready(function(){
+$(function() {
 
-
-  // console.log($('ul').text());
-  // $("ul").sortable({
-  // })
+// DRAG/DROP
+$( "ul.droptrue" ).sortable({
+  connectWith: "ul",
+  update: function(event, ui) {
+  console.log(event);
+    var course_id = $('table').attr('class');
+  console.log(course_id)
+    var group_id = $('table').attr('id');
+  console.log(group_id)
+    var student_id = event.toElement.id.split("-")[1];
+    // console.log(student_id);
+    var pod_id = event.target.id.split("-")[1];
+    // console.log(pod_id);
+    var data = {student_id: student_id, pod_id: pod_id};
+    var url = "/courses/' + $course_Id + '/groups/' + $group_Id+ '/update_through_ajax";
   
-  $('#thisisit').on("click", function(){
-      var results = $('li').text();
-      console.log(results)
-    
-  // })
-  //
+    $.post(url, data);
+
+
+}
+
+  // ajax call to server
+  // with group_id, student_ids
 })
-
-    // })
-   // $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
-
-// $('li').droppable({drop: Drop});
-// function Drop(event, ui) {
-//   var draggableId = ui.draggabable.attr('id');
-//   var droppableId = $(this).attr('id');
-// }
-// console.log($(this))
-// $(event.target).attr(".id"))
-  })
-
-
-    // $('li').each(function(){
-    //   vals.push( $(this).val() )
-    //     console.log(vals)
-    // update: function(e, ui){
-    //   console.log(ui.item.index())
-    //   var oldIndex = ui.item.position;
-    //   console.log(oldIndex)
-    //   var newIndex = ui.item.index();
-    //   // console.log(newIndex)
+});
+ 

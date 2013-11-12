@@ -12,7 +12,7 @@ module ApplicationHelper
     if session[:logged_in]
       @current_course || Course.find(session[:course_id])
     else
-      "allstar"
+      "ALLSTAR!!! aka current course expired"
     end
    
   end
