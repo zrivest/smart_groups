@@ -21,8 +21,10 @@ module ApplicationHelper
   def current_course
     if session[:logged_in]
       @current_course || Course.find(session[:course_id])
+    else
+      "ALLSTAR!!! aka current course expired"
     end
-    nil
+   
   end
 
   def destroy_session

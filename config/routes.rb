@@ -20,6 +20,7 @@ SmartGroups::Application.routes.draw do
 
   post '/courses/:course_id/groups/total_students_per_groups' => "groups#total_students_per_groups"
   post '/courses/:course_id/groups/total_num_of_groups' => "groups#total_num_of_groups"
+  post '/courses/:course_id/groups/:id/update_through_ajax' => 'groups#update_through_ajax'
 
   resources :courses do
     resources :groups
