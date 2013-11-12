@@ -12,3 +12,14 @@
   <%= submit_tag("Submit") %>
   <% end %>
 </ul>
+
+<div>View Individual Student</div>
+<%= form_tag ('metrics#student_profile'), method:"POST" do %>
+  <%  .each do |chart_type| %>
+  <div><%="Show Chart:"+" #{chart_type[:type]}"-%></div>
+  <li>
+    <%= check_box_tag 'chart_selections[]', chart_type[:type] -%>
+  </li>
+  <% end %>
+  <%= submit_tag("Submit") %>
+  <% end %>

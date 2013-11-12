@@ -12,6 +12,7 @@ SmartGroups::Application.routes.draw do
   resources :user_sessions
   get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
   post "/metrics", to: 'metrics#create'
+  get '/metrics/students/:student_id', to: 'metrics#student_profile', :as => :student_profile
 
   resources :users do
     resources :students
