@@ -34,46 +34,49 @@ class MetricsController < ApplicationController
     end
 
     # @class_average = get_average(@student_averag
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title({ :text=>@course.name})
-      @hash.each do |k,v|
-        f.series(:type=> "column",:name=> "#{k}", :data=> v)
+      @chart = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title({ :text=>@course.name})
+        @hash.each do |k,v|
+          f.series(:type=> "column",:name=> "#{k}", :data=> v)
+        end
+        f.options[:xAxis][:categories] = @categories
+        f.options[:legend][:layout] = "horizontal"
+        f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
       end
-      f.options[:xAxis][:categories] = @categories
-      f.options[:legend][:layout] = "horizontal"
-      f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
-    end
 
-    @chart_area = LazyHighCharts::HighChart.new('graph') do |f|
-      f.options[:chart][:defaultSeriesType] = "spline"
-      @hash.each do |k,v|
-        f.series(:type=> "spline",:name=> "#{k}", :data=> v)
+      @chart_area = LazyHighCharts::HighChart.new('graph') do |f|
+        f.options[:chart][:defaultSeriesType] = "spline"
+        @hash.each do |k,v|
+          f.series(:type=> "spline",:name=> "#{k}", :data=> v)
+        end
+        f.options[:chart][:inverted] = false
+        f.options[:legend][:layout] = "horizontal"
+        f.options[:xAxis][:categories] = @categories
+        f.options[:legend][:layout] = "horizontal"
       end
-      f.options[:chart][:inverted] = false
-      f.options[:legend][:layout] = "horizontal"
-      f.options[:xAxis][:categories] = @categories
-      f.options[:legend][:layout] = "horizontal"
-    @chart_range = LazyHighCharts::HighChart.new('graph') do |f|
-      f.options[:chart][:defaultSeriesType] = "spline"
-      @hash2.each do |k,v|
-        f.series(:type=> "spline",:name=> "#{k}", :data=> v)
+
+      @chart_range = LazyHighCharts::HighChart.new('graph') do |f|
+        f.options[:chart][:defaultSeriesType] = "spline"
+        @hash2.each do |k,v|
+          f.series(:type=> "spline",:name=> "#{k}", :data=> v)
+        end
+        f.series(:type=>"spline", :name=> "Class Average", :data=> @class_average)
+        f.options[:chart][:inverted] = false
+        f.options[:legend][:layout] = "horizontal"
+        f.options[:xAxis][:categories] = @range_categories
       end
-      f.series(:type=>"spline", :name=> "Class Average", :data=> @class_average)
-      f.options[:chart][:inverted] = false
-      f.options[:legend][:layout] = "horizontal"
-      f.options[:xAxis][:categories] = @range_categories
+      render :show
     end
-    render :show
   end
 
 
 
   def student_profile
 
+    render :student_profile
   end
 
 
-end
 
 
 
