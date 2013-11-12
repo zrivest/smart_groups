@@ -28,6 +28,15 @@ class Course < ActiveRecord::Base
     completed_assignments
   end
 
+  def get_class_avg
+    student_assignments = self.all_completed_assignments_for_course
+    all_grades = student_assignments.map do |sa|
+      sa.grade
+    end
+    class_avg = all_grades.inject{ |sum, element| sum + element }.to_f / all_grades.length
+  end
+
+
   def grade_and_due_date_hash
     @grades_hash = {}
     self.assignments.each do |assignment|
@@ -39,23 +48,37 @@ class Course < ActiveRecord::Base
     @grades_hash
   end
 
-  def grade_series
-       @grades = []
+
+  def grade_and_due_date_array_of_hashes
+    @grades_hash = {}
+    @array = []
     self.assignments.each do |assignment|
       assignment.student_assignments.each do |student_assignment|
-        @grades << student_assignment.student.get_grades.flatten
+        @grades_hash[:grade] = student_assignment.student.get_grades
+        @grades_hash[:due_date] = student_assignment.assignment.due_date
+        @array << @grades_hash
       end
     end
-    @grades
+    @array
   end
 
-  def due_date_series
-    @due_dates = []
-    self.assignments.each do |assignment|
-      assignment.student_assignments.each do |student_assignment|
-        @due_dates << student_assignment.assignment.due_date
-      end
+  def grade_series
+   @grades = []
+   self.assignments.each do |assignment|
+    assignment.student_assignments.each do |student_assignment|
+      @grades << student_assignment.student.get_grades.flatten
     end
-    @due_dates
   end
+  @grades
+end
+
+def due_date_series
+  @due_dates = []
+  self.assignments.each do |assignment|
+    assignment.student_assignments.each do |student_assignment|
+      @due_dates << student_assignment.assignment.due_date
+    end
+  end
+  @due_dates
+end
 end
