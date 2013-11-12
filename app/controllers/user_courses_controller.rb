@@ -24,7 +24,6 @@ class UserCoursesController < ApplicationController
     @course = Course.find(params[:id])
     @all_students = @course.all_students
     @completed_assignments = @course.all_completed_assignments_for_course
-
   end
 
   def update
