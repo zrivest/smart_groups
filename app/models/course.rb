@@ -27,4 +27,35 @@ class Course < ActiveRecord::Base
     end
     completed_assignments
   end
+
+  def grade_and_due_date_hash
+    @grades_hash = {}
+    self.assignments.each do |assignment|
+      assignment.student_assignments.each do |student_assignment|
+        @grades_hash[:grade] = student_assignment.student.get_grades
+        @grades_hash[:due_date] = student_assignment.assignment.due_date
+      end
+    end
+    @grades_hash
+  end
+
+  def grade_series
+       @grades = []
+    self.assignments.each do |assignment|
+      assignment.student_assignments.each do |student_assignment|
+        @grades << student_assignment.student.get_grades.flatten
+      end
+    end
+    @grades
+  end
+
+  def due_date_series
+    @due_dates = []
+    self.assignments.each do |assignment|
+      assignment.student_assignments.each do |student_assignment|
+        @due_dates << student_assignment.assignment.due_date
+      end
+    end
+    @due_dates
+  end
 end

@@ -1,3 +1,20 @@
+@categories = Array.new
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title({ :text=>@course.name})
+      @completed_assignments.each do |student_assignment|
+        @categories << student_assignment.assignment.assignment_name
+        grades = student_assignment.student.get_grades
+          p grades
+        f.series(:type=> "column",:name=> student_assignment.student.first_name,:data=> [grades])
+      end
+      f.options[:xAxis][:categories] = @categories
+       # f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
+      # p @categories
+    end
+    render :show
+  end
+end
+----
    @completed_assignments = @course.all_completed_assignments_for_course
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
         f.options[:xAxis][:categories] = ['Steve', 'Mary', 'Mark', 'Leslie', 'Maya']
@@ -31,7 +48,7 @@ class MetricsController < ApplicationController
       # f.title({ text: "#{@course.name}"})
     #   f.options[:chart][:defaultSeriesType] = "column"
     #   f.plot_options({:column=>{:stacking=>"percent"}})
-    #   @completed_assignments.each do |student_assignment|
+    #   @completed_assignments.each do|student_assignment|
     #     grades = student_assignment.student.get_grades
     #     @full_name = student_assignment.student.name
     #     @graph.plots << Plot.create(data: grades)
