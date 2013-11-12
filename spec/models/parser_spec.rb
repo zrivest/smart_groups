@@ -14,5 +14,6 @@ describe Parser do
 
       course.students.count.should == count + 4
     end
+
   end
 end

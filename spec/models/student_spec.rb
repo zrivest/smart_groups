@@ -14,4 +14,18 @@ describe Student do
       expect(student.student_assignments.first.grade).to eq(88)
     end
   end
+
+  context '#parser test' do
+      it 'should be be able to successfully import a new student object tied to a course' do
+      course = FactoryGirl.create(:course, name: "Speling", user_id: 1)
+
+      path = Rails.root + "spec/data/test_csv_file.csv"
+      fake_csv = double(:path => path)
+
+      count = course.students.count
+      Parser.import(fake_csv, course)
+
+      course.students.last.first_name.should == "ryan"
+    end
+  end
 end
