@@ -8,8 +8,7 @@ class Student < ActiveRecord::Base
 
 
   def get_grades
-    @grades = self.student_assignments.map {|submitted_assignment| submitted_assignment.grade}
-    return @grades
+    self.student_assignments.map {|submitted_assignment| submitted_assignment.grade}
   end
 
   def name
