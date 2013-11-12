@@ -1,4 +1,4 @@
-<h2>Charts for <%= current_course.name %></h2>
+<h2>Charts for <%= Course.find(session[:course_id]).name %></h2>
 
 <% if selected_chart_type?(@selections, 0) %>
 <h3>Student Assignment Scores (Assignment vs Score by Student)</h3>
