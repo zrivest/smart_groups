@@ -1,13 +1,75 @@
-#opt_bttn {
-  margin-top: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+/*group - new.html.erb*/
+#option_box_container {
+  float: right;
 }
 
-.squeeze{
-  margin-right: 5%;
-  margin-left: 5%;
+ #student_list{
+  float: left;
+  width: 200px;
+
 }
+
+ul #student_container {
+
+}
+#student_element_in_container{
+  border: 1px solid gray;
+  padding:10px;
+  text-align: center;
+}
+
+
+
+/*group - show.html.erb*/
+
+
+#left_group_container {
+  float: left;
+  padding-right: 25px;
+  margin-left: 50px;
+}
+#right_group_container {
+  float: right;
+  padding-left: 25px;
+}
+
+
+
+
+.droptrue  {
+  /*ul*/
+  padding:0;
+  margin:0;
+}
+
+.ui-state-default {
+  /*li*/
+  width: 100%;
+  text-align: center;
+  padding:10px;
+  margin-bottom:5px;
+}
+
+
+
+
+#group {
+  /*table*/
+  padding:10px;
+  width: 200px;
+}
+
+
+
+
+
+
+.pricing-table {
+  width:200px;
+}
+
+
+
 
 #each_group {
 display: inline-block;
@@ -21,20 +83,7 @@ border: thin solid #878787;
 list-style-type: none;
 }
 
-#student_roster {
-  border: 2px solid black;
-  display: inline-block;
-  background-color: #FAEDD9;
-  border-radius: 10px;
-}
 
-#student_roster li{
-  border-bottom: thin solid white;
-  text-align: center;
-  list-style-type:  none;
-  border-radius: 10px;
-  line-height: 200%;
-}
 
 #group_sizes{
   float:right;
@@ -43,38 +92,3 @@ list-style-type: none;
 .checkboxes{
   float: right;
 }
-
-/*SORTABLE CSS*/
-#app_container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 787px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  background: blue;
-  top: 0;
-  padding: 0;
-  /*height: 100px;*/
-}
-
-#left, #right {
-/*  height: 200px;
-  width: 200px;
-  background: black;*/
-  top: 0;
-}
-  #left {
-    float: left;
-    padding-right: 25px;
-  }
-  #right {
-    float: right;
-    border-left: 1px solid gray;
-    padding-left: 25px;
-  }
-
-#sortable {
-  list-style-type: none;
-  margin-left: auto;
-  margin-right: auto;
-

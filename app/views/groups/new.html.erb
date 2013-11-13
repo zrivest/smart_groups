@@ -1,11 +1,12 @@
-<div class="squeeze">
+
 <h1>The New Generation</h1>
 
-    <h3>Student Roster</h3>
-  <div id="student_roster">
-    <ul>
+   
+  <div id="student_list">
+    <ul id="student_container">
+      <li id="student_element_in_container"><h3>asdf</h3> </li>
       <%@students.each do |student|%>
-        <li><%=student.first_name%> <%= student.last_name %></li>
+        <li id="student_element_in_container"><%=student.first_name%> <%= student.last_name %></li>
       <%end%>
     </ul>
   </div>
@@ -52,5 +53,5 @@
     </td>
   </tr>
 </table>
-</div>
+
 

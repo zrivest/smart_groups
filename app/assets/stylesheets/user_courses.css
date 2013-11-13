@@ -1,0 +1,26 @@
+/*edit.html.erb*/
+
+#student_info_update_table {
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+#change_grade_field text_field {
+  width: 50%;
+}
+
+
+/*index.html.erb*/
+
+#opt_bttn {
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#course_list {
+  width:100px;
+}

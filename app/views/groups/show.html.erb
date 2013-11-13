@@ -1,8 +1,8 @@
 <div id="left_group_container">
-  <table id="<%= @new_group.id %>" class="<%= @new_group.course.id %>" >
+  <table id="group">
     <tr>
       <td>
-        <h4 class="subheader"><%= "Group Overflow"%></h4>
+        <h4 class="subheader" style="text-align:center;"><%= "Group Overflow"%></h4>
         <hr>
         <ul class="droptrue">
           <li class="hidden" style="display: none">
@@ -13,6 +13,8 @@
       </td>
     </tr>
   </table>
+  <%= link_to("Back to Students", "#", class: "small button", style: "margin-left:30px;width:150px;") %><br>
+  <%= link_to("Back to Course list", "#", class: "small button success", style: "margin-left:30px;width:150px;") %>
 </div><!--left_group_container END-->
 
 <div id="right_group_container">
@@ -23,7 +25,7 @@
       <table id="group">
         <tr>
           <td>
-            <h4 class="subheader"><%= "Group #{index+1}" %></h4>
+            <h4 class="subheader" style="text-align:center;"><%= "Group #{index+1}" %></h4>
             <hr>
             <ul id="group-<%= index %>" class="droptrue">
               <li class="hidden" style="display: none">
@@ -41,5 +43,10 @@
     <% end %>
   <% end %>
   </ul>
-  <%= link_to "Back to Students"%>
 </div><!--right_group_container END-->
+
+
+
+
+
+
