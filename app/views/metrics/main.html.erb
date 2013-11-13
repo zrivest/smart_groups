@@ -1,24 +1,39 @@
 <h3>Select Graph Type</h3>
+<hr>
+
+
+<h3 class="subheader"><%= "View Multiple Students" %></h3>
+
 <p>You may select multiple types.</p>
-
-<ul>
-  <%= form_tag ("/metrics"), method:"POST" do %>
-  <% @chart_types.each do |chart_type| %>
-  <div><%="Show Chart:"+" #{chart_type[:type]}"-%></div>
-  <li>
-    <%= check_box_tag 'chart_selections[]', chart_type[:type] -%>
-  </li>
+<%= form_tag ("/metrics"), method:"POST" do %>
+<table>
+   <% @chart_types.each do |chart_type| %>
+    <tr>
+      <td><%= check_box_tag 'chart_selections[]', chart_type[:type] -%></td>
+      <td><%="Select Chart:"+" #{chart_type[:type]}"-%></td>
+    </tr>
+    <% end %>
+</table>
+  <%= submit_tag "Submit", class: "small button success" %>
   <% end %>
-  <%= submit_tag("Submit") %>
-  <% end %>
-</ul>
 
-<div style="font-weight: bold;">View Individual Student</div>
-  <ul>
+<hr>
+
+
+<h3 class="subheader"><%= "View An Individual Student" %></h3>
+
+
+
+<table>
   <%  @course.students.each do |student| %>
-
-  <li>
-    <%= link_to(student.name, student_profile_path(student.id)) -%>
-  </li>
+    <tr>
+      <td><%= link_to(student.name, student_profile_path(student.id)) -%></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+
+
+
+
+
+

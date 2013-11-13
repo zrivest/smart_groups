@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
   include MetricsHelper
+  include GroupsHelper
   protect_from_forgery
 
   before_filter :session_expire

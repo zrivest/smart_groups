@@ -1,10 +1,26 @@
-/*user_courses/index*/
-#sub_container {
-margin-top: 50px;
-margin-bottom: 50px;
+/*edit.html.erb*/
+
+#student_info_update_table {
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
 }
 
-table {
-  padding: 25px;
-  width: 100%;
+#change_grade_field text_field {
+  width: 50%;
+}
+
+
+/*index.html.erb*/
+
+#course_list_buttons {
+  width: 125px;
+}
+
+#display_course_options {
+  /*display:inline;*/
+  margin-right: 25px;
+  vertical-align: top;
 }

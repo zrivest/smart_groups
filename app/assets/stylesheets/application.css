@@ -17,22 +17,19 @@
   top: 0;
   bottom:0;
 
+  position: relative;
+  height: 100%;
+  width: 1000px;
+
+  border-right:1px solid #cecece;
+  border-left:1px solid #cecece;
+
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
 
-  padding-right:25px;
-  padding-left:25px;
-  padding-bottom:75px;
-
-  position: static;
-  height: 100%;
-  width: 900px;
-
-  border-right:1px solid #cecece;
-  border-left:1px solid #cecece;
-
+  padding:25px;
 }
 
 #footer {
@@ -42,9 +39,19 @@
   width: 100%;
   border-top: 1px solid gray;
   background: black;
-  position: fixed;
+  bottom:0;
 }
+
 
 li {
   list-style-type: none;
 }
+
+
+table {
+  width:100%;
+  padding: 25px;
+}
+
+
+

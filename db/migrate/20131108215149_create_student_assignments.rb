@@ -6,6 +6,9 @@ class CreateStudentAssignments < ActiveRecord::Migration
       t.integer :pod_id
       t.integer :grade
       t.integer :pod_id
+      t.date :submit_date
+      t.integer :liked_pod
+      t.integer :learned_in_pod
       t.timestamps
     end
   end

@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.integer :average
+      t.integer :participation_count
       t.timestamps
     end
   end

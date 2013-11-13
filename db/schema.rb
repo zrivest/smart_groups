@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "graphs", :force => true do |t|
     t.integer  "course_id"
+    t.text     "graph_type"
+    t.integer  "categories"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -57,12 +59,14 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "plots", :force => true do |t|
     t.integer  "data"
+    t.string   "plot_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "pods", :force => true do |t|
     t.integer  "group_id"
+    t.integer  "student_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -70,10 +74,12 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
   create_table "student_assignments", :force => true do |t|
     t.integer  "student_id"
     t.integer  "assignment_id"
-    t.integer  "grade"
     t.integer  "pod_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "grade"
+    t.integer  "liked_pod"
+    t.integer  "learned_in_pod"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "students", :force => true do |t|
