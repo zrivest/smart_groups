@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "assignments", :force => true do |t|
+    t.integer  "course_id"
     t.string   "assignment_name"
     t.date     "start_date"
     t.date     "due_date"
-    t.integer  "course_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "pods", :force => true do |t|
     t.integer  "group_id"
-    t.integer  "student_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -76,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
     t.integer  "assignment_id"
     t.integer  "pod_id"
     t.integer  "grade"
+    t.date     "submit_date"
+    t.integer  "participation"
     t.integer  "liked_pod"
     t.integer  "learned_in_pod"
     t.datetime "created_at",     :null => false

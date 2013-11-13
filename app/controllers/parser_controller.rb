@@ -6,6 +6,7 @@ class ParserController < ApplicationController
 
   def import
     user = User.find(session[:user_id])
+
     course = user.courses.create!(name: params[:course_title])
 
     file = params[:file]
