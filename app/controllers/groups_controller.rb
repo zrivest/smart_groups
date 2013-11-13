@@ -13,6 +13,10 @@ class GroupsController < ApplicationController
   
   def total_students_per_groups
     @students = current_course.unique_students
+      @students.each do |student|
+        StudentAssignment.find(student.id).update_attributes!(liked_pod: rand(1..5), 
+                             learned_in_pod: rand(1..5) )
+      end
     num_students = @students.length
     students_per_group = params[:group][:total_students_per_groups].to_i
 
