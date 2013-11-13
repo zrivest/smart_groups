@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "assignments", :force => true do |t|
-    t.integer  "course_id"
     t.string   "assignment_name"
     t.date     "start_date"
     t.date     "due_date"
+    t.integer  "course_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

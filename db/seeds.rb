@@ -19,7 +19,7 @@ end
 
 User.create(email: "rskelley9@gmail.com", password: "password")
 User.create(email: "hoovs@hoovs.com", password: "password")
-User.create(email: "asdf@asdf.com", password: "pass")
+User.create(email: "asdf@asdf.com", password: "asdf")
 User.create(email: "wolfman@wolfman.com", password: "password")
 
 100.times do

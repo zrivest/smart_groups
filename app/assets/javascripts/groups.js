@@ -9,9 +9,9 @@ $( "ul.droptrue" ).sortable({
     var pod_id = event.target.id.split("-")[1];
     var data = {student_id: student_id, pod_id: pod_id};
     var url = "/courses/' + $course_Id + '/groups/' + $group_Id+ '/update_through_ajax";
-  
+
     $.post(url, data);
 }
 })
 });
- 
+

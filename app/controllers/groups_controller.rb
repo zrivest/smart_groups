@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   def create
     render :index
   end
-  
+
   def total_students_per_groups
     @students = current_course.unique_students
     num_students = @students.length
@@ -22,7 +22,13 @@ class GroupsController < ApplicationController
     elsif params[:group][:random].to_i == 1
       Group.random(@students)
       @groups = Group.total_students_groups(num_students, students_per_group, @students)
-      group_pod_creation(@groups, params[:course_id])
+      @new_group = Group.create(course_id: params[:course_id].to_i)
+      @groups.each do |pod|
+        @pod = Pod.create(group_id: @new_group.id)
+        pod.each do |student|
+          StudentAssignment.find(student.id).update_attributes!(pod_id: @pod.id)
+        end
+      end
     else
       redirect_to new_course_group_path(current_course)
     end
@@ -47,7 +53,6 @@ class GroupsController < ApplicationController
     else
       redirect_to new_course_group_path(current_course)
     end
-    @groups
     render :show
   end
 
@@ -57,6 +62,4 @@ class GroupsController < ApplicationController
     StudentAssignment.find(student_id).update_attribute(:pod_id, pod_id)
     render nothing: true
   end
-
-
 end

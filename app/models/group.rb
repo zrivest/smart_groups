@@ -19,19 +19,13 @@ class Group < ActiveRecord::Base
     students.each do |student|
       assignments = []
       StudentAssignment.where(student_id: student.id).each do |assignment|
-        0 if assignment.grade == nil
         assignments << assignment.grade
       end
       sum = 0
-      
-      if assignments.length > 0
-        assignments.each{|n| sum += n}
-        average = sum/(assignments.length)
-        student.update_attributes!(average: average)
-      else 
-        return 0
-      end
-    end    
+      assignments.each{|n| sum += n}
+      average = sum/(assignments.length)
+      student.update_attributes!(average: average)
+    end
      students = students.sort_by!(&:average)
   end
 
@@ -44,28 +38,25 @@ class Group < ActiveRecord::Base
     counter = 0
     students_per_group = num_students/num_groups
     sections = Array.new(students_per_group) {students.shift(num_groups)}
-      if sections.length > 0
-        num_of_groups = sections.length
-        num_of_students = sections[0].length
-        groups = Array.new(num_of_students) {Array.new(num_of_groups)}
+      num_of_groups = sections.length
+      num_of_students = sections[0].length
+      groups = Array.new(num_of_students) {Array.new(num_of_groups)}
 
-        num_of_students.times do |j|
-          num_of_groups.times do |i|
-            if counter.even?
-              groups[j][i] = sections[i].shift
-            else
-              groups[j][i] = sections[i].pop 
-            end
-            counter += 1
+      num_of_students.times do |j|
+        num_of_groups.times do |i|
+          if counter.even?
+            groups[j][i] = sections[i].shift
+          else
+            groups[j][i] = sections[i].pop
           end
+          counter += 1
         end
-      else
-        return 0
       end
     groups
-  end  
+  end
+# might have an extra end in this location
 
-  
+
   def self.total_students_groups(num_students, students_per_group, students)
     num_groups = num_students/students_per_group
     groups = Array.new(num_groups) {students.shift(students_per_group)}
@@ -85,7 +76,7 @@ class Group < ActiveRecord::Base
           if counter.even?
             groups[j][i] = sections[i].shift
           else
-            groups[j][i] = sections[i].pop 
+            groups[j][i] = sections[i].pop
           end
           counter += 1
         end

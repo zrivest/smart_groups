@@ -1,13 +1,14 @@
 class UserCoursesController < ApplicationController
 
-  def index
-    # if authenticated?
+def index
+    if authenticated?
       @courses = User.find(current_user.id).courses
       render :index
-    # else
-    #   @login_error = "Please login."
-    #   redirect_to root_path
-    # end
+    else
+      @login_error = "Please login."
+      redirect_to root_path
+    end
+
   end
 
   def new

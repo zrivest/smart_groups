@@ -9,10 +9,6 @@ def login
       @user = user.authenticate(user_password)
     end
 
-    p "-=---------------------------"
-    p @user
-
-
     if @user
       session[:user_id] = @user.id
       session[:logged_in] = true

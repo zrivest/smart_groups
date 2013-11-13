@@ -1,5 +1,28 @@
+<<<<<<< HEAD
 #something {
   width: 300px;
   float:right;
   clear:both;
+=======
+#signin_login_container {
+  width: 500px;
+  height: 400px;
+  /*float: right;*/
+}
+
+
+
+
+
+#signin, #login {
+  padding: 25px;
+}
+
+#signin {
+float: right;
+}
+
+#login {
+float: right;
+>>>>>>> master
 }
