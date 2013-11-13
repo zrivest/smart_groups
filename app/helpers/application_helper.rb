@@ -3,6 +3,7 @@ module ApplicationHelper
 
   def current_course
     if session[:logged_in]
+      binding.pry
       @current_course ||= Course.find(session[:course_id])
       return @current_course
     else
@@ -24,7 +25,7 @@ module ApplicationHelper
     else
       "ALLSTAR!!! aka current course expired"
     end
-   
+
   end
 
   def destroy_session

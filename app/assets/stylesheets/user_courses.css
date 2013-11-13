@@ -8,3 +8,14 @@ table {
   padding: 25px;
   width: 100%;
 }
+
+
+
+
+
+
+
+/*edit.html.erb*/
+#edit_html_button_alert, #edit_html_button_success {
+  width: 200px;
+}

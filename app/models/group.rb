@@ -53,7 +53,6 @@ class Group < ActiveRecord::Base
       end
     groups
   end
-# might have an extra end in this location
 
 
   def self.total_students_groups(num_students, students_per_group, students)

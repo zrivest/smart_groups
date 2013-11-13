@@ -28,7 +28,7 @@
 
   position: static;
   height: 100%;
-  width: 900px;
+  width: 1024px;
 
   border-right:1px solid #cecece;
   border-left:1px solid #cecece;
@@ -47,4 +47,7 @@
 
 li {
   list-style-type: none;
+}
+table {
+  width: 100%;
 }

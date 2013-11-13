@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "assignments", :force => true do |t|
+    t.integer  "course_id"
     t.string   "assignment_name"
     t.date     "start_date"
     t.date     "due_date"
-    t.integer  "course_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "graphs", :force => true do |t|
     t.integer  "course_id"
+    t.text     "graph_type"
+    t.integer  "categories"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "plots", :force => true do |t|
     t.integer  "data"
+    t.string   "plot_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -70,8 +73,8 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
   create_table "student_assignments", :force => true do |t|
     t.integer  "student_id"
     t.integer  "assignment_id"
-    t.integer  "grade"
     t.integer  "pod_id"
+    t.integer  "grade"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

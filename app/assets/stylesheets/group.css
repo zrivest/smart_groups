@@ -9,24 +9,13 @@
   margin-left: 5%;
 }
 
-#each_group {
-display: inline-block;
-text-align:center;
-border: 2px solid black;
-width: 20%;
-}
+
 
 #each_group li{
 border: thin solid #878787;
 list-style-type: none;
 }
 
-#student_roster {
-  border: 2px solid black;
-  display: inline-block;
-  background-color: #FAEDD9;
-  border-radius: 10px;
-}
 
 #student_roster li{
   border-bottom: thin solid white;
@@ -44,18 +33,6 @@ list-style-type: none;
   float: right;
 }
 
-/*SORTABLE CSS*/
-#app_container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 787px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  background: blue;
-  top: 0;
-  padding: 0;
-  /*height: 100px;*/
-}
 
 #left, #right {
 /*  height: 200px;
