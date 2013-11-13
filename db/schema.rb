@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "pods", :force => true do |t|
     t.integer  "group_id"
-    t.integer  "student_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
