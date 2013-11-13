@@ -6,9 +6,10 @@ class ParserController < ApplicationController
 
   def import
     user = User.find(session[:user_id])
-    course = Course.create(name: params[:course_title])
+    course = user.courses.create!(name: params[:course_title])
+
     file = params[:file]
-    Parser.import(file, course, user)
+    Parser.import(file, course)
 
     redirect_to user_courses_path(session[:user_id])
   end

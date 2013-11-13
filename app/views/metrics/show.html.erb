@@ -1,0 +1,56 @@
+<h2>Charts for <%= Course.find(session[:course_id]).name %></h2>
+
+<% if selected_chart_type?(@selections, 0) %>
+<h3>Student Assignment Scores (Assignment vs Score by Student)</h3>
+
+<%= high_chart("chart_div", @chart) %>
+
+<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<% if selected_chart_type?(@selections, 1) %>
+
+<h3>Student Assignment Scores (Assignment vs Score by Student) </h3>
+
+
+
+<%= high_chart("area_div", @chart_area) %>
+
+
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% if selected_chart_type?(@selections, 2) %>
+
+<h3>Class Average Scores (Completion Date vs Average Scores of Assignment) </h3>
+
+
+
+<%= high_chart("chart_range_div", @chart_range) %>
+
+<% end %>
+

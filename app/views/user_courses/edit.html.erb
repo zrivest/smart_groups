@@ -1,21 +1,41 @@
 
-
-<% @completed_assignments.each do |student_assignment| %>
-<table>
+<table border= "1">
   <tr>
-    <td><%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %></td>
+    <th>Name:</th>
+    <th>Assignment Name:</th>
+    <th>Start Date:</th>
+    <th>Due Date:</th>
+    <th>Assignment Grade:</th>
+    <th>Grade:</th>
+    <th>Delete Assignment</th>
   </tr>
-  <tr>
-    <td><%= student_assignment.assignment.assignment_name %></td>
-  </tr>
-  <tr>
-    <td><%= student_assignment.assignment.start_date %></td>
-  </tr>
-  <tr>
-    <td><%= student_assignment.assignment.due_date %></td>
-  </tr>
-  <tr>
-    <td><%= student_assignment.grade %></td>
-  </tr>
+  <% @completed_assignments.each do |student_assignment| %>
+    <tr>
+      <td>
+        <%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.assignment_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.assignment_name %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.start_date %>
+      </td>
+      <td>
+        <%= student_assignment.assignment.due_date %>
+      </td>
+      <td>
+        <%= form_for :student_assignment, :method => 'put' do |f| %>
+          <%= f.text_field :grade, {value: student_assignment.grade} %>
+          <%= f.hidden_field :id, {value: student_assignment.id} %>
+          <%= f.submit :confirm => "Are you sure?" %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to("Delete", "/users/#{params[:user_id]}/students/#{student_assignment.id}", :method => :delete, :confirm => "Are you sure?")%>
+      </td>
+    </tr>
+  <% end %>
 </table>
-<% end %>

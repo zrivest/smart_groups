@@ -14,12 +14,15 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+//= require highcharts
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
 //
 //= require jquery.ui.all
 
-$(function() {
 
-  // DRAG/DROP
+$(function() {
   $( "ul.droptrue" ).sortable({
     connectWith: "ul",
     update: function(event, ui) {
@@ -29,11 +32,6 @@ $(function() {
       console.log(student_id);
       var group_id = event.target.id.split("-")[1];
       console.log(group_id);
-
-
-
-      // ajax call to server
-      // with group_id, student_ids
     }
   });
   $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
@@ -55,7 +53,6 @@ $(function() {
 //         $('#inp_datepicker2')[0].value = convertDateToString(dateObject);
 //     }
 // });
-
 });
 
 
@@ -72,3 +69,5 @@ $(document).ready(function(){
 
   })
 })
+
+

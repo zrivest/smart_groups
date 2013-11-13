@@ -1,0 +1,24 @@
+<h3>Select Graph Type</h3>
+<p>You may select multiple types.</p>
+
+<ul>
+  <%= form_tag ("/metrics"), method:"POST" do %>
+  <% @chart_types.each do |chart_type| %>
+  <div><%="Show Chart:"+" #{chart_type[:type]}"-%></div>
+  <li>
+    <%= check_box_tag 'chart_selections[]', chart_type[:type] -%>
+  </li>
+  <% end %>
+  <%= submit_tag("Submit") %>
+  <% end %>
+</ul>
+
+<div style="font-weight: bold;">View Individual Student</div>
+  <ul>
+  <%  @course.students.each do |student| %>
+
+  <li>
+    <%= link_to(student.name, student_profile_path(student.id)) -%>
+  </li>
+  <% end %>
+</ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131110202349) do
+ActiveRecord::Schema.define(:version => 20131111033954) do
 
   create_table "assignments", :force => true do |t|
     t.string   "assignment_name"
@@ -36,8 +36,27 @@ ActiveRecord::Schema.define(:version => 20131110202349) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "graph_plots", :force => true do |t|
+    t.integer  "plot_id"
+    t.integer  "graph_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "graphs", :force => true do |t|
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "groups", :force => true do |t|
     t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "plots", :force => true do |t|
+    t.integer  "data"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -52,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20131110202349) do
     t.integer  "student_id"
     t.integer  "assignment_id"
     t.integer  "grade"
+    t.integer  "pod_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -60,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20131110202349) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "average"
-    t.integer  "pod_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
