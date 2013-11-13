@@ -9,9 +9,9 @@ class Parser
                              assignment_name: row[:assignment_name],
                              course_id: course.id )
 
-      s = Student.where(first_name: row[:first_name], last_name: row[:last_name], participation_rate: row[:participation]).first_or_create()
+      s = Student.where(first_name: row[:first_name], last_name: row[:last_name]).first_or_create( )
 
-      sa = StudentAssignment.create!(student_id: s.id, assignment_id: a.id, grade: row[:grade], submit_date: row[:submit_date] )
+      sa = StudentAssignment.create!(student_id: s.id, assignment_id: a.id, participation: row[:participation], grade: row[:grade], submit_date: row[:submit_date] )
 
       Enrollment.create!(student_id: s.id, course_id: course.id)
     end
