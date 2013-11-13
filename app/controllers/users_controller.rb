@@ -11,10 +11,6 @@ class UsersController < ApplicationController
 
     @user = User.authenticate_create(@email,@password)
 
-    p "------------------------------------------"
-    p @user
-    p " THIS IS THE SIGNUP SECTION"
-
     if @user
       session[:user_id] = @user.id
       session[:logged_in] = true
@@ -25,8 +21,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 
 end
 

@@ -1,25 +1,40 @@
-<h1>Welcome to SmartGroup!</h1>
+<h2 class="subheader" style="text-align:left;">Welcome to SmartGroup</h2>
 
-<h2 class="subheader">Add A Course</h2>
 
-  <%= link_to("Upload Class", parser_path, class: "button success") %>
+<div id="sub_container">
+<h3 class="subheader" style="text-align:left;">Add A Course</h3>
+<table id="asdf">
+  <tr>
+    <td><%= link_to("Upload Class (CSV)", parser_path, class: "small button success", id: "button_add_course") %></td>
+    <td><%= link_to("Enter Class (Form)", new_user_course_path, class: "small button success", id: "button_add_course") %></td>
+  </tr>
+</table>
+</div>
 
-  <%= link_to("Enter Class", new_user_course_path, class: "button success") %>
-<h2 class="subheader">Current Courses</h2>
 
-<table id="course_list">
+<div id="sub_container">
+<h3 class="subheader" style="text-align:left;">Your Saved Courses</h3>
+<table>
+  <% if @courses.empty? %>
+    <tr>
+      <td><h3 class="subheader">You currently have no saved courses</h3></td>
+    </tr>
+  <% else %>
   <% @courses.reverse.each do |course| %>
     <tr>
-      <td ><b><%= course.name %></b></td>
-
-    <!-- HREF TO GROUPS MAKE INSTEAD -->
-      <td><%= link_to("Group Generator", new_course_group_path(course), class: "small button", id: "opt_bttn") %></td>
-      <td><%= link_to("Metics / Graphs", "#", class: "small button", id: "opt_bttn") %></td>
-      <td><%= link_to("Edit Roster", edit_path(current_user.id, course.id), class: "small button", id: "opt_bttn") %></td>
+      <td><h7><div style="width:200px;"><%= course.name %></div></h7></td>
+      <td><%= link_to("Group Generator", new_course_group_path(course), class: "small button", id: "button_show_course_options") %></td>
+      <td><%= link_to("Metics / Graphs", '#', class: "small button", id: "button_show_course_options") %></td>
+      <td><%= link_to("Edit Roster", edit_path(current_user.id, course.id) , class: "small button", id: "button_show_course_options") %></td>
+      <td><%= link_to("Delete Roster", "#" , class: "small button alert", id: "button_show_course_options") %></td>
+      <tr></tr>
     </tr>
   <% end %>
+  <% end %>
 </table>
+</div>
 
 
 
 
+<!-- CSS - /user_courses -->

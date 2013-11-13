@@ -4,6 +4,7 @@ class CreateStudentAssignments < ActiveRecord::Migration
       t.integer :student_id
       t.integer :assignment_id
       t.integer :grade
+      t.integer :pod_id
       t.timestamps
     end
   end

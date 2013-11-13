@@ -6,17 +6,13 @@
 
 
 
-
-
-
-
 <table>
   <%= form_tag parser_path, multipart: true do %>
   <tr>
     <td><%= label_tag("course_title", "Course Title: ")%></td>
   </tr>
   <tr>
-    <td><%= text_field_tag("course_title") %></td>
+    <td><%= text_field_tag("course_title", nil, required:true) %></td>
   </tr>
   <tr>
     <td><%= file_field_tag :file %></td>

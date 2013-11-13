@@ -14,41 +14,37 @@
  */
 
 #app_container {
-  top: 0px;
+  top: 0;
   bottom:0;
 
-  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  padding-right:25px;
+  padding-left:25px;
+  padding-bottom:75px;
+
+  position: static;
   height: 100%;
-  width: 75%;
+  width: 900px;
 
   border-right:1px solid #cecece;
   border-left:1px solid #cecece;
 
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-right:25px;
-  padding-left:25px;
-}
-
-#footer {
-  height: 100px;
-  width: 100%;
-  clear: both;
-  background: black;
 }
 
 #footer {
   bottom: 0;
-  border-top: 2px solid gray;
+  clear: both;
+  height: 100px;
+  width: 100%;
+  border-top: 1px solid gray;
+  background: black;
+  position: fixed;
 }
 
 li {
   list-style-type: none;
 }
-
-
-
-
-
-

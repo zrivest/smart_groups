@@ -1,8 +1,21 @@
+
+
 <% @completed_assignments.each do |student_assignment| %>
-  <%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %><br>
-  <%= student_assignment.assignment.assignment_name %><br>
-  <%= student_assignment.assignment.start_date %><br>
-  <%= student_assignment.assignment.due_date %><br>
-  <%= student_assignment.grade %><br>
-  <br>
+<table>
+  <tr>
+    <td><%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %></td>
+  </tr>
+  <tr>
+    <td><%= student_assignment.assignment.assignment_name %></td>
+  </tr>
+  <tr>
+    <td><%= student_assignment.assignment.start_date %></td>
+  </tr>
+  <tr>
+    <td><%= student_assignment.assignment.due_date %></td>
+  </tr>
+  <tr>
+    <td><%= student_assignment.grade %></td>
+  </tr>
+</table>
 <% end %>

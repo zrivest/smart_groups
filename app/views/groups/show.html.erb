@@ -5,10 +5,10 @@
         <td>
           <h4 class="subheader"><%= "Group Overflow"%></h4>
           <hr>
-          <ul id="sortable" class="droptrue">
+          <ul id="group-0" class="droptrue">
             <li class="ui-state-default"></li>
             <% @students.each do |student|%>
-              <li class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+              <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
             <% end %>
           </ul>
         </td>
@@ -25,10 +25,10 @@
               <td>
                 <h4 class="subheader"><%= "Group #{index+1}" %></h4>
                 <hr>
-                <ul id="sortable" class="droptrue">
+                <ul id="group-<%= index %>" class="droptrue">
                   <li class="ui-state-default"></li>
                   <% group.each do |student|%>
-                    <li class="ui-state-default"><%= student.first_name %></li>
+                    <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %></li>
                   <% end %>
                 </ul>
               </td>
