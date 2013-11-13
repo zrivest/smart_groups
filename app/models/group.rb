@@ -41,19 +41,23 @@ class Group < ActiveRecord::Base
     counter = 0
     students_per_group = num_students/num_groups
     sections = Array.new(students_per_group) {students.shift(num_groups)}
-      num_of_groups = sections.length
-      num_of_students = sections[0].length
-      groups = Array.new(num_of_students) {Array.new(num_of_groups)}
+      if sections.length > 0
+        num_of_groups = sections.length
+        num_of_students = sections[0].length
+        groups = Array.new(num_of_students) {Array.new(num_of_groups)}
 
-      num_of_students.times do |j|
-        num_of_groups.times do |i|
-          if counter.even?
-            groups[j][i] = sections[i].shift
-          else
-            groups[j][i] = sections[i].pop 
+        num_of_students.times do |j|
+          num_of_groups.times do |i|
+            if counter.even?
+              groups[j][i] = sections[i].shift
+            else
+              groups[j][i] = sections[i].pop 
+            end
+            counter += 1
           end
-          counter += 1
         end
+      else
+        return 0
       end
     groups
   end  
