@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   def create
     course = Course.find(params[:users][:students][:course])
 
+    # variable naming... please don't use single char vars
     s = Student.create(first_name: params[:users][:students][:first_name], last_name: params[:users][:students][:last_name])
     a = Assignment.create(assignment_name: params[:users][:students][:assignment_name], start_date: params[:users][:students][:start_date], due_date: params[:users][:students][:due_date], course_id: course.id)
 
@@ -16,6 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    # variable naming... sa... I get what you mean, but please use better names
     sa = StudentAssignment.find(params[:id])
     course_id = Assignment.find(sa.assignment_id).course_id
     sa.destroy

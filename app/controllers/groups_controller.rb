@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
 
+  # the methods in this controller are fairly large
+  # consider SRP here... Break out methods into succinct 
+  # functionality, extract some of this code out to helpers
+  
   def new
     session[:course_id] = Course.find(params[:course_id]).id
     @students = current_course.unique_students

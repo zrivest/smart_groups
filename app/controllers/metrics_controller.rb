@@ -1,5 +1,10 @@
 class MetricsController < ApplicationController
 
+  # the methods in this controller are fairly large
+  # Specifically create
+  # consider SRP here... Break out methods into succinct 
+  # functionality, extract some of this code out to helpers
+  
   def main
     @course = Course.find(params[:course_id])
     session[:course_id] = @course.id

@@ -1,4 +1,8 @@
 class Group < ActiveRecord::Base
+  # the methods in here are super meaty
+  # consider a refactor here.
+  # some of the code looks similar.
+  
   attr_accessible :course_id
   attr_accessor :total_students_per_groups, 
                 :total_num_of_groups, :random, 
