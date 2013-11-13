@@ -2,14 +2,14 @@ SmartGroups::Application.routes.draw do
   root :to => 'welcome#index'
 
   get '/students_grades' => 'teachers#students_grades'
-  get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
+  # get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
   resources :metrics
   resources :user_sessions
 
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
-  resources :metrics
-  resources :user_sessions
+  # resources :metrics
+  # resources :user_sessions
   get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
   post "/metrics", to: 'metrics#create'
   get '/metrics/students/:student_id', to: 'metrics#student_profile', :as => :student_profile

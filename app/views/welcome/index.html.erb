@@ -1,54 +1,29 @@
-<div id="signin_login_container">
-
-<div id="signin">
-  <table>
-    <%= form_tag "users#create", method:"POST" do %>
-    <tr>
-      <th><h3 class="subheader"><%= "Signup" %></h3></th>
-    </tr>
-    <tr>
-      <td><%= label_tag(:email, "Email:") %></td>
-    </tr>
-      <tr>
-      <td><%= email_field_tag(:email, nil, required:true) %></td>
-    </tr>
-      <tr>
-      <td><%= label_tag(:password, "Password:") %></td>
-    </tr>
-      <tr>
-      <td><%= password_field_tag(:password, nil, required:true) %></td>
-    </tr>
-      <tr>
-      <td><%= submit_tag("Signup") %></td>
-    </tr>
-  </table>
-<% end %>
-</div>
-
-
-
-<div id="signin">
-<table>
+<fieldset id="something">
+  <legend>Login</legend>
   <%= form_tag login_path do %>
-  <tr>
-    <th><h3 class="subheader"><%= "Login" %></h3></th>
-  </tr>
-  <tr>
-    <td><%= label_tag(:email, "Email:") %></td>
-  </tr>
-<tr>
-  <td><%= email_field_tag(:email, nil, required:true) %></td>
-</tr>
-  <tr>
-<td><%= label_tag(:password, "Password:") %></td>
-  </tr>
-  <tr>
-    <td><%= password_field_tag(:password, nil, required:true) %></td>
-  </tr>
-  <tr>
-    <td><%= submit_tag("Login") %></td>
-  </tr>
-</table>
-<% end %>
-</div>
-</div>
+
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email, nil, required:true) %>
+
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password, nil, required:true) %>
+
+  <%= submit_tag("Login", class: "small button success", style: "float:right;") %>
+
+  <% end %>
+</fieldset>
+
+<fieldset id="something">
+  <legend>Signup</legend>
+  <%= form_tag "users#create", method:"POST" do %>
+
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email, nil, required:true) %>
+
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password, nil, required:true) %>
+
+  <%= submit_tag("Signup", class: "small button success", style: "float:right;") %>
+  
+  <% end %>
+</fieldset>

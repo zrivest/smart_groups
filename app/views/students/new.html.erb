@@ -1,48 +1,52 @@
-<h1 class="subheader">Add a Student</h1>
+<h3>Enter Your Students</h3>
 
-<%= form_for 'users[students]', class: "custom", url: {action: "create"} do |f| %>
+<%= form_for 'users[students]', url: {action: "create"} do |f| %>
+  <%= f.hidden_field :course, value: "#{@course.id}" %>
+
   <fieldset>
-    <legend>Student</legend>
-    <%= f.hidden_field :course, value: "#{@course.id}"%>
+    <legend>Student Information</legend>
 
     <div class="row">
-      <div class="large-3 columns">
+      <div class="large-4 columns">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, required: true %>
       </div>
-      <div class="large-3 columns" style="float: left;">
+      <div class="large-4 columns">
         <%= f.label :last_name %>
         <%= f.text_field :last_name, required: true %>
       </div>
-      <div class="large-6 columns" style="float: left;">
+      <div class="large-4 columns">
         <%= f.label :assignment_name %>
         <%= f.text_field :assignment_name, required: true %>
       </div>
     </div>
 
+    <br>
 
     <div class="row">
-      <div class="large-4 columns" style="float: left;">
+      <div class="large-4 columns">
         <%= f.label :start_date %>
-        <%= f.text_field :start_date, id: "datepicker", required: true %>
+        <%= f.text_field :start_date, required: true %>
       </div>
-      <div class="large-4 columns" style="float: left;">
+      <div class="large-4 columns">
         <%= f.label :due_date %>
-        <%= f.text_field :due_date, id: "datepicker2", required: true %>
+        <%= f.text_field :due_date, required: true %>
       </div>
-      <div class="large-4 columns" style="float: left;">
-        <%= f.label "Grade (3 digit scale)" %>
-        <%= f.text_field :grade, required: true, pattern: "[0-9][0-9][0-9]", maxlength: 3 %>
+      <div class="large-4 columns">
+        <%= f.label :grade %>
+        <%= f.text_field :grade, required: true %>
       </div>
     </div>
 
+    <br>
+
+    <div class="row">
+      <%= f.submit "Add Student", class: "small button success", style: "float:right;width:150px;margin-right:15px" %>
+      <%= link_to("Back to Course list", user_courses_path(params[:user_id]), class: "small button", style: "float:right;width:150px;margin-right:30px") %>
+    </div>
+
   </fieldset>
-
-    <%= f.submit "Add Student", class: "small button success", style: "float:right;margin-right:25px;" %>
 <% end %>
-</form>
 
-<!--
-<a href="" class="small button success" style="float:right;margin-right:25px;  ">Finish and Submit Form</a>
-<a href="" class="small button" style="float:right;margin-right:25px;">Add Another Student</a>
- -->
+
+

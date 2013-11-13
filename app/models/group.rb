@@ -1,6 +1,8 @@
 class Group < ActiveRecord::Base
   attr_accessible :course_id
-  attr_accessor :total_students_per_groups, :total_num_of_groups, :random, :even_grade_distribution,
+  attr_accessor :total_students_per_groups, 
+                :total_num_of_groups, :random, 
+                :even_grade_distribution
 
   has_many :pods
   has_many :enrollments, through: :pods
@@ -26,7 +28,6 @@ class Group < ActiveRecord::Base
     end
      students = students.sort_by!(&:average)
   end
-
 
   def self.total_num_groups(num_students, num_groups, students)
     students_per_group = num_students/num_groups

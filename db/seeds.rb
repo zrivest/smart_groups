@@ -22,12 +22,18 @@ User.create(email: "hoovs@hoovs.com", password: "password")
 User.create(email: "asdf@asdf.com", password: "asdf")
 User.create(email: "wolfman@wolfman.com", password: "password")
 
-200.times do
+100.times do
   grade = (40..99).to_a
   student_id = (1..100).to_a
   assignment_id = (1..100).to_a
 
-  StudentAssignment.create(grade: grade.sample, student_id: student_id.sample, assignment_id: assignment_id.sample)
+  StudentAssignment.create(grade: grade.sample, 
+                          student_id: student_id.sample, 
+                          assignment_id: assignment_id.sample,
+                          pod_id: rand(1..5),
+                          grade: rand(65..100),
+                          liked_pod: rand(1..5),
+                          learned_in_pod: rand(1..5))
 end
 
 Enrollment.create(student_id: 1, course_id: 1)

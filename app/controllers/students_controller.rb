@@ -21,4 +21,5 @@ class StudentsController < ApplicationController
     sa.destroy
     redirect_to ("/users/#{params[:user_id]}/user_courses/#{course_id}/edit")
   end
+
 end

@@ -1,17 +1,7 @@
-<h1 class="subheader">Add a Course Name</h1>
+<h3>Create course title</h3>
 
-<%= form_for 'users[courses]', url: {action: "create"}, :html => {:data => {:abide => 'your-data-abide'}} do |f| %>
-  <fieldset>
-    <legend>Course Name</legend>
-
-    <div class="row">
-      <div class="large-3 columns">
-        <%= label_tag("course_title", "Course Title: ")%>
-        <%= text_field_tag 'course_title', nil, required: true %>
-      </div>
-    </div>
-
-  </fieldset>
-  <%= f.submit "Create New Course", class: "small button success", style: "float:right;margin-right:25px;" %>
+<%= form_for 'users[courses]', url: {action: "create"} do |f| %>
+  <%= label_tag("course_title", "Course Title: ")%>
+  <%= text_field_tag("course_title", nil, style:"width:400px;", required: true) %>
+  <%= f.submit "Create New Course", class: "small button success"%>
 <% end %>
-</form>
