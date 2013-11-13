@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   attr_accessible :course_id
-  attr_accessor :total_students_per_groups, :total_num_of_groups, :random, :even_grade_distribution
+  attr_accessor :total_students_per_groups, :total_num_of_groups, :random, :even_grade_distribution,
 
   has_many :pods
   has_many :enrollments, through: :pods
@@ -23,7 +23,7 @@ class Group < ActiveRecord::Base
       assignments.each{|n| sum += n}
       average = sum/(assignments.length)
       student.update_attributes!(average: average)
-    end  
+    end
      students = students.sort_by!(&:average)
   end
 
@@ -46,15 +46,16 @@ class Group < ActiveRecord::Base
           if counter.even?
             groups[j][i] = sections[i].shift
           else
-            groups[j][i] = sections[i].pop 
+            groups[j][i] = sections[i].pop
           end
           counter += 1
         end
       end
     groups
-  end  
+  end
+# might have an extra end in this location
 
-  
+
   def self.total_students_groups(num_students, students_per_group, students)
     num_groups = num_students/students_per_group
     groups = Array.new(num_groups) {students.shift(students_per_group)}
@@ -74,7 +75,7 @@ class Group < ActiveRecord::Base
           if counter.even?
             groups[j][i] = sections[i].shift
           else
-            groups[j][i] = sections[i].pop 
+            groups[j][i] = sections[i].pop
           end
           counter += 1
         end

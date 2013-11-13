@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
     # params[:group][:new_group].to_i
     render :index
   end
-  
+
   def total_students_per_groups
     @students = current_course.unique_students
     num_students = @students.length
@@ -24,11 +24,8 @@ class GroupsController < ApplicationController
         @pod = Pod.create(group_id: @new_group.id)
         pod.each do |student|
           StudentAssignment.find(student.id).update_attributes!(pod_id: @pod.id)
-            p "#{@new_group}"
-
-p"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-        end  
-      end 
+        end
+      end
 
     elsif params[:group][:random].to_i == 1
       Group.random(@students)
@@ -38,8 +35,8 @@ p"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         @pod = Pod.create(group_id: @new_group.id)
         pod.each do |student|
           StudentAssignment.find(student.id).update_attributes!(pod_id: @pod.id)
-        end  
-      end 
+        end
+      end
     else
       redirect_to new_course_group_path(current_course)
     end
@@ -64,8 +61,8 @@ p"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         @pod = Pod.create(group_id: @new_group.id)
         pod.each do |student|
           StudentAssignment.find(student.id).update_attributes!(pod_id: @pod.id)
-        end  
-      end 
+        end
+      end
     elsif params[:group][:random].to_i == 1
       Group.random(@students)
       @groups = Group.total_num_groups(num_students, num_groups, @students)
@@ -74,10 +71,11 @@ p"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         @pod = Pod.create(group_id: @new_group.id)
         pod.each do |student|
           StudentAssignment.find(student.id).update_attributes!(pod_id: @pod.id)
-        end  
-      end 
+        end
+      end
     else
       redirect_to new_course_group_path(current_course)
+
     end
     render :show
   end
@@ -90,7 +88,4 @@ p"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 
     render nothing: true
   end
-
-
-
 end

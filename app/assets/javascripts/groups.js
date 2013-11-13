@@ -15,7 +15,7 @@ $( "ul.droptrue" ).sortable({
     // console.log(pod_id);
     var data = {student_id: student_id, pod_id: pod_id};
     var url = "/courses/' + $course_Id + '/groups/' + $group_Id+ '/update_through_ajax";
-  
+
     $.post(url, data);
 
 
@@ -25,4 +25,4 @@ $( "ul.droptrue" ).sortable({
   // with group_id, student_ids
 })
 });
- 
+

@@ -1,19 +1,19 @@
-<div id="left_group_container">
-  <table id="<%= @new_group.id %>" class="<%= @new_group.course.id %>" >
-    <tr>
-      <td>
-        <h4 class="subheader"><%= "Group Overflow"%></h4>
-        <hr>
-        <ul class="droptrue">
-          <li class="hidden" style="display: none">
-          <% @students.each do |student|%>
-          <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
-          <% end %>
-        </ul>
-      </td>
-    </tr>
-  </table>
-</div><!--left_group_container END-->
+  <div id="left_group_container">
+    <table id="group">
+      <tr>
+        <td>
+          <h4 class="subheader"><%= "Group Overflow"%></h4>
+          <hr>
+          <ul id="group-0" class="droptrue">
+            <li class="ui-state-default"></li>
+            <% @students.each do |student|%>
+              <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div><!--left_group_container END-->
 
 <div id="right_group_container">
   <ul class="small-block-grid-3">

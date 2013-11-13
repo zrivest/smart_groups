@@ -1,30 +1,35 @@
+<div id="signin_login_container">
 
-
-<%= form_tag "users#create", method:"POST" do %>
-<table>
-  <tr>
-    <th><h3 class="subheader"><%= "Signup" %></h3></th>
-  </tr>
-  <tr>
-    <td><%= label_tag(:email, "Email:") %></td>
-  </tr>
+<div id="signin">
+  <table>
+    <%= form_tag "users#create", method:"POST" do %>
     <tr>
-    <td><%= email_field_tag(:email) %></td>
-  </tr>
+      <th><h3 class="subheader"><%= "Signup" %></h3></th>
+    </tr>
     <tr>
-    <td><%= label_tag(:password, "Password:") %></td>
-  </tr>
-    <tr>
-    <td><%= password_field_tag(:password) %></td>
-  </tr>
-    <tr>
-    <td><%= submit_tag("Signup") %></td>
-  </tr>
-</table>
+      <td><%= label_tag(:email, "Email:") %></td>
+    </tr>
+      <tr>
+      <td><%= email_field_tag(:email, nil, required:true) %></td>
+    </tr>
+      <tr>
+      <td><%= label_tag(:password, "Password:") %></td>
+    </tr>
+      <tr>
+      <td><%= password_field_tag(:password, nil, required:true) %></td>
+    </tr>
+      <tr>
+      <td><%= submit_tag("Signup") %></td>
+    </tr>
+  </table>
 <% end %>
+</div>
 
-<%= form_tag login_path do %>
+
+
+<div id="signin">
 <table>
+  <%= form_tag login_path do %>
   <tr>
     <th><h3 class="subheader"><%= "Login" %></h3></th>
   </tr>
@@ -32,16 +37,18 @@
     <td><%= label_tag(:email, "Email:") %></td>
   </tr>
 <tr>
-  <td><%= email_field_tag(:email) %></td>
+  <td><%= email_field_tag(:email, nil, required:true) %></td>
 </tr>
   <tr>
 <td><%= label_tag(:password, "Password:") %></td>
   </tr>
   <tr>
-    <td><%= password_field_tag(:password) %></td>
+    <td><%= password_field_tag(:password, nil, required:true) %></td>
   </tr>
   <tr>
     <td><%= submit_tag("Login") %></td>
   </tr>
 </table>
 <% end %>
+</div>
+</div>
