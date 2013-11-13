@@ -1,23 +1,23 @@
-<h1>Enter Your Students</h1>
+<h3>Enter Your Students</h3>
 
 <%= form_for 'users[students]', url: {action: "create"} do |f| %>
   <%= f.hidden_field :course, value: "#{@course.id}" %>
 
   <fieldset>
-    <legend>Fieldset</legend>
+    <legend>Student Information</legend>
 
     <div class="row">
       <div class="large-4 columns">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
+        <%= f.text_field :first_name, required: true %>
       </div>
       <div class="large-4 columns">
         <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
+        <%= f.text_field :last_name, required: true %>
       </div>
       <div class="large-4 columns">
         <%= f.label :assignment_name %>
-        <%= f.text_field :assignment_name %>
+        <%= f.text_field :assignment_name, required: true %>
       </div>
     </div>
 
@@ -26,15 +26,15 @@
     <div class="row">
       <div class="large-4 columns">
         <%= f.label :start_date %>
-        <%= f.text_field :start_date %>
+        <%= f.text_field :start_date, required: true %>
       </div>
       <div class="large-4 columns">
         <%= f.label :due_date %>
-        <%= f.text_field :due_date %>
+        <%= f.text_field :due_date, required: true %>
       </div>
       <div class="large-4 columns">
         <%= f.label :grade %>
-        <%= f.text_field :grade %>
+        <%= f.text_field :grade, required: true %>
       </div>
     </div>
 

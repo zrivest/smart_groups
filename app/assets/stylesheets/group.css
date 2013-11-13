@@ -2,8 +2,13 @@
 #option_box_container {
   float: right;
 }
+#option_box_table {
+  width:300px;
+}
 
- #student_list{
+
+
+#student_list{
   float: left;
   width: 200px;
 

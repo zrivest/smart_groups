@@ -1,6 +1,7 @@
+<h3>Create course title</h3>
 
 <%= form_for 'users[courses]', url: {action: "create"} do |f| %>
   <%= label_tag("course_title", "Course Title: ")%>
-  <%= text_field_tag("course_title", nil, style:"width:400px;") %>
+  <%= text_field_tag("course_title", nil, style:"width:400px;", required: true) %>
   <%= f.submit "Create New Course", class: "small button success"%>
 <% end %>

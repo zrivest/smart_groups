@@ -15,12 +15,12 @@
 
 /*index.html.erb*/
 
-#opt_bttn {
-  margin-top: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+#course_list_buttons {
+  width: 125px;
 }
 
-#course_list {
-  width:100px;
+#display_course_options {
+  /*display:inline;*/
+  margin-right: 25px;
+  vertical-align: top;
 }
