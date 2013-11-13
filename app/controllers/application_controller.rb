@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   include GroupsHelper
   protect_from_forgery
 
+  # I would be wary that you included Metrics and Groups here
+  # Why didn't you just put that functionality in Application Helper?
+  # or conversely only include in the Metrics Controller or Groups Controller respectively
+  # 
+  
   before_filter :session_expire
   before_filter :update_activity_time
 

@@ -3,6 +3,7 @@ require 'smarter_csv'
 class Parser
 
   def self.import(file, course)
+    # variable names!  ew!
     SmarterCSV.process(file.path, :headers => true, :header_converters => :symbol).each do |row|
       a = Assignment.create!(start_date: row[:start_date],
                              due_date: row[:due_date],

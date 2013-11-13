@@ -62,7 +62,7 @@ $(document).ready(function(){
     console.log(whatever)
     $('ul .droptrue').children().addClass("THIS WORKS")
 
-
+    //IS THIS USED? looks like debug
 
 
 

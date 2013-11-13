@@ -1,6 +1,9 @@
 $(document).ready("click", function(){
 
 
+// WHAT's going on here.. .is this used?
+// Don't leave commented out code around if it's being removed.  
+// it will remain in your history, that's enough.
 
 // $(function () {
 //         $('#container').highcharts({

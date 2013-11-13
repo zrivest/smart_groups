@@ -28,6 +28,7 @@ def index
   end
 
   def update
+    # variable naming here
     @sa = StudentAssignment.find(params[:student_assignment][:id])
     @course_id = Assignment.find(@sa.assignment_id).course_id
     @sa.update_attribute(:grade, params[:student_assignment][:grade])
