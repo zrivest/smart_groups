@@ -2,12 +2,11 @@
     <table id="group">
       <tr>
         <td>
-          <h4 class="subheader"><%= "Group Overflow"%></h4>
+          <h4 class="subheader" style="text-align:center;"><%= "Group Overflow"%></h4>
           <hr>
           <ul id="group-0" class="droptrue">
-            <li class="ui-state-default"></li>
             <% @students.each do |student|%>
-              <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+              <li id="student-<%= student.id %>" style="background:#efefef;" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
             <% end %>
           </ul>
         </td>
@@ -23,12 +22,12 @@
       <table id="group">
         <tr>
           <td>
-            <h4 class="subheader"><%= "Group #{index+1}" %></h4>
+            <h4 class="subheader" style="text-align:center;"><%= "Group #{index+1}" %></h4>
             <hr>
             <ul id="group-<%= index %>" class="droptrue">
-              <li class="hidden" style="display: none">
+              <li id="sortable1"></li>
               <% group.each do |student|%>
-              <li id="student-<%= student.id %>" class="ui-state-default"><%= student.first_name %></li>
+              <li id="student-<%= student.id %>" style="background:#efefef;" class="ui-state-default"><%= student.first_name %></li>
               <% end %>
             </ul>
           </td>

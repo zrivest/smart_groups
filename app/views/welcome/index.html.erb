@@ -1,7 +1,8 @@
-<fieldset id="something">
-  <legend>Login</legend>
+<fieldset id="login_box">
   <%= form_tag login_path do %>
 
+  <h3 id="login_boxes_handwriting"><%= label_tag("Login") %></h3>
+  <hr>
   <%= label_tag(:email, "Email:") %>
   <%= email_field_tag(:email, nil, required:true) %>
 
@@ -13,8 +14,9 @@
   <% end %>
 </fieldset>
 
-<fieldset id="something">
-  <legend>Signup</legend>
+<fieldset id="signup_box">
+  <h3 id="login_boxes_handwriting"><%= label_tag("Signup") %></h3>
+  <hr>
   <%= form_tag "users#create", method:"POST" do %>
 
   <%= label_tag(:email, "Email:") %>
@@ -24,6 +26,16 @@
   <%= password_field_tag(:password, nil, required:true) %>
 
   <%= submit_tag("Signup", class: "small button success", style: "float:right;") %>
-  
+
   <% end %>
 </fieldset>
+
+
+
+
+
+
+
+
+
+<div id="title_handwriting">Welcome to <br> GroupSmart</div>

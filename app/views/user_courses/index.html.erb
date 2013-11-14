@@ -1,19 +1,15 @@
-<h2>Welcome to SmartGroup!</h2>
+<h3>Welcome to SmartGroup!</h3>
 
 
 <h4>Add A Course</h4>
 
 <table>
   <tr>
-    <td><h4 class="subheader">Add a course with CSV file</h4></td>
-    <td><h4 class="subheader">Add a course manually</h4></td>
-  </tr>
-  <tr>
-    <td><%= link_to("Upload Class", parser_path, class: "small button success") %></td>
-    <td><%= link_to("Enter Class", new_user_course_path, class: "small button success") %></td>  
+    <td><%= link_to("Add a course with CSV file", parser_path, class: "small button success") %></td>
+    <td><%= link_to("Add a course manually", new_user_course_path, class: "small button success") %></td>
   </tr>
 </table>
-  
+
 <br><br><br>
 
 <h4>Current Courses</h4>
