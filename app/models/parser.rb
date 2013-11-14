@@ -11,7 +11,7 @@ class Parser
 
       s = Student.where(first_name: row[:first_name], last_name: row[:last_name]).first_or_create()
 
-      sa = StudentAssignment.create(student_id: s.id, assignment_id: a.id, grade: row[:grade] )
+      sa = StudentAssignment.create!(student_id: s.id, assignment_id: a.id, grade: row[:grade] )
 
       Enrollment.where(student_id: s.id, course_id: course.id).first_or_create()
     end
