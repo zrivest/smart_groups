@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @user == nil
+      current_user
+    end
   end
 
   def create

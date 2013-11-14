@@ -28,12 +28,11 @@
     <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
-
-
-
-
-
-
+        <% if session[:user_id] %>
+          <h1><%= link_to("GroupSmart", user_courses_path(session[:user_id]))%></h1>
+        <% else %>
+         <h1><%= link_to("GroupSmart", "#")%></h1>
+          <% end %>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
