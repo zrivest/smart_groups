@@ -26,7 +26,6 @@ class GroupsController < ApplicationController
     else
       redirect_to new_course_group_path(current_course)
     end
-
     render :show
   end
 
