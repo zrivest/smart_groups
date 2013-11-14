@@ -27,7 +27,6 @@ class MetricsController < ApplicationController
       @student_grades = student_assignment.student.get_grades
       @class_averages << student_assignment.assignment.course_average
       @hash[student_assignment.student.name] = @student_grades
-      @hash_assignment_averages[student_assignment.student.name] = @student_grades
     end
 
     @class_average = get_average(@course.get_student_grades)
@@ -39,7 +38,6 @@ class MetricsController < ApplicationController
       end
       f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
       f.options[:xAxis][:categories] = @categories.uniq!
-    binding.pry
       f.options[:legend][:layout] = "horizontal"
       f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
     end
