@@ -15,10 +15,7 @@ class MetricsController < ApplicationController
     @range_categories = Array.new
     @class_averages = Array.new
     #series
-    @student_averages = Array.new
-    #temporary capsule, to use Graph, Series objects
     @hash = {}
-    @hash2 = {}
 
     @completed_assignments.each do |student_assignment|
       #assignment name
@@ -28,10 +25,9 @@ class MetricsController < ApplicationController
 
       #assignment grade
       @student_grades = student_assignment.student.get_grades
-      @student_averages << get_average(@student_grades)
       @class_averages << student_assignment.assignment.course_average
       @hash[student_assignment.student.name] = @student_grades
-      @hash2[:average] = @student_averages
+      @hash_assignment_averages[student_assignment.student.name] = @student_grades
     end
 
     @class_average = get_average(@course.get_student_grades)
@@ -51,7 +47,7 @@ class MetricsController < ApplicationController
     @chart_area = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "spline"
       @hash.each do |k,v|
-        f.series(:type=> "spline",:name=> "#{k}", :data=> v)
+        f.series(:type=> "spline",:name=> "#{k}", :data=> v, visible: false)
       end
       f.options[:chart][:inverted] = false
       f.options[:legend][:layout] = "horizontal"
@@ -61,10 +57,7 @@ class MetricsController < ApplicationController
 
     @chart_range = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "spline"
-      @hash2.each do |k,v|
-        f.series(:type=> "spline",:name=> "#{k}", :data=> v)
-      end
-      f.series(:type=>"spline", :name=> "Class Average", :data=> @class_averages.uniq!)
+      f.series(:type=>"spline", :name=> "Class Average", :data=> @class_averages)
       f.options[:chart][:inverted] = false
       f.options[:legend][:layout] = "horizontal"
       f.options[:xAxis][:categories] = @range_categories.uniq!
