@@ -24,8 +24,12 @@ class Course < ActiveRecord::Base
     self.students.where(id: student.id).first.student_assignments.map{|student_assignment| student_assignment}
   end
 
-  def completed_assignments_grades(student)
-    self.students.where(id: student.id).first.student_assignments.map{|student_assignment| student_assignment.grade}
+  def completed_assignments_grades(assignment)
+    grades = Array.new
+    grades << self.enrollments.each do |enrollment|
+      enrollment.student.student_assignments.where(assignment_id: assignment.id).map(&:grade).compact
+    end
+    grades.flatten!.inject{ |sum, element| sum + element }.to_f / grades.length
   end
 
   def all_completed_assignments_for_course

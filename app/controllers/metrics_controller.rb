@@ -90,11 +90,11 @@ class MetricsController < ApplicationController
     @averages << Float(@student_grades.inject(:+))/@student_grades.length
     @course_average_grades << student_assignment.assignment.course_average
   end
-
+binding.pry
   @chart_student = LazyHighCharts::HighChart.new('graph') do |f|
     f.title({ :text=> @course.name})
     f.series(:type=> "spline",:name=> @student_name, :data=> @averages)
-    f.series(:type=> "line",:name=> "#{@course.name}", :data=> @course_average_grades)
+    f.series(:type=> "spline",:name=> "#{@course.name}", :data=> @course_average_grades)
 
     f.options[:xAxis][:categories] = @axis_labels
     f.options[:legend][:layout] = "horizontal"
