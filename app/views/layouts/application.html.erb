@@ -13,6 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- supposedly makes jquery work - delete this in code review -->
+    <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <title><%= content_for?(:title) ? yield(:title) : "GroupSmart" %></title>
   	<%= stylesheet_link_tag    "application" %>
@@ -21,44 +22,48 @@
 <div class="container">
   <body>
 
+<div id="wrapper">
+  <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR -->
+  <nav class="top-bar" style="margin-bottom:0;">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
 
-<!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR -->
 
-<nav class="top-bar" style="margin-bottom:0;">
-  <ul class="title-area">
-    <!-- Title Area -->
-    <li class="name">
 
-    </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
 
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <!-- LOGOUT -->
-      <li class="divider hide-for-small"></li>
-      <% if session[:user_id] %>
-        <li class="has-dropdown"><%= link_to(current_user.email, "#") %>
-          <ul class="dropdown">
-            <!-- <li><label>asdf</label></li> -->
-            <li> <%= link_to("Logout", logout_path) %> </li>
-          </ul>
-        </li>
-      <% end %>
 
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-  </section>
-</nav>
 
-<!-- ZURB NAV BAR END -->
-<div id="app_container"> <%= yield %> </div>
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
 
-<div id="footer"></div>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <!-- LOGOUT -->
+        <li class="divider hide-for-small"></li>
+        <% if session[:user_id] %>
+          <li class="has-dropdown"><%= link_to(current_user.email, "#") %>
+            <ul class="dropdown">
+              <!-- <li><label>asdf</label></li> -->
+              <li> <%= link_to("Logout", logout_path) %> </li>
+            </ul>
+          </li>
+        <% end %>
 
+      </ul>
+    </section>
+  </nav>
+  <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR --> <!-- ZURB NAV BAR -->
+
+  <div id="app_container"> <%= yield %> <div style="clear:both"></div></div>
+
+  <div id="footer"></div>
+</div>
 
     <%= javascript_include_tag "application" %>
   </body>
