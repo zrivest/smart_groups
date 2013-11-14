@@ -64,7 +64,12 @@ class MetricsController < ApplicationController
         f.options[:legend][:layout] = "horizontal"
         f.options[:xAxis][:categories] = @range_categories
       end
+
+      if @selections == nil
+        redirect_to main_path(session[:user_id],session[:course_id])
+      else
       render :show
+      end
     end
 
 

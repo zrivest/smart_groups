@@ -2,14 +2,12 @@ SmartGroups::Application.routes.draw do
   root :to => 'welcome#index'
 
   get '/students_grades' => 'teachers#students_grades'
-  # get "users/:user_id/courses/:course_id/metrics/:id" => "metrics#main", :as => :main
   resources :metrics
   resources :user_sessions
 
   get "/parser", to: 'parser#index'
   post "/parser", to: 'parser#import'
-  # resources :metrics
-  # resources :user_sessions
+
   get "users/:user_id/courses/:course_id/metrics/new" => "metrics#main", :as => :main
   post "/metrics", to: 'metrics#create'
   get '/metrics/students/:student_id', to: 'metrics#student_profile', :as => :student_profile
@@ -20,7 +18,7 @@ SmartGroups::Application.routes.draw do
 
   post '/courses/:course_id/groups/total_students_per_groups' => "groups#total_students_per_groups"
   post '/courses/:course_id/groups/total_num_of_groups' => "groups#total_num_of_groups"
-  post '/courses/:course_id/groups/:id/update_through_ajax' => 'groups#update_through_ajax'
+  post '/courses/:course_id/groups/update_through_ajax' => 'groups#update_through_ajax'
 
   resources :courses do
     resources :groups
