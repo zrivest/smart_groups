@@ -15,12 +15,10 @@
   <% @completed_assignments.each do |student_assignment| %>
 
   <tr><td colspan="6"><hr></td></tr>
+
   <tr>
     <td>
       <%= student_assignment.student.first_name %> <%= student_assignment.student.last_name %>
-    </td>
-    <td>
-      <%= student_assignment.assignment.assignment_name %>
     </td>
     <td>
       <%= student_assignment.assignment.assignment_name %>
@@ -30,6 +28,9 @@
     </td>
     <td>
       <%= student_assignment.assignment.due_date %>
+    </td>
+    <td>
+      <%= student_assignment.grade %>
     </td>
     <td>
       <%= form_for :student_assignment, :method => 'put' do |f| %>
