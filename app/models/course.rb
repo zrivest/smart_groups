@@ -20,6 +20,14 @@ class Course < ActiveRecord::Base
     students
   end
 
+  def completed_assignments_for(student)
+    self.students.where(id: student.id).first.student_assignments.map{|student_assignment| student_assignment}
+  end
+
+  def completed_assignments_grades(student)
+    self.students.where(id: student.id).first.student_assignments.map{|student_assignment| student_assignment.grade}
+  end
+
   def all_completed_assignments_for_course
     completed_assignments = []
     self.assignments.each do |assignment|

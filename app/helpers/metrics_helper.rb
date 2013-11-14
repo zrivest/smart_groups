@@ -11,8 +11,12 @@ module MetricsHelper
 
     types = [type1, type2, type3]
 
-     if selections.include?(types[at_index])
-      true
+    if selections != nil
+      if selections.include?(types[at_index])
+        true
+      else
+        false
+      end
     else
       false
     end

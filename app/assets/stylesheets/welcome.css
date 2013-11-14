@@ -1,9 +1,24 @@
+
 #login_box, #signup_box {
   /*box-shadow: (inset) x-value y-value blur spread color;*/
   -webkit-box-shadow: 1px 1px 1px gray;
      -moz-box-shadow: 1px 1px 1px gray;
           box-shadow: 1px 1px 1px gray;
+}
+#something {
+  width: 300px;
+  float:right;
+  clear:both;
+}
 
+#signin_login_container {
+  width: 500px;
+  height: 400px;
+  /*float: right;*/
+}
+
+
+/*
   padding:25px;
   width:300px;
   clear: both;
@@ -12,7 +27,7 @@
   background:white;
   border: 1px solid gray;
   }
-
+*/
 
 #title_handwriting {
   font-family: 'Patrick Hand SC', cursive;
@@ -21,8 +36,18 @@
 }
 
 
+
 #login_boxes_handwriting {
     font-family: 'Patrick Hand SC', cursive;
       margin-top:-10px;
       margin-bottom:-10px;
 }
+#login {
+float: right;
+
+}
+
+
+
+
+/*NEED TO CHECK THIS FILE BECAUSE CSS GOT MESSED UP*/

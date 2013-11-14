@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   attr_accessible :course_id
-  attr_accessor :total_students_per_groups, 
-                :total_num_of_groups, :random, 
+  attr_accessor :total_students_per_groups,
+                :total_num_of_groups, :random,
                 :even_grade_distribution
 
   has_many :pods

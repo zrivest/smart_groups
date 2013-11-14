@@ -8,4 +8,10 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :course
 
+
+   def course_average
+    grades = self.student_assignments.map(&:grade).compact
+    grades.inject{ |sum, element| sum + element }.to_f / grades.length
+  end
+
 end
