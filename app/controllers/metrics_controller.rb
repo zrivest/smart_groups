@@ -41,6 +41,7 @@ class MetricsController < ApplicationController
       @hash.each do |k,v|
         f.series(:type=> "column",:name=> "#{k}", :data=> v)
       end
+      f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
       f.options[:xAxis][:categories] = @categories.uniq!
     binding.pry
       f.options[:legend][:layout] = "horizontal"
