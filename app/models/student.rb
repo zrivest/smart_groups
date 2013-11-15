@@ -21,4 +21,9 @@ class Student < ActiveRecord::Base
     return average
   end
 
+  def update_average(assignments)
+      average = assignments.inject(&:+)/(assignments.length)
+      update_attributes!(average: average)
+  end
+
 end

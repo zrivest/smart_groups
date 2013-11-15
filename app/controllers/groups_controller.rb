@@ -12,42 +12,42 @@ class GroupsController < ApplicationController
 
   def total_students_per_groups
     @students = current_course.unique_students
-    num_students = @students.length
-    students_per_group = params[:group][:total_students_per_groups].to_i
+    @course_id = params[:course_id]
+    # @groups = Group.create_groups_by_number_of_students(@students, params[:group])
+    # @pods = group_pod_creation(@groups, @course_id)
+    @generator = GroupGenerator.new(@course_id, params[:group])
+    @generator.distribute(@students)
 
-    if params[:group][:even_grade_distribution].to_i == 1
-      Group.average(@students)
-      @groups = Group.total_students_even_groups(num_students, students_per_group, @students)
-      @pods = group_pod_creation(@groups, params[:course_id])
-    elsif params[:group][:random].to_i == 1
-      Group.random(@students)
-      @groups = Group.total_students_groups(num_students, students_per_group, @students)
-      @pods = group_pod_creation(@groups, params[:course_id])
+    if generator.save
+      render :show
     else
-      redirect_to new_course_group_path(current_course)
+      # @generator.errors.full_messages
+      render :new
     end
 
-    render :show
+    # render :show
   end
 
   def total_num_of_groups
+    # @students = current_course.unique_students
+    # @course_id = params[:course_id]
+    # @groups = Group.create_groups_by_number_of_groups(@students, params[:group])
+    # @pods = group_pod_creation(@groups, @course_id)
+
     @students = current_course.unique_students
     @course_id = params[:course_id]
-    num_students = @students.length
-    num_groups = params[:group][:total_num_of_groups].to_i
+    @generator = GroupGenerator.new(@course_id, params[:group])
+    @generator.distribute(@students)
 
-    if params[:group][:even_grade_distribution].to_i == 1
-      Group.average(@students)
-      @groups = Group.total_num_even_groups(num_students, num_groups, @students)
-      @pods = group_pod_creation(@groups, params[:course_id])
-    elsif params[:group][:random].to_i == 1
-      Group.random(@students)
-      @groups = Group.total_num_groups(num_students, num_groups, @students)
-      @pods = group_pod_creation(@groups, params[:course_id])
+    if generator.save
+      render :show
     else
-      redirect_to new_course_group_path(current_course)
+      # @generator.errors.full_messages
+      render :new
     end
-    render :show
+
+
+    # render :show
   end
 
   def update_through_ajax
