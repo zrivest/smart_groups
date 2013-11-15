@@ -37,7 +37,7 @@ class MetricsController < ApplicationController
         f.series(:type=> "column",:name=> "#{k}", :data=> v)
       end
       f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
-      f.options[:xAxis][:categories] = @categories.uniq!
+      f.options[:xAxis][:categories] = @categories.uniq!.sort!
       f.options[:legend][:layout] = "horizontal"
       f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
     end
@@ -58,7 +58,7 @@ class MetricsController < ApplicationController
       f.series(:type=>"spline", :name=> "Class Average", :data=> @class_averages)
       f.options[:chart][:inverted] = false
       f.options[:legend][:layout] = "horizontal"
-      f.options[:xAxis][:categories] = @range_categories.uniq!
+      f.options[:xAxis][:categories] = @range_categories.uniq!.sort!
     end
 
     if @selections == nil
@@ -91,7 +91,7 @@ class MetricsController < ApplicationController
     f.series(:type=> "spline",:name=> @student_name, :data=> @averages)
     f.series(:type=> "spline",:name=> "#{@course.name}", :data=> @course_average_grades)
 
-    f.options[:xAxis][:categories] = @axis_labels
+    f.options[:xAxis][:categories] = @axis_labels.sort!
     f.options[:legend][:layout] = "horizontal"
     f.labels(:items=>[:html=>"#{@student_name}", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
   end
