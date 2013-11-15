@@ -1,7 +1,7 @@
 <h2>Charts for <%= Course.find(session[:course_id]).name %></h2>
 
 <% if selected_chart_type?(@selections, 0) %>
-<h3>Student Assignment Scores (Assignment vs Score by Student)</h3>
+<h3>Compare Student Performance by Assignment, to Peers and Class Mean </h3>
 
 <%= high_chart("chart_div", @chart) %>
 
@@ -24,7 +24,7 @@
 
 <% if selected_chart_type?(@selections, 1) %>
 
-<h3>Student Assignment Scores (Assignment vs Score by Student) </h3>
+<h3>Compare Student Assignment Scores vs Class Mean Over Time </h3>
 
 
 
@@ -46,7 +46,7 @@
 
 <% if selected_chart_type?(@selections, 2) %>
 
-<h3>Class Average Scores (Completion Date vs Average Scores of Assignment) </h3>
+<h3>Class Mean Score Trend Over Time </h3>
 
 
 
