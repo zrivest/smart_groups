@@ -15,10 +15,10 @@ class GroupsController < ApplicationController
     @course_id = params[:course_id]
     # @groups = Group.create_groups_by_number_of_students(@students, params[:group])
     # @pods = group_pod_creation(@groups, @course_id)
-    @generator = GroupGenerator.new(@course_id, params[:group])
-    @generator.distribute(@students)
+    GroupGenerator.new(@course_id, params[:group])
+    binding.pry
 
-    if generator.save
+    if generator.generate
       render :show
     else
       # @generator.errors.full_messages
