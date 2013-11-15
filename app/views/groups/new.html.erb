@@ -26,7 +26,7 @@
         <%= f.check_box :even_grade_distribution%>
         <%= f.label "even_grade_distribution" %>
       
-        <td colspan="2"><%= f.label "Total # of students per group" %><%= f.text_field :total_students_per_groups %>
+        <td colspan="2"><%= f.label "Total # of students per group" %><%= f.text_field :total_students_per_groups, required:true, :pattern => '([1-9][1-9])'%>
       
         <td colspan="2"><%= f.submit "Generate", class: "small button success", style: "float:right;" %>
       </fieldset>

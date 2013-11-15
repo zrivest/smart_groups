@@ -8,7 +8,7 @@
           <ul id="group-0" class="droptrue" data-pod-id="" data-update-url="/courses/<%= current_course.id %>/groups/update_through_ajax">
             <li class="ui-state-default"></li>
             <% @students.each do |student|%>
-              <li id="student-<%= student.id %>" data-student-id="<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %></li>
+              <li id="student-<%= student.id %>" data-student-id="<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %> <%= student.average %></li>
             <% end %>
           </ul>
         </td>
@@ -31,7 +31,7 @@
 
                   <% students.each do |student| %>
 
-                    <li id="student-<%= student.id %>" data-student-id="<%= student.id %>" class="ui-state-default"><%= student.first_name %></li>
+                    <li id="student-<%= student.id %>" data-student-id="<%= student.id %>" class="ui-state-default"><%= student.first_name %> <%= student.last_name %> <%= student.average %></li>
                   <% end %>
                 </ul>
               </td>

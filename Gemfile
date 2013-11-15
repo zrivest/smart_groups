@@ -22,7 +22,11 @@ group :development, :test do
   gem "binding_of_caller"
 
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 # Gems used only for assets and not required

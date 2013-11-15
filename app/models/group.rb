@@ -10,6 +10,25 @@ class Group < ActiveRecord::Base
   has_many :student_assignments, through: :students
   has_many :assignments, through: :student_assignments
   belongs_to :course
+  
+  def self.create_groups_by_number_of_students(students, group_requirements)
+    students_per_group = group_requirements[:total_students_per_groups].to_i
+
+    if group_requirements[:even_grade_distribution].to_i == 1
+      groups = self.total_students_even_groups(students_per_group, students)
+    elsif group_requirements[:random].to_i == 1
+      groups = self.total_students_groups(students_per_group, students)
+    end
+  end
+
+  def self.create_groups_by_number_of_groups(students, group_requirements)
+    students_per_group = group_requirements[:total_num_per_groups].to_i
+    if group_requirements[:even_grade_distribution].to_i == 1
+      groups = self.total_num_even_groups(students_per_group, students)
+    elsif group_requirements[:random].to_i == 1
+      groups = self.total_num_groups(students_per_group, students)
+    end
+  end
 
   def self.random(students)
     students.shuffle!
@@ -17,24 +36,31 @@ class Group < ActiveRecord::Base
 
   def self.average(students)
     students.each do |student|
-      assignments = []
-      StudentAssignment.where(student_id: student.id).each do |assignment|
-        assignments << assignment.grade
-      end
-      sum = 0
-      assignments.each{|n| sum += n}
-      average = sum/(assignments.length)
-      student.update_attributes!(average: average)
+      assignments = self.list_specific_attribute(student, :grade)
+      student.update_average(assignments)
     end
-     students = students.sort_by!(&:average)
+     students.sort_by!(&:average)
   end
 
-  def self.total_num_groups(num_students, num_groups, students)
+  def self.list_specific_attribute(student, attribute)
+    assignments = []
+    StudentAssignment.where(student_id: student.id).each do |assignment|
+      assignments << assignment.send(attribute)
+    end
+    assignments
+  end
+
+  def self.total_num_groups(num_groups, students)
+    self.random(students)
+    num_students = students.length
     students_per_group = num_students/num_groups
     Array.new(num_groups) {students.shift(students_per_group)}
   end
 
-  def self.total_num_even_groups(num_students, num_groups, students)
+  def self.total_num_even_groups(num_groups, students)
+    self.average(students)
+    num_students = students.length
+
     counter = 0
     students_per_group = num_students/num_groups
     sections = Array.new(students_per_group) {students.shift(num_groups)}
@@ -53,17 +79,21 @@ class Group < ActiveRecord::Base
         end
       end
     groups
-  end
-# might have an extra end in this location
+  end 
 
 
-  def self.total_students_groups(num_students, students_per_group, students)
+  def self.total_students_groups(students_per_group, students)
+    self.random(students)
+    num_students = students.length
     num_groups = num_students/students_per_group
+
     groups = Array.new(num_groups) {students.shift(students_per_group)}
     groups
   end
 
-  def self.total_students_even_groups(num_students, students_per_group, students)
+  def self.total_students_even_groups(students_per_group, students)
+    self.average(students)
+    num_students = students.length
     counter = 0
     num_groups = num_students/students_per_group
     sections = Array.new(students_per_group) {students.shift(num_groups)}

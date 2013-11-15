@@ -36,6 +36,14 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.9)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -51,6 +59,7 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    database_cleaner (1.1.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
     erubis (2.7.0)
@@ -62,6 +71,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    ffi (1.9.3)
     fssm (0.2.10)
     hash-deep-merge (0.1.1)
     hike (1.2.3)
@@ -83,7 +93,10 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25)
+    mini_portile (0.5.1)
     multi_json (1.8.2)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -127,11 +140,19 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rubyzip (0.9.9)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.35.1)
+      childprocess (>= 0.2.5)
+      multi_json (~> 1.0)
+      rubyzip (< 1.0.0)
+      websocket (~> 1.0.4)
+    shoulda-matchers (2.4.0)
+      activesupport (>= 3.0.0)
     slop (3.4.6)
     smarter_csv (1.0.14)
     sprockets (2.2.2)
@@ -148,6 +169,9 @@ GEM
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    websocket (1.0.7)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
     zurb-foundation (4.0.9)
       sass (>= 3.2.0)
 
@@ -158,8 +182,10 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller
+  capybara
   coffee-rails (~> 3.2.1)
   compass-rails
+  database_cleaner
   factory_girl_rails
   faker
   ish
@@ -172,6 +198,8 @@ DEPENDENCIES
   rails-pry
   rspec-rails
   sass-rails (~> 3.2.3)
+  selenium-webdriver
+  shoulda-matchers
   smarter_csv
   uglifier (>= 1.0.3)
   zurb-foundation (~> 4.0.0)
