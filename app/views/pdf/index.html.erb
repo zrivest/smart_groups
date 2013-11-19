@@ -1,0 +1,18 @@
+<h3>Select your PDF File to Import</h3>
+
+<table id="import_pdf_table">
+  <%= form_tag pdf_path, multipart: true do %>
+  <tr>
+    <td><%= label_tag("course_title", "Course Title: ")%></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag("course_title", nil, required: true) %></td>
+  </tr>
+  <tr>
+    <td><%= file_field_tag :file %></td>
+  </tr>
+  <tr>
+    <td><%= submit_tag "Import", class: "small button success" %></td>
+  </tr>
+<% end %>
+</table>

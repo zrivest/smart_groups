@@ -15,7 +15,7 @@ gem 'pry'
 # gem 'pry-nav'
 
 gem "smarter_csv"
-
+gem 'pdf-reader'
 
 group :development, :test do
   gem 'better_errors'
