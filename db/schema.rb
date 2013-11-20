@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
   create_table "graphs", :force => true do |t|
     t.integer  "course_id"
     t.text     "graph_type"
-    t.integer  "categories"
+    t.text     "categories"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
   end
 
   create_table "plots", :force => true do |t|
-    t.integer  "data"
+    t.text     "data"
     t.string   "plot_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
