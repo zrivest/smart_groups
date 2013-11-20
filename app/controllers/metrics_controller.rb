@@ -31,16 +31,21 @@ class MetricsController < ApplicationController
 
     @class_average = get_average(@course.get_student_grades)
 
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title({ :text=>@course.name})
-      @hash.each do |k,v|
-        f.series(:type=> "column",:name=> "#{k}", :data=> v)
-      end
-      f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
-      f.options[:xAxis][:categories] = @categories.uniq!
-      f.options[:legend][:layout] = "horizontal"
-      f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
-    end
+    gg = GraphGenerator.new(@hash, @course.id)
+    gg.generate!
+    @chart = gg.column_graph(@categories, @class_averages)
+
+
+    # @chart = LazyHighCharts::HighChart.new('graph') do |f|
+    #   f.title({ :text=>@course.name})
+    #   @hash.each do |k,v|
+    #     f.series(:type=> "column",:name=> "#{k}", :data=> v)
+    #   end
+    #   f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
+    #   f.options[:xAxis][:categories] = @categories.uniq!
+    #   f.options[:legend][:layout] = "horizontal"
+    #   f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
+    # end
 
     @chart_area = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "spline"
