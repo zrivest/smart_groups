@@ -23,10 +23,11 @@ class GraphGenerator
   end
 
   def column_graph(labels, class_averages = [])
-    axis_labels = labels.uniq!
+    axis_labels = labels.uniq
     class_averages = class_averages.uniq!
-
     column_graph = self.graph
+      Graph.update(column_graph.id, graph_type: "column", categories: axis_labels)
+
     chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=> @course.name })
       column_graph.plots.each do |plot|

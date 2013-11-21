@@ -7,45 +7,26 @@ class MetricsController < ApplicationController
   end
 
   def create
-    #graph attributes
     @selections = params['chart_selections']
     @course = Course.find(session[:course_id])
     @completed_assignments = @course.all_completed_assignments_for_course
-    @categories = Array.new
-    @range_categories = Array.new
     @class_averages = Array.new
-    #series
     @hash = {}
+    @categories = @course.get_assignment_names
+    @range_categories = @course.get_assignment_names
 
     @completed_assignments.each do |student_assignment|
-      #assignment name
-      @categories << "#{student_assignment.assignment.assignment_name}"
-      #due dates
-      @range_categories << "#{student_assignment.assignment.due_date}"
-
-      #assignment grade
       @student_grades = student_assignment.student.get_grades
       @class_averages << student_assignment.assignment.course_average
       @hash[student_assignment.student.name] = @student_grades
     end
 
-    @class_average = get_average(@course.get_student_grades)
+    @class_average = @course.get_mean
 
-    gg = GraphGenerator.new(@hash, @course.id)
-    gg.generate!
-    @chart = gg.column_graph(@categories, @class_averages)
+    graph_generator = GraphGenerator.new(@hash, @course.id)
+    graph_generator.generate!
 
-
-    # @chart = LazyHighCharts::HighChart.new('graph') do |f|
-    #   f.title({ :text=>@course.name})
-    #   @hash.each do |k,v|
-    #     f.series(:type=> "column",:name=> "#{k}", :data=> v)
-    #   end
-    #   f.series(:type=> "spline",:name=> "#{@course.name} Mean", :data=> @class_averages.uniq!)
-    #   f.options[:xAxis][:categories] = @categories.uniq!
-    #   f.options[:legend][:layout] = "horizontal"
-    #   f.labels(:items=>[:html=>"Student Test Grades", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
-    # end
+    @chart = graph_generator.column_graph(@categories, @class_averages)
 
     @chart_area = LazyHighCharts::HighChart.new('graph') do |f|
       f.options[:chart][:defaultSeriesType] = "spline"
