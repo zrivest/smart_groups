@@ -11,11 +11,25 @@ class Course < ActiveRecord::Base
   has_many :pods, through: :groups
   has_many :student_assignments, through: :pods
 
+
+  # This method can die, just use #students
   def all_students
     students = self.enrollments.map do |enrollment|
       enrollment.student
     end
     students
+  end
+
+  def completed_assignments_for(student)
+    self.students.where(id: student.id).first.student_assignments.map{|student_assignment| student_assignment}
+  end
+
+  def completed_assignments_grades(assignment)
+    grades = Array.new
+    grades << self.enrollments.each do |enrollment|
+      enrollment.student.student_assignments.where(assignment_id: assignment.id).map(&:grade).compact
+    end
+    grades.flatten!.inject{ |sum, element| sum + element }.to_f / grades.length
   end
 
   def all_completed_assignments_for_course

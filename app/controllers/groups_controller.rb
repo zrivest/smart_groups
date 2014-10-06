@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   def create
     render :index
   end
-  
+
   def total_students_per_groups
     @students = current_course.unique_students
     num_students = @students.length
@@ -18,15 +18,15 @@ class GroupsController < ApplicationController
     if params[:group][:even_grade_distribution].to_i == 1
       Group.average(@students)
       @groups = Group.total_students_even_groups(num_students, students_per_group, @students)
-      group_pod_creation(@groups, params[:course_id])
+      @pods = group_pod_creation(@groups, params[:course_id])
     elsif params[:group][:random].to_i == 1
       Group.random(@students)
       @groups = Group.total_students_groups(num_students, students_per_group, @students)
-      group_pod_creation(@groups, params[:course_id])
+      @pods = group_pod_creation(@groups, params[:course_id])
     else
       redirect_to new_course_group_path(current_course)
     end
-    @groups
+
     render :show
   end
 
@@ -39,15 +39,14 @@ class GroupsController < ApplicationController
     if params[:group][:even_grade_distribution].to_i == 1
       Group.average(@students)
       @groups = Group.total_num_even_groups(num_students, num_groups, @students)
-      group_pod_creation(@groups, params[:course_id])
+      @pods = group_pod_creation(@groups, params[:course_id])
     elsif params[:group][:random].to_i == 1
       Group.random(@students)
       @groups = Group.total_num_groups(num_students, num_groups, @students)
-      group_pod_creation(@groups, params[:course_id])
+      @pods = group_pod_creation(@groups, params[:course_id])
     else
       redirect_to new_course_group_path(current_course)
     end
-    @groups
     render :show
   end
 
@@ -57,6 +56,4 @@ class GroupsController < ApplicationController
     StudentAssignment.find(student_id).update_attribute(:pod_id, pod_id)
     render nothing: true
   end
-
-
 end

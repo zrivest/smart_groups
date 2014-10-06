@@ -1,5 +1,4 @@
 /*edit.html.erb*/
-
 #student_info_update_table {
   font-size: 15px;
   padding: 10px;
@@ -15,12 +14,30 @@
 
 /*index.html.erb*/
 
-#opt_bttn {
-  margin-top: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+#course_list_buttons {
+  width: 125px;
+}
+#user_tables {
+  /*border*/
 }
 
-#course_list {
-  width:100px;
+
+
+
+
+
+
+
+
+#display_course_options {
+  /*display:inline;*/
+  margin-right: 25px;
+  vertical-align: top;
 }
+
+
+/*new.html.erb*/
+#create_course_title_table {
+  width:300px;
+}
+

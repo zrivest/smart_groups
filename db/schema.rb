@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
     t.integer  "assignment_id"
     t.integer  "pod_id"
     t.integer  "grade"
+    t.date     "submit_date"
     t.integer  "liked_pod"
     t.integer  "learned_in_pod"
     t.datetime "created_at",     :null => false
@@ -86,8 +87,9 @@ ActiveRecord::Schema.define(:version => 20131111033954) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "average"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "participation_count"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|

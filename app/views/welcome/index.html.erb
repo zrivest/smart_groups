@@ -1,47 +1,41 @@
+<fieldset id="login_box">
+  <%= form_tag login_path do %>
+
+  <h3 id="login_boxes_handwriting"><%= label_tag("Login") %></h3>
+  <hr>
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email, nil, required:true) %>
+
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password, nil, required:true) %>
+
+  <%= submit_tag("Login", class: "small button success", style: "float:right;") %>
+
+  <% end %>
+</fieldset>
+
+<fieldset id="signup_box">
+  <h3 id="login_boxes_handwriting"><%= label_tag("Signup") %></h3>
+  <hr>
+  <%= form_tag "users#create", method:"POST" do %>
+
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email, nil, required:true) %>
+
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password, nil, required:true) %>
+
+  <%= submit_tag("Signup", class: "small button success", style: "float:right;") %>
+
+  <% end %>
+</fieldset>
 
 
-<%= form_tag "users#create", method:"POST" do %>
-<table>
-  <tr>
-    <th><h3 class="subheader"><%= "Signup" %></h3></th>
-  </tr>
-  <tr>
-    <td><%= label_tag(:email, "Email:") %></td>
-  </tr>
-    <tr>
-    <td><%= email_field_tag(:email) %></td>
-  </tr>
-    <tr>
-    <td><%= label_tag(:password, "Password:") %></td>
-  </tr>
-    <tr>
-    <td><%= password_field_tag(:password) %></td>
-  </tr>
-    <tr>
-    <td><%= submit_tag("Signup") %></td>
-  </tr>
-</table>
-<% end %>
 
-<%= form_tag login_path do %>
-<table>
-  <tr>
-    <th><h3 class="subheader"><%= "Login" %></h3></th>
-  </tr>
-  <tr>
-    <td><%= label_tag(:email, "Email:") %></td>
-  </tr>
-<tr>
-  <td><%= email_field_tag(:email) %></td>
-</tr>
-  <tr>
-<td><%= label_tag(:password, "Password:") %></td>
-  </tr>
-  <tr>
-    <td><%= password_field_tag(:password) %></td>
-  </tr>
-  <tr>
-    <td><%= submit_tag("Login") %></td>
-  </tr>
-</table>
-<% end %>
+
+
+
+
+
+
+<div id="title_handwriting">Welcome to <br> GroupSmart</div>

@@ -1,6 +1,23 @@
+<h3>Create course title</h3>
 
-<%= form_for 'users[courses]', url: {action: "create"} do |f| %>
-  <%= label_tag("course_title", "Course Title: ")%>
-  <%= text_field_tag("course_title", nil, style:"width:400px;") %>
-  <%= f.submit "Create New Course", class: "small button success"%>
+<table id="create_course_title_table">
+  <%= form_for 'users[courses]', url: {action: "create"} do |f| %>
+  <tr>
+    <td><%= label_tag("course_title", "Course Title: ")%></td>
+  </tr>
+  <tr>
+    <td><%= text_field_tag("course_title", nil, required: true) %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit "Create New Course", class: "small button success"%></td>
+</tr>
+  <tr></tr>
 <% end %>
+</table>
+
+
+
+
+
+
+

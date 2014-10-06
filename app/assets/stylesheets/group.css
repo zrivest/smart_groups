@@ -1,21 +1,41 @@
 /*group - new.html.erb*/
 #option_box_container {
   float: right;
+  top:0;
+}
+#student_roster_table {
+  width:200px;
+  float:left;
+}
+#student_element_in_container { /*li*/
+
+}
+#student_name_td {
+  text-align:center;
+}
+#options_fieldset_box {
+  float:right;
+  margin-right:75px;
 }
 
- #student_list{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#student_list{
   float: left;
   width: 200px;
 
-}
-
-ul #student_container {
-
-}
-#student_element_in_container{
-  border: 1px solid gray;
-  padding:10px;
-  text-align: center;
 }
 
 

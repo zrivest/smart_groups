@@ -5,7 +5,6 @@ class CreateAssignments < ActiveRecord::Migration
       t.string :assignment_name
       t.date :start_date
       t.date :due_date
- 
 
       t.timestamps
     end

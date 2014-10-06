@@ -13,10 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
 //= require highcharts
-//
-//= require jquery.ui.all
 //= require highcharts/highcharts
-//= require highcharts/highcharts-more
-//= require highcharts/highstock
+//= require jquery.ui.all
+//= require_tree ./application

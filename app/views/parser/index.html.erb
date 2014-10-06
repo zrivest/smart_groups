@@ -1,28 +1,18 @@
-<h2>Select your File to Import</h2>
+<h3>Select your File to Import</h3>
 
-
-<h3 class="subheader" style="text-align:left;">Import a Course</h3>
-
-
-
-
-
-
-
-
-<table>
+<table id="import_csv_table">
   <%= form_tag parser_path, multipart: true do %>
   <tr>
     <td><%= label_tag("course_title", "Course Title: ")%></td>
   </tr>
   <tr>
-    <td><%= text_field_tag("course_title") %></td>
+    <td><%= text_field_tag("course_title", nil, required: true) %></td>
   </tr>
   <tr>
     <td><%= file_field_tag :file %></td>
   </tr>
   <tr>
-    <td><%= submit_tag "Import", class: "small button" %></td>
+    <td><%= submit_tag "Import", class: "small button success" %></td>
   </tr>
 <% end %>
 </table>

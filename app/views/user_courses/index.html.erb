@@ -1,21 +1,27 @@
-<h1>Welcome to SmartGroup!</h1>
+<h3>Welcome to SmartGroup!</h3>
 
-<h2 class="subheader">Add A Course</h2>
 
-  <%= link_to("Upload Class", parser_path, class: "button success") %>
+<h4>Add A Course</h4>
 
-  <%= link_to("Enter Class", new_user_course_path, class: "button success") %>
-<h2 class="subheader">Current Courses</h2>
+<table>
+  <tr>
+    <td><%= link_to("Add a course with CSV file", parser_path, class: "small button success") %></td>
+    <td><%= link_to("Add a course manually", new_user_course_path, class: "small button success") %></td>
+  </tr>
+</table>
 
-<table id="course_list">
+<br><br><br>
+
+<h4>Current Courses</h4>
+
+<table>
   <% @courses.reverse.each do |course| %>
     <tr>
-      <td ><b><%= course.name %></b></td>
-
-    <!-- HREF TO GROUPS MAKE INSTEAD -->
-      <td><%= link_to("Group Generator", new_course_group_path(course), class: "small button", id: "opt_bttn") %></td>
-      <td><%= link_to("Metics / Graphs", main_path(current_user.id, course.id), class: "small button", id: "opt_bttn") %></td>
-      <td><%= link_to("Edit Roster", edit_path(current_user.id, course.id), class: "small button", id: "opt_bttn") %></td>
+      <td id="display_course_options"><div style="width:200px;"><%= course.name %></div></td>
+      <td id="display_course_options"><%= link_to("Group Generator", new_course_group_path(course), class: "small button", id: "course_list_buttons") %></td>
+      <td id="display_course_options"><%= link_to("Metics / Graphs", main_path(current_user.id, course.id), class: "small button", id: "course_list_buttons") %></td>
+      <td id="display_course_options"><%= link_to("Edit Course", edit_path(current_user.id, course.id), class: "small button", id: "course_list_buttons") %></td>
+      <td id="display_course_options"><%= link_to("Delete Course", edit_path(current_user.id, course.id), class: "small button alert", id: "course_list_buttons") %></td>
     </tr>
   <% end %>
 </table>

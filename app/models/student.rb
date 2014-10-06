@@ -15,10 +15,19 @@ class Student < ActiveRecord::Base
     "#{self.first_name}" + " #{self.last_name}"
   end
 
+  def average_grade_by_student_assignment(student_assignment)
+    grades = []
+    studentassignment = StudentAssignment.find(student_assignment.id)
+    self.student_assignment
+  end
+
+  def completed_assignments_for(course)
+    self.student_assignments.where(course_id: course.id)
+  end
+
   def average_grade
     grades = self.get_grades
     average = grades.inject{ |sum, grade| sum + grade }.to_f / grades.length
-    return average
   end
 
 end
